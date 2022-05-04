@@ -1,24 +1,49 @@
 body{
     text-align: center;
-    background-color: #0729d8;
+    background-color: #7096d1;
 }
 #login{
     position: relative;
     height: 300px;
     width: 400px;
-    top: 230px;
-    background-color: #7096d1;
+    top: -45px;
+    background-color: #c3c4ca;
     display: flex;
     flex-direction: row;
     border-radius: 20px;
     align-self: center;
     justify-content: center;
     margin: 0 auto;
-
+    
+}
+#text input[type=text]{
+    border: none;
+    outline-style: hidden;
+    outline-width: 2px;
+}
+#text input[type=password]{
+    border: none;
+    outline-style: hidden;
+    outline-width: 2px;
+}
+#text input[type=text]:focus{
+    outline-width: 2px;
+    outline-style:solid;
+}
+#text input[type=password]:focus{
+    outline-width: 2px;
+    outline-style:solid;
 }
 #text{
-    top: 100px;
-    
-    
+    margin-top: 65px;
 }
-   
+
+button{
+    margin-top: 40px;
+    cursor:pointer;
+
+}
+   .image{
+    position: relative;
+    scale: 40%;
+   }
