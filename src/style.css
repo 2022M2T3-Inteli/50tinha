@@ -5,7 +5,7 @@ body{
 #login{
     position: relative;
     height: 300px;
-    width: 400px;
+    width: 30%;
     top: -45px;
     background-color: #c3c4ca;
     display: flex;
@@ -16,34 +16,52 @@ body{
     margin: 0 auto;
     
 }
-#text input[type=text]{
+#login form {
+    width: 100%;
+}
+#text input {
+    width: 50%;
+    height: 25px;
     border: none;
     outline-style: hidden;
     outline-width: 2px;
+    border-radius: 5px;
 }
-#text input[type=password]{
+#text input{
     border: none;
     outline-style: hidden;
     outline-width: 2px;
+    font-size: medium;
 }
-#text input[type=text]:focus{
+#text input:focus{
     outline-width: 2px;
     outline-style:solid;
 }
-#text input[type=password]:focus{
-    outline-width: 2px;
-    outline-style:solid;
+#text p{
+    padding-right: 190px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 #text{
-    margin-top: 65px;
+    margin-top: 50px;
 }
 
 button{
     margin-top: 40px;
     cursor:pointer;
-
+    margin-left: 70%;
+    border-radius: 10px;
+    border-style: none;
 }
-   .image{
-    position: relative;
-    scale: 40%;
+button.hover{
+    border-style: solid;
+}
+   img{
+    width: 40%;
+    height: 40%;
+    margin-top: 20px;
    }
+hr{
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
