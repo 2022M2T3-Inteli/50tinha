@@ -1,0 +1,24 @@
+body{
+    text-align: center;
+    background-color: #0729d8;
+}
+#login{
+    position: relative;
+    height: 300px;
+    width: 400px;
+    top: 230px;
+    background-color: #7096d1;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    align-self: center;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+#text{
+    top: 100px;
+    
+    
+}
+   
