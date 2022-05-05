@@ -74,3 +74,8 @@ td{
     font-size: 17px;
 }
 
+details > summary {display:block}
+
+#coldata{
+  max-width: 200px;
+}
