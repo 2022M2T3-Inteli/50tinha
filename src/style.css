@@ -1,0 +1,48 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.contaner{
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+}
+header{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: antiquewhite;
+}
+.bar{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    
+}
+
+li{
+    margin: 20px;
+}
+
+li a {
+    color: rgb(189, 189, 189);
+}
+
+.active {
+    color: rgb(0, 0, 0);
+}
+
+li a:hover {
+    color: rgb(0, 0, 0);
+}
+
+
+#menu{
+    background-color: rgb(214, 214, 238);
+}
+
