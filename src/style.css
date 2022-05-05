@@ -56,6 +56,13 @@ button{
     background-color: #84a9d9; 
     color: white
 }
+
+button:hover {
+    transition: ease 500ms;
+    background-color: blue;
+
+
+}
    img{
     width: 40%;
     height: 40%;
