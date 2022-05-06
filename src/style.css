@@ -79,3 +79,7 @@ details > summary {display:block}
 #coldata{
   max-width: 200px;
 }
+
+#graph:hover{
+  filter: brightness(93%);
+}
