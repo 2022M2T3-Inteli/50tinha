@@ -1,3 +1,4 @@
+
 html,body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
@@ -79,6 +80,31 @@ header{
     margin-left: 20px;
 }
 
+#month-div{
+    position: relative;
+    top: 121px;
+    border: 1px solid #8b8b8b;
+    margin: 0;
+    padding: 0;
+    background-color: #1b238a87;
+    width: 1668px;
+    max-height: 47px;
+}
+
+#month{
+    position: relative;
+    max-width: 1000px;
+    margin: 0;
+    left: 13%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:11.5%;
+    color: #ffffff;
+}
+
 /* CALENDARIO */
 
 #calendario{
@@ -109,6 +135,7 @@ header{
 #c-todos > li > div{ 
     color: #ede8e8;  
     background-color: rgb(43, 70, 160);
+    box-shadow: 0 6px 10px #6f6e7770;
     border-radius: 15px;
     padding: 15px;
     margin-bottom: 15px;;
@@ -161,7 +188,7 @@ header{
 }
 
 #profi{
-    margin-top:80px;
+    margin-top:200px;
     background-color: rgb(255, 255, 255);
     border: 2px solid #f0f1ff;
     box-shadow: 0 4px 5px #6f6e7748;
