@@ -9,6 +9,7 @@
     <title>Projetos</title>
 </head>
 <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <h1 align="center"> Yamaha Capacity Planning</h1>
     <Div class="">
         <div class="row">
@@ -43,8 +44,23 @@
                     <tr>
                         <td id="coldata"> <details>
                             <summary>1a</summary>
-                            <!-- <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p> -->
-                            <img id="graph" width="900px" src="/src/Assets/img/graficoplaceholder.png">
+                            <canvas class="line-chart"></canvas>
+                            <script>
+                            var ctx = document.getElementsByClassName("line-chart")
+                            var chartGraph = new Chart(ctx, {
+                                type: 'line',
+                                data:{
+                                    labels:["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago"],
+                                    datasets: [{
+                                        label: "TAXA DE 2021",
+                                        data: [3,10,2,3,2,3,5,8],
+                                        borderWidth: 2,
+                                        borderColor: "rgba(77,166,253,0.85",
+                                        backgroundColor: "transparent"
+                                    }]
+                                }
+                            })
+                            </script>                        
                         </details> </td>
                         <td> 2a</td>
                         <td> 3a</td>
