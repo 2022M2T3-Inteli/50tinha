@@ -1,14 +1,14 @@
 
-    =======
+
 :root{
-   --azulForte:#2B57D9;
-   --azult-t-Escuro:#061771;
-   --azulCinza:#6979d1;
+    --azult-t-Escuro:#2d3870;
+   --azulForte:rgb(82, 111, 255);
+   --azulCinza:#e3efff;
    --zinzaClaro:#c3c4ca;
    --cinzaSuave:#636464;
    --cinzaForte:#5c5b5d;
    --branco:#F2F2F2;
->>>>>>> main
+
 }
 
 html,body{
@@ -32,6 +32,7 @@ li{
     list-style: none;
     max-width: 320px;
 }
+
 ul{
     margin: 0;
     padding: 0;
@@ -45,19 +46,19 @@ header{
     width: 100%;
     border: 1px solid #8b8b8b;
     left: 15%;
-    max-height: 200px;
-    background-color: rgb(221, 235, 255);
+    max-height: 150px;
+    background-color: var(--azulCinza);
 }
 .bar{
     position: relative;
     top: 111px;
     margin-left: 40px;
-    margin-top: 22px;
+    margin-top: 0px;
 }
 #estilonav{
     position: relative;
     display: flex;
-    padding: 20px;
+    padding: 4px;
     gap: 32px;
 }
 .active{
@@ -65,7 +66,7 @@ header{
     font-weight: bold;
 }
 .n-active{
-    color: #828282;
+    color: #818181;
     font-weight: bold;
     
 }
@@ -76,7 +77,7 @@ header{
 }
 
 ::placeholder{
-    color: #d3d3d3;
+    color: #e1e1e1;
 }
 
 .barra-pesqusia{
@@ -88,7 +89,7 @@ header{
     margin-top: 40px;
     height: 40px;
     width: 284px;
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(155, 155, 155);
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
@@ -107,27 +108,26 @@ header{
 
 #month-div{
     position: relative;
-    top: 121px;
+    top: 125px;
     border: 1px solid #8b8b8b;
     margin: 0;
     padding: 0;
-    background-color: rgba(87, 133, 161, 0.78);
-    width: 1668px;
+    background-color: var(--azulForte);
+    width: 100%;
     max-height: 47px;
 }
 
 #month{
     position: relative;
-    max-width: 1000px;
     margin: 0;
     left: 40px;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
-    gap:5.8%;
+    gap:4.5%;
     color: #ffffff;
+    position: relative;
+    bottom: 5px;
 }
 
 /* CALENDARIO */
@@ -137,7 +137,7 @@ header{
     width: 100vw;
     max-width: 84.5%;
     background-color: rgb(255, 255, 255);
-    top: 250px;
+    top: 220px;
     left: 15%;
     z-index: -1;
 
@@ -159,7 +159,7 @@ header{
 
 #c-todos > li > div{ 
     color: #ede8e8;  
-    background-color: rgb(43, 70, 160);
+    background-color:var(--azult-t-Escuro);
     box-shadow: 0 6px 10px #6f6e7770;
     border-radius: 15px;
     padding: 15px;
@@ -172,7 +172,7 @@ header{
 #menu{
     position: fixed;
     border: 1px solid #8b8b8b;
-    background-color: rgb(221, 235, 255);
+    background-color: var(--azulCinza);
     width: 14.9%;
     top: 0;
     height: 100%;
@@ -210,6 +210,19 @@ header{
 .centra:hover{
     color: #eeefff;
     font-weight: bold;
+}
+
+#logo{
+    top: 22px;
+    z-index: 3;
+    position: absolute;
+    position: fixed;
+    left: -22px;
+    padding: 0;
+    margin: 0;
+    width: 236px;
+    height: 130px
+
 }
 
 #profi{
