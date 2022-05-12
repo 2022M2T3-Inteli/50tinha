@@ -1,4 +1,19 @@
 
+/* 
+   --zinzaClaro:#c3c4ca;
+   --azulForte:#2B57D9;
+   --azulCinza:#7069d1;
+   --cinzaForte:#5c5b5d;
+   --cinzaSuave:#636464;
+   --branco:#F2F2F2;
+   --azult-t-Escuro
+
+*/
+
+:root{
+    
+}
+
 html,body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
