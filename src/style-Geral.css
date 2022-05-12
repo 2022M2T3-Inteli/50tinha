@@ -1,8 +1,8 @@
 
 :root{
+    --azult-t-Escuro:#061771;
    --azulForte:#2B57D9;
-   --azult-t-Escuro:#061771;
-   --azulCinza:#6979d1;
+   --azulCinza:#e3efff;
    --zinzaClaro:#c3c4ca;
    --cinzaSuave:#636464;
    --cinzaForte:#5c5b5d;
@@ -30,6 +30,7 @@ li{
     list-style: none;
     max-width: 320px;
 }
+
 ul{
     margin: 0;
     padding: 0;
@@ -43,19 +44,19 @@ header{
     width: 100%;
     border: 1px solid #8b8b8b;
     left: 15%;
-    max-height: 200px;
-    background-color: rgb(221, 235, 255);
+    max-height: 150px;
+    background-color: var(--azulCinza);
 }
 .bar{
     position: relative;
     top: 111px;
     margin-left: 40px;
-    margin-top: 22px;
+    margin-top: 0px;
 }
 #estilonav{
     position: relative;
     display: flex;
-    padding: 20px;
+    padding: 4px;
     gap: 32px;
 }
 .active{
@@ -63,7 +64,7 @@ header{
     font-weight: bold;
 }
 .n-active{
-    color: #828282;
+    color: #818181;
     font-weight: bold;
     
 }
@@ -105,11 +106,11 @@ header{
 
 #month-div{
     position: relative;
-    top: 121px;
+    top: 125px;
     border: 1px solid #8b8b8b;
     margin: 0;
     padding: 0;
-    background-color: rgba(87, 133, 161, 0.78);
+    background-color: var(--azulForte);
     width: 1668px;
     max-height: 47px;
 }
@@ -121,11 +122,11 @@ header{
     left: 40px;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: row;
     gap:5.8%;
     color: #ffffff;
+    position: relative;
+    bottom: 5px;
 }
 
 /* CALENDARIO */
@@ -170,7 +171,7 @@ header{
 #menu{
     position: fixed;
     border: 1px solid #8b8b8b;
-    background-color: rgb(221, 235, 255);
+    background-color: var(--azulCinza);
     width: 14.9%;
     top: 0;
     height: 100%;
