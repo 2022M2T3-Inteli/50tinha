@@ -43,21 +43,89 @@
                     <tr>
                         <td id="coldata"> <details>
                             <summary>1a</summary>
+<<<<<<< Updated upstream
                             <!-- <p>Epcot is a theme park at Walt Disney World Resort featuring exciting attractions, international pavilions, award-winning fireworks and seasonal special events.</p> -->
                             <img id="graph" width="1000px" src="/Assets/img/graficoplaceholder.png">
+=======
+                            <canvas class="line-chart" width="1200" height="350"></canvas>
+                            <script>
+                            var ctx = document.getElementsByClassName("line-chart")
+                            var chartGraph = new Chart(ctx, {
+                                type: 'line',
+                                data:{
+                                    labels:["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                                    datasets: [{
+                                        label: "TAXA DE 2021",
+                                        data: [3,10,2,3,2,3,5,8,13,1,5,2],
+                                        borderWidth: 2,
+                                        borderColor:("rgba 77,166,253,0.85"),
+                                        backgroundColor: "transparent"
+                                    }]
+                                }
+                            })
+                            </script>                        
+>>>>>>> Stashed changes
                         </details> </td>
                         <td> 2a</td>
                         <td> 3a</td>
                         <td> 4a</td>
                     </tr>
                     <tr>
-                        <td> 1b</td>
+                        <td id="coldataaa"> <details>
+                            <summary>1a</summary>
+                            <canvas id="bar-chart" width="800" height="450"></canvas>
+                            <script>
+                            // Bar chart
+                            new Chart(document.getElementById("bar-chart"), {
+                                type: 'bar',
+                                data: {
+                                labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                                datasets: [
+                                    {
+                                    label: "Population (millions)",
+                                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                    data: [2478,5267,734,784,433]
+                                    }
+                                ]
+                                },
+                                options: {
+                                legend: { display: false },
+                                title: {
+                                    display: true,
+                                    text: 'Predicted world population (millions) in 2050'
+                                }
+                                }
+                            });
+                        </script>                        
+                        </details> </td>
                         <td> 2b</td>
                         <td> 3b</td>
                         <td> 4b</td>
                     </tr>
                     <tr>
-                        <td> 1c</td>
+                        <td id="coldata"> <details>
+                            <summary>1a</summary>
+                            <canvas id="pie-chart" width="800" height="450"></canvas>
+                            <script>
+                            new Chart(document.getElementById("pie-chart"), {
+                            type: 'pie',
+                            data: {
+                              labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+                              datasets: [{
+                                label: "Population (millions)",
+                                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                                data: [2478,5267,734,784,433]
+                              }]
+                            },
+                            options: {
+                              title: {
+                                display: true,
+                                text: 'Predicted world population (millions) in 2050'
+                              }
+                            }
+                            });
+                        </script>                        
+                        </details> </td>
                         <td> 2c</td>
                         <td> 3c</td>
                         <td> 4c</td>
@@ -78,8 +146,12 @@
             </div>
         </div>
     </Div>
+<<<<<<< Updated upstream
     <footer class="rodape">
         <p>Footer</p>
     </footer>
+=======
+
+>>>>>>> Stashed changes
 </body>
 </html>
