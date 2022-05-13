@@ -21,7 +21,7 @@
 
 .geral{
     position: relative;
-    left: 25rem;
+    left: 20rem;
     top: 180px;
     width: 90vw;
 }
@@ -52,7 +52,7 @@ li{
 }
 
 ul{
-    margin: 0;
+    margin: 0!important;
     padding: 0;
 }
 
@@ -155,7 +155,7 @@ header{
     position: relative;
     top: 125px;
     border: 1px solid #8b8b8b;
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
     background-color: var(--azulForte);
     width: 100vw;
@@ -163,16 +163,14 @@ header{
 }
 
 #month{
-    width: 100vw;
+    width: 80%;
     max-width: 1500px;;
     font-family: 'Times New Roman', Roboto, Times, serif;
     position: relative;
     margin: 0;
-    left: 40px;
     padding: 0;
     display: flex;
     flex-direction: row;
-    gap:4.5vw;
     color: #ffffff;
     position: relative;
     bottom: 5px;
@@ -225,6 +223,7 @@ header{
     width: 14.9%;
     top: 0;
     height: 100%;
+    z-index: 2;
 }
 
 .ordem{
@@ -252,6 +251,11 @@ header{
     gap: 54px;
 }
 
+.ative-centra{
+    color: #eeefff;
+    font-weight: bold;
+}
+
 .centra{
     height: 100%;
     color: #929292;
@@ -276,7 +280,21 @@ header{
 
 }
 
-#profi{
+.ative-profi{
+    margin-top:400px;
+    background-color: rgb(82, 111, 255);
+    border: 2px solid #d6d9ff;
+    box-shadow: 0 4px 5px #6f6e7748;
+    border-radius: 30px;
+    width: 70%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profi{
     margin-top:400px;
     background-color: rgb(255, 255, 255);
     border-top: 2px solid #e4e6fd;
@@ -291,7 +309,7 @@ header{
     transition: 0.5s;
 }
 
-#profi:hover{
+.profi:hover{
     background-color: rgb(82, 111, 255);
     border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
@@ -304,7 +322,35 @@ header{
     align-items: center;
 }
 
-#projeto{
+.ative-projeto{
+
+    background-color: rgb(82, 111, 255);
+    border: 2px solid #d6d9ff;
+    box-shadow: 0 4px 5px #6f6e7748;
+    border-radius: 30px;
+    width: 70%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projeto{
+    background-color: rgb(255, 255, 255);
+    border-top: 2px solid #e4e6fd;
+    box-shadow: 0 4px 5px #6f6e7748;
+    border-radius: 30px;
+    width: 60%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.projeto:hover{
     background-color: rgb(82, 111, 255);
     border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
@@ -319,7 +365,7 @@ header{
 
 
 
-#login{
+.login{
     margin-top: 80.4%;
     background-color: rgb(255, 255, 255);
     border-top: 2px solid #e4e6fd;
@@ -336,14 +382,73 @@ header{
     transition: 0.5s;
 }
 
-#login:hover{
+.login:hover{
     background-color: rgb(82, 111, 255);
     border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
     width: 70%;
 }
 
-#aba{
-    color: #eeefff;
-    font-weight: bold;
+/* Abaixo Aba Profissionais */
+
+#headProfissionais{
+    max-height: 120px;
 }
+
+#abaProfissionais{
+    position: relative;
+    width: 100vw;
+    max-width: 84.5%;
+    background-color: rgb(255, 255, 255);
+    top: 150px;
+    left: 15%;
+    z-index: -1;
+
+}
+
+table, th, td {
+    padding: 15px;
+    padding-left: 60px;
+    border-collapse: collapse;
+    width: 100vw;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+    border-top: 1px solid #dddddd ;
+  }
+  tr:hover {
+    background-color: #ddd;
+    z-index: 100;
+  }
+  
+  tr:nth-child(even) {   /*cor da alternância das linhas da tabela */
+    background-color: #dddddd2b; 
+  } 
+  tr:nth-child(even):hover {
+    background-color: #ddd;
+  }
+  tr:first-child:hover {
+    background: none; /* tiramos o hover da 1ª linha */
+  }
+  .quadrado_verde {
+    background-color: #a0caa2;
+    border-radius: 0.1cm;
+    opacity: 0.9;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .quadrado_vermelho {
+    background-color: #d17c7c;
+    border-radius: 0.1cm;
+    opacity: 0.9;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  
+  .quadrado_azul {
+    background-color: #96cdd6;
+    border-radius: 0.1cm;
+    opacity: 0.9;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
