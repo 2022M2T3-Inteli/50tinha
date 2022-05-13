@@ -1,13 +1,28 @@
 body{
     text-align: center;
-    background-color: #84a9d9;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(9,9,121,1) 0%, rgb(82, 111, 255) 39%,  #2d3870 100%);
+    margin: 0;
+    padding: 0;
 }
+
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 60px;
+}
+
 #login{
     position: relative;
-    height: 300px;
-    width: 30%;
+    height: 310px;
+    width: 40%;
+    max-width: 400px;
     top: -45px;
-    background-color: #f2f2f2;
+    background-color:#c3c4ca;
     display: flex;
     flex-direction: row;
     border-radius: 20px;
@@ -50,22 +65,23 @@ button{
     cursor:pointer;
     height: 32px;
     width: 100px;
-    margin-left: 70%;
     border-radius: 10px;
     border-style: none;
-    background-color: #84a9d9; 
-    color: white
+    background-color: #ffffff; 
+    color: #818181;
+    box-shadow: 0 4px 5px #6f6e7748;
 }
 
 button:hover {
     transition: ease 500ms;
-    background-color: blue;
-
-
+    background-color: rgb(82, 111, 255);
+    color: #f2f2f2;
+    font-weight: bold;
 }
+
    img{
-    width: 40%;
-    height: 40%;
+    width: 400px;
+    height: 220px;
     margin-top: 20px;
    }
 hr{
