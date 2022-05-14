@@ -414,3 +414,48 @@ table{
     padding-right: 10px;
     padding-left: 10px;
   }
+
+
+
+   /* Modal do projeto */
+
+#buttonmodal{
+    position: absolute;
+    margin-top: -200px;
+    margin-left: 40px;
+    width: 65%;
+    height: 55px;
+    border-radius: 25px;
+    background-color: blue;
+    color: white;
+}
+
+  #nome{
+    margin-top: 15px;
+}
+#unidade{
+    margin-top: 35px;
+}
+    
+#duracao{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+}
+#nome input{
+    margin-top: -70px;
+}
+
+#inicio{
+    margin-top: 35px;
+}
+
+
+#area{
+    margin-bottom: 30px;
+    margin-left: 15px;
+}
+
+#nfuncionarios{
+    margin-top: 35px;
+}
