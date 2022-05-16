@@ -282,7 +282,6 @@ header{
     padding: 0;
     margin: 0;
     width: 15%;
-    height: 15%;
     align-items: center;
     justify-content: center;
 
@@ -391,16 +390,16 @@ table{
   tr:first-child:hover {
     background: none; /* tiramos o hover da 1ª linha */
   }
-  .quadrado_verde {
-    background-color: #a0caa2;
+  .quadrado_cinza {
+    background-color: #a3a3a35f;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
     padding-left: 10px;
   }
   
-  .quadrado_vermelho {
-    background-color: #d17c7c;
+  .quadrado_laranja {
+    background-color: #f0770dd4;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
@@ -408,14 +407,21 @@ table{
   }
   
   .quadrado_azul {
-    background-color: #96cdd6;
+    background-color: #39cfd75f;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
     padding-left: 10px;
   }
 
-
+.quadrado_vermelho {
+    background-color: #ef0404;
+    color: white;
+    border-radius: 0.1cm;
+    opacity: 0.9;
+    padding-right: 10px;
+    padding-left: 10px;
+}
 
    /* Modal do projeto */
 
