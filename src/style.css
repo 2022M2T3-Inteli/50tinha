@@ -1,74 +1,22 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.contaner{
-    display: grid;
-    grid-template-columns: 1fr 8fr;
-    grid-template-rows: 15vw 5vw 80vw; 
-    height: 840px;
-    max-height: 1920px;
-}
-.barra-pesqusia{
-    grid-column-start: 2;
-    grid-row-start: 1;
-    padding: 20px;
-    margin-left: 24px;
-    margin-top: 40px;
-    height: 30px;
-    
-   
-}
-.barra-texto{
-border-radius: 30px;
-
-}
-
-#calendario{
-    grid-column-start: 2;
-    grid-row-start: 3;
-    background-color: rgb(255, 244, 255);
-    max-height: 940px;
-}
+/* RESET CSS */
 
 #estilonav{
-    padding: 0;
+    float: left;
+    padding: 0px;
     display: flex;
-    margin-top: 14%;
+    margin-top: 2%;
     list-style: none;
     max-height: 30px;
     margin-left: 24px;
     
 }
-
-header{
-    grid-column-start: 2;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2; 
-    border: 1px solid rgb(189, 189, 189);
-}
-.bar{
-    display: flex;
-    padding: 0px;
-    list-style: none;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.2rem;
-    margin: 0;
-    height: 245px;
-    
-}
-
+/* NavBar configurações */
 a{
     padding: 20px;
 }
-
 li a {
     color: rgb(189, 189, 189);
 }
-
 .active {
     color: rgb(0, 0, 0);
 }
@@ -77,16 +25,6 @@ li a:hover {
     color: rgb(0, 0, 0);
 }
 
-
-#menu{
-    display: flex;
-    grid-row-start: 2;
-    grid-row-end: 1;
-    width: 210px;
-    height: 60vw;
-    max-height: 1920px;
-    border: 1px solid rgb(189, 189, 189);
-}
 
 .centro{
     padding-left:15%;
@@ -103,39 +41,121 @@ li a:hover {
     
 }
 
-#projeto{
-    display: flex;
-    justify-content: center;
-    background-color: rgb(227, 255, 246);
-    border-radius: 20px 0px 0px 20px;
-    width: 160px;
-    height: 120px;
+/* CSS da página de profissionais */
+
+header{
+  /* border-bottom: 1px solid #dddddd;  */
+  padding: 27px;
+  margin-right: 100px;
+  height: 70px;
+  max-height: 200px;
+  float:right;
+  width: 855px;
+  
 }
 
-#profi{
-    display: flex;
-    justify-content: center;
-    background-color: rgb(219, 232, 255);
-    border-radius: 20px 0px 0px 20px;
-    width: 160px;
-    height: 120px;
+.button {
+  display: flex;
+  border: solid;
+  color:black;
+  padding: 0px;
+  flex-direction: column;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  width: 130px;
+  height: 100px;
+
 }
 
+.button1 {background-color: #a0caa2;}  
+.button2 {background-color: #46b3d7;
+} 
 
-header > nav{
-    display: flex;
-    justify-content: start;
+.button1:hover {
+  background-color: #8feb92;
 }
 
-#profi > li{
-   padding-top: 30%;
+table, th, td {
+  padding: 5px;
+  padding-left: 60px;
+  margin-left: 270px;
+  border-collapse: collapse;
+  width: 900px;
+  text-align: center;
+  border-bottom: 1px solid #dddddd;
+  border-top: 1px solid #dddddd ;
+}
+tr:hover {
+  background-color: #ddd;
+  z-index: 100;
 }
 
-#projeto > li{
-    padding-top: 30%;
- }
+tr:nth-child(even) {   /*cor da alternância das linhas da tabela */
+  background-color: #dddddd2b; 
+} 
+tr:nth-child(even):hover {
+  background-color: #ddd;
+}
+tr:first-child:hover {
+  background: none; /* tiramos o hover da 1ª linha */
+}
 
- .aLi{
-     padding: 0;
-     margin: 0;
- }
+#menu {
+  float: left;
+  display: flex;
+  width: 210px;
+  height: 565px;
+  max-height: 1920px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #dddddd;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+  position: fixed;
+}
+
+.barra_texto {
+  background: #dddddd url("lupa.png") top left no-repeat;
+  background-size: 18px;
+  border: 1px solid #dddddd;
+  border-radius: 0.3cm;
+  border-style: hidden;
+  width: 168px;
+  height: 24px;
+  padding-left: 30px;
+}
+
+#filtro {
+  border: 1px;
+  cursor: pointer;
+  background: none;
+}
+
+.quadrado_verde {
+  background-color: #a0caa2;
+  border-radius: 0.1cm;
+  opacity: 0.9;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.quadrado_vermelho {
+  background-color: #d17c7c;
+  border-radius: 0.1cm;
+  opacity: 0.9;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.quadrado_azul {
+  background-color: #96cdd6;
+  border-radius: 0.1cm;
+  opacity: 0.9;
+  padding-right: 10px;
+  padding-left: 10px;
+}
