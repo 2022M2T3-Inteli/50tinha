@@ -27,7 +27,7 @@
 }
 
 html,body,.container{
-    font-family: yamaha-inter;
+    font-family: yamaha-inter !important;
     padding: 0 !important;
     margin: 0 !important;
     height: 100vw;
@@ -129,7 +129,7 @@ header{
 .barra-texto{
     color: #ffffff;
     width: 224px;
-    font-size: 16px;
+    font-size: 16px !important;
     background: none;
     outline: 0;
     border: 0;
@@ -165,7 +165,7 @@ header{
 #month{
     width: 80%;
     max-width: 1500px;;
-    font-family: 'Times New Roman', Roboto, Times, serif;
+    font-family: 'Times New Roman', Roboto, Times, serif !important;
     position: relative;
     margin: 0;
     padding: 0;
@@ -261,7 +261,7 @@ header{
 
 .ative-centra{
     color: #eeefff;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 .centra{
@@ -271,7 +271,7 @@ header{
 
 .centra:hover{
     color: #eeefff;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
 #logo{
@@ -350,8 +350,10 @@ header{
     width: 70%;
 }
 
-
-/* Abaixo Aba Profissionais */
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
 
 #CorpoProfissionais{
     position: relative;
@@ -362,11 +364,6 @@ header{
     width: 100%;
     left: 15%;
 
-}
-
-table{
-    width: 100%;
-    border-collapse: collapse;
 }
 
  th, td {
@@ -432,8 +429,18 @@ table{
     width: 65%;
     height: 55px;
     border-radius: 25px;
-    background-color: blue;
+    background-color: var(--azult-t-Escuro);
+    border: 2px solid #d6d9ff;
+    box-shadow: 0 4px 5px #6f6e7748;
     color: white;
+}
+
+#modal-btn{
+    position: absolute;
+    top: 50%;
+
+    height: 100px;
+    width: 200px;
 }
 
   #nome{
@@ -466,3 +473,11 @@ table{
     margin-top: 35px;
 }
 
+/* Por projeto aba dos infernos aaaaaaa */
+
+.ajuste{
+    position: absolute;
+    left: 15.8%;
+    top: 16.5%;
+    width: 85%;
+}
