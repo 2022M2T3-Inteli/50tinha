@@ -288,6 +288,19 @@ header{
 
 }
 
+.modal-style{
+    background-color: rgb(82, 111, 255);
+    border: 2px solid #d6d9ff;
+    box-shadow: 0 4px 5px #6f6e7748;
+    border-radius: 30px;
+    width: 70%;
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .ative-profi, .ative-projeto {
     background-color: var(--cinzaClaro);
     border: 2px solid #d4d8ff;
@@ -424,24 +437,27 @@ table{
    /* Modal do projeto */
 
 #buttonmodal{
-    position: absolute;
-    margin-top: -200px;
-    margin-left: 40px;
+    /* position: absolute; */
+    text-align: center;
     width: 65%;
-    height: 55px;
+    top: 150%;
     border-radius: 25px;
-    background-color: var(--azult-t-Escuro);
+    background-color: var(--azulForte);
     border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
     color: white;
+    cursor: pointer;
+}
+#buttonmodal:hover {
+    color: #444444;
 }
 
 #modal-btn{
     position: absolute;
-    top: 50%;
-
-    height: 100px;
-    width: 200px;
+    height: 70px;
+    width: 90%;
+    right: 10%;
+    padding: 0px !important;
 }
 
   #nome{
@@ -488,3 +504,18 @@ table{
 
 }
 
+.newproj{
+    background-color: rgb(255, 255, 255);
+    border-top: 2px solid #e4e6fd;
+    box-shadow: 0 4px 5px #6f6e7748;
+    border-radius: 25px;
+    width: 60%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 10%;
+    transition: 0.5s;
+    }
