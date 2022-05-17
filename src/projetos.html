@@ -34,13 +34,13 @@
             </nav>
         </header>
                 <div class="row geral">
-                    <div class="col">
+                    <div class="col fix">
                         <table class="table table-sm table-hover">
-                            <tr>
-                                <th>Projeto</th>
-                                <th>Duração</th>
-                                <th>Nº Funcionários/Projetos</th>
-                                <th>Unidade</th>
+                            <tr id="barrar">
+                                <th> Projeto</th>
+                                <th> Duração</th>
+                                <th> Nº Funcionários/Projetos</th>
+                                <th> Unidade</th>
                             </tr>
                             <tr>
                                 <td id="coldata" class="aba"> <details>
@@ -63,7 +63,8 @@
                                             }
                                         })
                                     </script>                    
-                                </details> </td>
+                                </details>
+                                </td>
                                 <td id="coldata" class="aba"> <details>
                                     <summary>6 meses</summary>
                                     <canvas id="pie-chart" width="200" height="150"></canvas>
@@ -85,10 +86,11 @@
                                         }
                                     });
                                     </script> 
-                                    </details> </td>                  
-                                    <td id="coldata" class="aba"> <details>
-                                        <summary>200</summary>                                   
-                                        <canvas id="bar-chart" width="200" height="150"></canvas>
+                                    </details>
+                                </td>                  
+                                <td id="coldata" class="aba"> <details>
+                                    <summary>200</summary>                                   
+                                    <canvas id="bar-chart" width="200" height="150"></canvas>
                                         <script>
                                             new Chart(document.getElementById("bar-chart"), {
                                             type: 'bar',
@@ -112,7 +114,8 @@
                                         });
                                         </script>
                                         </script> 
-                                    </details> </td> 
+                                    </details>
+                                </td> 
                                 <td> SP</td>
                             </tr>
                             <tr>
@@ -429,12 +432,15 @@
                     <div class="ative-projeto"> <li class="ordem"><a class="ative-centra ordem" href="abageral.html">Projetos<span class="material-symbols-outlined">
                         task
                         </span></a></li></div>
+                        <div class="d-flex">
+ 
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalpro" id="buttonmodal">Criar Projeto</button>
+                        </div>
                     <div class="login"><li class="ordem"><a class="centra ordem" href="#">Roberto</a></li></div>
+            
 
                     <!-- Modal button -->
-                    <div class="container">
- 
-                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalpro" id="buttonmodal">Criar Projeto</button>
+
                 </ul>
             </nav>
         </div>

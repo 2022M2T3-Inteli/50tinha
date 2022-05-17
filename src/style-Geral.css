@@ -22,7 +22,7 @@
 .geral{
     position: relative;
     left: 15rem;
-    top: 180px;
+    top: 12%;
     width: 90vw;
 }
 
@@ -366,7 +366,7 @@ header{
 
 
 .login{
-    margin-top: 80.4%;
+    margin-top: auto;
     background-color: rgb(255, 255, 255);
     border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
@@ -458,10 +458,14 @@ table, th, td {
   /* Modal do projeto */
 
 #buttonmodal{
-    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* position: absolute;
     margin-top: -200px;
-    margin-left: 40px;
-    width: 65%;
+    margin-left: 40px; */
+    width: 95%;
     height: 55px;
     border-radius: 25px;
     background-color: blue;
@@ -496,4 +500,24 @@ table, th, td {
 
 #nfuncionarios{
     margin-top: 35px;
+}
+
+/* #barrar{
+    margin-left: 100px;
+    margin-bottom: 50px;
+    position: absolute;
+    float: left;
+} */
+
+.fix{
+    padding-left: 200px;
+}
+
+/* .modalcnt{
+    position: absolute;
+    padding-right: 100px;
+} */
+
+th{
+    text-align: center;
 }
