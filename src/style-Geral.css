@@ -302,9 +302,9 @@ header{
 }
 
 .ative-profi, .ative-projeto {
-    background-color: var(--cinzaClaro);
-    border: 2px solid #d4d8ff;
-    box-shadow: 0 4px 5px #72727248;
+    background-color: rgb(82, 111, 255);
+    border: 2px solid #d6d9ff;
+    box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 30px;
     width: 70%;
     height: 15%;
@@ -315,8 +315,8 @@ header{
 }
 
 .profi:hover,.projeto:hover{
-    background-color: var(--azulForte);
-    border: 2px solid #ffffff;
+    background-color: rgb(82, 111, 255);
+    border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 30px;
     width: 70%;
@@ -329,7 +329,7 @@ header{
 
 .projeto, .profi{
     background-color: rgb(255, 255, 255);
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 15px;
     width: 70%;
@@ -343,7 +343,7 @@ header{
 
 .login{
     background-color: rgb(255, 255, 255);
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 25px;
     width: 60%;
@@ -359,7 +359,7 @@ header{
 
 .login:hover{
     background-color: rgb(82, 111, 255);
-    border: 2px solid #ffffff;
+    border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
     width: 70%;
 }
