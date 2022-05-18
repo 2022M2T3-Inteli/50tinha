@@ -267,7 +267,7 @@ header{
 
 .centra{
     height: 100% !important;
-    color: #929292;
+    color: #656565;
 }
 
 .centra:hover{
@@ -289,7 +289,6 @@ header{
 }
 
 .modal-style{
-    background-color: rgb(82, 111, 255);
     border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 30px;
@@ -328,10 +327,10 @@ header{
 }
 
 .projeto, .profi{
-    background-color: rgb(255, 255, 255);
+    background-color: var(--cinzaClaro);
     border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
-    border-radius: 15px;
+    border-radius: 30px;
     width: 70%;
     height: 15%;
     display: flex;
