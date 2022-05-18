@@ -391,9 +391,8 @@ table{
     border-bottom: 1px solid #dddddd;
     border-top: 1px solid #dddddd ;
   }
-  tr:hover {
-    background-color: #ddd;
-    z-index: 100;
+  tr:hover { 
+    background-color: #ddd; 
   }
   
   tr:nth-child(even) {   /*cor da alternância das linhas da tabela */
@@ -405,24 +404,30 @@ table{
   tr:first-child:hover {
     background: none; /* tiramos o hover da 1ª linha */
   }
-  .quadrado_cinza {
-    background-color: #a3a3a35f;
+
+  /* #hover_tabela>tbody>tr>td, #hover_tabela>td{
+    background-color: #ddd; 
+  } */
+
+  .quadrado_verde {
+    background-color: #04f3205f;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
     padding-left: 10px;
   }
   
-  .quadrado_laranja {
-    background-color: #f0770dd4;
+  .quadrado_amarelo {
+    background-color: #f0f00dd4;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
     padding-left: 10px;
   }
   
-  .quadrado_azul {
-    background-color: #39cfd75f;
+  .quadrado_preto {
+    background-color: #000000e0;
+    color: white;
     border-radius: 0.1cm;
     opacity: 0.9;
     padding-right: 10px;
