@@ -89,3 +89,31 @@ hr{
     margin-left: 60px;
     margin-right: 60px;
 }
+
+#eye{
+    margin-left: 18%;
+    margin-top: -6.3%;
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    /* Fazer ser inselecionável */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.frg{
+    color: rgb(99, 99, 99);
+    position: absolute;
+    margin-top: 1%;
+    margin-left: -4.5%;
+    font-size: 80%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.frg:hover{
+    color: rgb(0, 0, 0);
+}
