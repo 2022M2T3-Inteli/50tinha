@@ -57,6 +57,10 @@ ul{
     padding: 0;
 }
 
+th{
+    text-align: center !important;
+}
+
 /* HEADER Aba Geral */
 
 header{
