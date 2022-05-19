@@ -15,3 +15,10 @@ function frg(){
         console.log("invisible")
     }
 }
+
+//Aba geral - Criar novo projeto
+
+function criarProjeto(){
+    var nP = document.getElementById("nP").value;
+    document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
+}
