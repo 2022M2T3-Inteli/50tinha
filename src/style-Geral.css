@@ -536,3 +536,16 @@ table{
     #line-chart,#bar-chart{
         width: 95% !important;
     }
+
+
+    #tabhor input{
+        width: 70px;
+        margin-top: 15px;
+        margin-left: 50px;
+    }
+
+    #tabhor{
+    margin-top: -20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    }
