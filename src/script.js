@@ -17,8 +17,12 @@ function frg(){
 }
 
 //Aba geral - Criar novo projeto
-
+n = 0;
+res = 90;
 function criarProjeto(){
+    n +=1;
+    res = res*n;
     var nP = document.getElementById("nP").value;
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
+    $("#c-todos > li:nth-child("+n+")").css("max-width",res+"px");
 }
