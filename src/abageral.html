@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>Aba Geral</title>
 </head>
 
@@ -36,7 +37,6 @@
         </header>
         <div id="calendario">
             <canvas id="line-chart" width="100px" height="30px"></canvas>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
             <script>
                 new Chart(document.getElementById("line-chart"), {
                     type: 'line',
@@ -50,7 +50,7 @@
                             fill: false
                         }, {
                             label: "Limitações com recursos internos e externos",
-                            borderColor: "#f0770dd4",
+                            borderColor: "#8d8d8d",
                             borderWidth: 2,
                             data: [620, 620, 620, 620, 620, 620, 620, 620, 620, 620, 620, 620],
                             fill: false
@@ -89,7 +89,7 @@
                         datasets: [
                             {
                                 label: "Horas",
-                                backgroundColor: ["#2d3870", "rgb(82, 111, 255)", "#f0770dd4", "#ef0404", "#39cfd75f"],
+                                backgroundColor: ["#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f"],
                                 data: [247, 526, 73, 78, 43]
                             }
                         ]

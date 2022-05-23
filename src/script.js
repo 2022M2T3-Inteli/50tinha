@@ -28,4 +28,5 @@ function criarProjeto(){
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
     $("#c-todos > li:nth-child("+n+")").css("max-width",tamanho+"px");
     console.log(tamanho)    
+    $("#c-todos > li:nth-child("+n+")").css("margin-left",mesInicio*82+"px")
 }
