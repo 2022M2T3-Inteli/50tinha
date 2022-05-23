@@ -21,8 +21,11 @@ n = 0;
 res = 90;
 function criarProjeto(){
     n +=1;
-    res = res*n;
+    var mesInicio = document.getElementById("meses").value
+    var mesFinal = document.getElementById("meses1").value
+    var tamanho = 84 * (mesFinal - mesInicio)
     var nP = document.getElementById("nP").value;
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
-    $("#c-todos > li:nth-child("+n+")").css("max-width",res+"px");
+    $("#c-todos > li:nth-child("+n+")").css("max-width",tamanho+"px");
+    console.log(tamanho)    
 }
