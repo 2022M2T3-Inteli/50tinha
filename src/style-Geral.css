@@ -549,3 +549,15 @@ table{
     margin-left: 10px;
     margin-bottom: 20px;
     }
+
+
+
+.modal_professional{
+    color: black;
+    display: inline-block;     
+    position: relative;    
+    z-index: 1;     
+    padding: 2em;     
+    margin: -2em; 
+    cursor: pointer;
+}
