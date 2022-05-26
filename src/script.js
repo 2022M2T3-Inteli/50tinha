@@ -1,5 +1,7 @@
 //Login
 var visibilityClick = false
+alert(document.getElementById("modalpro").value)
+
 function frg(){
     const eye = document.getElementById("eye")
     const input = document.getElementById("keyInput")
@@ -30,3 +32,4 @@ function criarProjeto(){
     console.log(tamanho)    
     $("#c-todos > li:nth-child("+n+")").css("margin-left",mesInicio*82+"px")
 }
+
