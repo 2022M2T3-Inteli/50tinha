@@ -354,7 +354,7 @@ header{
     border-top: 2px solid #e4e6fd;
     box-shadow: 0 4px 5px #6f6e7748;
     border-radius: 25px;
-    width: 60%;
+    width: 25%;
     height: 50px;
     display: flex;
     flex-direction: column;
@@ -369,7 +369,7 @@ header{
     background-color: rgb(82, 111, 255);
     border: 2px solid #d6d9ff;
     box-shadow: 0 4px 5px #6f6e7748;
-    width: 70%;
+    width: 25%;
 }
 
 table{
@@ -560,4 +560,17 @@ table{
     padding: 2em;     
     margin: -2em; 
     cursor: pointer;
+}
+.leva{
+    position: relative;
+    margin-left: 75%;
+    white-space: normal;
+    word-wrap: break-word;
+}
+.leva_prof{
+    position: relative;
+    margin-top: 2.52%;
+    margin-left: 75%;
+    white-space: normal;
+    word-wrap: break-word;
 }
