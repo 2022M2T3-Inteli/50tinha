@@ -4,20 +4,25 @@
 <div id="calendario">
 
 <div id="funcionarios">
-	<% for (const pessoa of model) { %>
+	
         <table id="hover_tabela">
 			<tr>
 				<th> Nome </th>
 				<th> Alocação mensal (projetos/mês/máx) </th>
+				<th> Editar</th>
 			</tr> 
+			<% for (const pessoa of model) { %>
 			<tr>
 			  <td> <%= pessoa.nome %> </div></td> 
 			  <td> <%= pessoa.horas %> </td>
+			  <td>
 		<a href="/funcionarios/alterar?id=<%= pessoa.id %>">ALTERAR</a> |
 		<a href="/funcionarios/remover?id=<%= pessoa.id %>">REMOVER</a>
+	</td>
 	<% } %>
 	</table>
 </div>
 </div>
 </div>
 <%- include("../rodape") %>
+

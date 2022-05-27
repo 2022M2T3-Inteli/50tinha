@@ -3,6 +3,7 @@ const path = require("path");
 // Importa as configurações do app
 require("dotenv").config({ encoding: "utf8", path: path.join(__dirname, "../.env") });
 
+
 // Configura o cache da view engine EJS, para armazenar as
 // 200 últimas páginas já processadas, por ordem de uso.
 const ejs = require("ejs");
@@ -40,6 +41,7 @@ app.use("/public", express.static(path.join(__dirname, "../public"), {
 // de arquivos estáticos, porque não precisamos de cookies para servir arquivos
 // estáticos.
 const cookieParser = require("cookie-parser");
+const { Script } = require("vm");
 app.use(cookieParser());
 
 // Configura os middlewares responsáveis por fazer o parse do conteúdo do body
