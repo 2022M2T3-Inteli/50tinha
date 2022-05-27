@@ -15,7 +15,7 @@ router.get("/alterar", (req, res) => {
 		return;
 	}
 
-	const sql = "SELECT id, nome, email FROM pessoa WHERE id=?";
+	const sql = "SELECT id, nome, horas FROM pessoa WHERE id=?";
 
 	console.log(sql);
 
@@ -34,7 +34,7 @@ router.post("/alterar", (req, res) => {
 	let msg;
 	let id = req.body["id"];
 	let nome = req.body["nome"];
-	let email = req.body["email"];
+	let horas = req.body["horas"];
 
 	if (!id) {
 		res.send("Id faltando");
@@ -46,16 +46,16 @@ router.post("/alterar", (req, res) => {
 		return;
 	}
 
-	if (!email) {
-		res.send("E-mail faltando");
+	if (!horas) {
+		res.send("Horas faltando");
 		return;
 	}
 
-	const sql = "UPDATE pessoa SET nome=?, email=? WHERE id=?";
+	const sql = "UPDATE pessoa SET nome=?, horas=? WHERE id=?";
 
 	console.log(sql);
 
-	db.run(sql, [nome, email, id], (err, rows) => {
+	db.run(sql, [nome, horas, id], (err, rows) => {
 		if (err)
 			msg = "Erro: " + err.message;
 		else
@@ -78,7 +78,7 @@ router.all("/listar", (req, res) => {
 		params = [ordenar];
 	}
 
-	const sql = "SELECT id, nome, email FROM pessoa " + ordenar;
+	const sql = "SELECT id, nome, horas FROM pessoa " + ordenar;
 	console.log(sql);
 
 	db.all(sql, params, (err, rows) => {
@@ -112,22 +112,22 @@ router.get("/remover", (req, res) => {
 router.all("/inserir", (req, res) => {
 	const id = req.query["id"];
 	const nome = req.query["nome"];
-	const email = req.query["email"];
+	const horas = req.query["horas"];
 
 	if (!nome) {
 		res.send("Nome faltando");
 		return;
 	}
 
-	if (!email) {
-		res.send("E-mail faltando");
+	if (!horas) {
+		res.send("Horas faltando");
 		return;
 	}
 
-	const sql = "INSERT INTO pessoa (nome, email) VALUES (?, ?)";
+	const sql = "INSERT INTO pessoa (nome, horas) VALUES (?, ?)";
 	console.log(sql);
 
-	db.run(sql, [nome, email], (err, rows) => {
+	db.run(sql, [nome, horas], (err, rows) => {
 		if (err) {
 			res.send("Erro: " + err.message);
 			console.error(err.message);

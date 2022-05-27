@@ -4,7 +4,7 @@
 <div id="calendario">
 <div>
 	<a href="/funcionarios/listar?ordenar=nome">LISTAR POR NOME</a> |
-	<a href="/funcionarios/listar?ordenar=email">LISTAR POR EMAIL</a> |
+	<a href="/funcionarios/listar?ordenar=horas">LISTAR POR horas</a> |
 	<a href="/funcionarios/listar?ordenar=id">LISTAR POR ID</a>
 </div>
 
@@ -13,7 +13,7 @@
 <div id="funcionarios">
 	<% for (const pessoa of model) { %>
 	<p>
-		<%= pessoa.nome %> - <%= pessoa.email %> |
+		<%= pessoa.nome %> - <%= pessoa.horas %> |
 		<a href="/funcionarios/alterar?id=<%= pessoa.id %>">ALTERAR</a> |
 		<a href="/funcionarios/remover?id=<%= pessoa.id %>">REMOVER</a>
 	</p>
