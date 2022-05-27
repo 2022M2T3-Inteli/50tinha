@@ -1,5 +1,7 @@
 <%- include("../cabecalho") %>
 <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+<div class="container-nosso">
+<div id="calendario">
 <form method="POST">
 	<input type="hidden" name="id" value="<%= funcionario.id %>" />
 
@@ -15,7 +17,8 @@
 
 	<button type="submit">SALVAR</button>
 </form>
-
+</div>
+</div>
 <a href="/funcionarios/listar">VOLTAR</a>
 
 <%- include("../rodape") %>
