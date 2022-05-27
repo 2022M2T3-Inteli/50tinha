@@ -20,9 +20,22 @@
             <div class="barra-pesqusia">
                 <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
                 
-                <input class="barra-texto" type="text" name="" placeholder="Pesquisar projeto">
+                <input class="barra-texto" type="text" name="" placeholder="Pesquisar profissional" id="barra-texto">
 
                 <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span>
+                <script>
+                  
+                  $(document).ready(function(){
+                  $("#barra-texto").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+                    $("#corpo-tabela-profissionais tr").filter(function() {
+                      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                  });
+                });
+
+                </script>
+                
             </div>
             <div class="leva_prof">
               <div class="login">
@@ -40,6 +53,7 @@
                   <th> Estado </th>
                   <th> Alocação mensal (projetos/mês/máx) </th>
                 </tr> 
+                <tbody id="corpo-tabela-profissionais">
                 <tr>
                   <td><a data-toggle="modal" href="#modalhoras"><div class="modal_professional" > João Vitor Oliveira </div></a></td> 
                   <td> 3 </td>
@@ -166,6 +180,7 @@
                   <td> AM </td>
                   <td> <span class="quadrado_verde"> 15/85/176 </span></td>
                 </tr>
+                </tbody>
               </table>
         </div>
         <div id="menu">
