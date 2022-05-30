@@ -14,7 +14,7 @@
    --branco:#F2F2F2;
 }
 
-.aba{
+.size-limit{
     max-width:300px ;
     max-height: 200px;
 }
@@ -131,7 +131,7 @@ header{
     justify-content: space-between;
     justify-items: center;
 }
-.barra-texto{
+.text-box-{
     color: #ffffff;
     width: 224px !important;
     font-size: 16px !important;
@@ -142,7 +142,7 @@ header{
     margin-left: 10px;
 }
 
-#fitro-posicao{
+#filter-position{
     display: flex;
     border-radius: 0px 25px 25px 0px;
     position: relative;
@@ -152,7 +152,7 @@ header{
     height: 40px;
 }
 
-#fitro-posicao:hover{
+#filter-position:hover{
     background-color: #eeeeee;
 }
 
@@ -185,7 +185,7 @@ header{
 
 /* CALENDARIO */
 
-#calendario{
+#calendar{
     position: relative;
     width: 100vw;
     max-width: 84.5%;
@@ -197,21 +197,21 @@ header{
 
 }
 
-#c-todos > li{   
+#c-all > li{   
     padding: 7px;
     display: flex;
     justify-content: center;
     max-width: 99%;
 }
 
-#c-todos > li:nth-child(9){
+#c-all > li:nth-child(9){
     position: relative;
     max-width: 200px;   
     left: 4%;
 
 }
 
-#c-todos > li > div{ 
+#c-all > li > div{ 
     color: #ede8e8;  
     background-color:var(--azult-t-Escuro);
     box-shadow: 0 6px 10px #6f6e7770;
@@ -236,7 +236,7 @@ header{
     grid-template-rows: 20% 30% 20% 20%;
 }
 
-.ordem{
+.order{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -257,7 +257,7 @@ header{
 
 
 
-.centro{
+.center{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -413,7 +413,7 @@ table{
     background-color: #ddd; 
   } */
 
-  .quadrado_verde {
+  .green-square {
     background-color: #04f3205f;
     border-radius: 0.1cm;
     opacity: 0.9;
@@ -421,7 +421,7 @@ table{
     padding-left: 10px;
   }
   
-  .quadrado_amarelo {
+  .yellow-square {
     background-color: #f0f00dd4;
     border-radius: 0.1cm;
     opacity: 0.9;
@@ -429,7 +429,7 @@ table{
     padding-left: 10px;
   }
   
-  .quadrado_preto {
+  .black-square {
     background-color: #000000e0;
     color: white;
     border-radius: 0.1cm;
@@ -438,7 +438,7 @@ table{
     padding-left: 10px;
   }
 
-.quadrado_vermelho {
+.red-square {
     background-color: #ef0404;
     color: white;
     border-radius: 0.1cm;
