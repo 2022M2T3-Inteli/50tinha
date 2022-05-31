@@ -61,7 +61,7 @@ app.get('/profissionais', (req, res) => {
 });
 
 // Insere um registro (é o C do CRUD - Create)
-app.post('/userinsert', urlencodedParser, (req, res) => {
+app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -79,7 +79,7 @@ app.post('/userinsert', urlencodedParser, (req, res) => {
 });
 
 // Atualiza um registro (é o U do CRUD - Update)
-app.post('/userupdate', urlencodedParser, (req, res) => {
+app.post('/profissionais/atualizar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
@@ -95,7 +95,7 @@ app.post('/userupdate', urlencodedParser, (req, res) => {
 });
 
 // Exclui um registro (é o D do CRUD - Delete)
-app.delete('/userdelete', urlencodedParser, (req, res) => {
+app.delete('/profissionais/deletar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
