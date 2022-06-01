@@ -32,7 +32,10 @@ html,body,.container{
     margin: 0 !important;
     height: 100vw;
     width: 100vw;
+}
 
+html{
+    overflow-x: hidden;
 }
 
 a{
@@ -503,13 +506,17 @@ table{
     margin-top: 35px;
 }
 
+.hand_hover{
+    cursor: pointer;
+}
+
 /* Por projeto aba dos infernos aaaaaaa */
 
 .ajuste{
     position: absolute;
-    left: 15.8%;
-    top: 22%;
-    width: 85%;
+    left: 13.8%;
+    top: 25%;
+    width: 87%;
 }
 
 #horastrasbalhadas{
@@ -533,10 +540,19 @@ table{
     transition: 0.5s;
     }
 
-    #line-chart,#bar-chart{
+    #line-chart, #bar-chart{
         width: 95% !important;
     }
 
+    .chart-fix{
+        margin-top: 15% !important;
+        height: 100px !important; 
+    }
+
+    #pie-chart{
+        width: 80% !important; 
+        height: 80% !important;
+    }
 
     #tabhor input{
         width: 70px;
