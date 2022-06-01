@@ -49,63 +49,18 @@
                                 <th>Unidade</th>
                             </tr>
                             <tr>
-                                <td id="coldata" class="aba"> <details>
-                                    <summary>Moto Voadora</summary>
-                                    <p>Esse projeto planeja criar uma moto</p>                      
-                                </details></td>
-                                <td id="coldata" class="aba"> <details>
-                                    <summary>8 Meses</summary>
-                                    <center>
-                                    <canvas id="bar-chart" class="chart-fix"></canvas>
-                                    <script>
-                                        new Chart(document.getElementById("bar-chart"), {
-                                        type: 'bar',
-                                        data: {
-                                        labels: ["Projeto1", "Projeto2", "Projeto3"],
-                                        datasets: [
-                                            {
-                                            label: "Número de funcionários/Projeto",
-                                            backgroundColor: ["#2d3870", "rgb(82, 111, 255)","#ef0404"],
-                                            data: [734,784,433]
-                                            }
-                                        ]
-                                        },
-                                        options: {
-                                        legend: { display: false },
-                                        title: {
-                                            display: true,
-                                            text: 'Funcionários por projeto'
-                                        }
-                                        }
-                                    });
-                                    </script>
-                                    </center>   
-                                </details></td>
-                                <td id="coldata"> <details>
-                                    <summary>90</summary>
-                                    <center>
-                                    <canvas id="pie-chart"></canvas>
-                                    <script>new Chart(document.getElementById("pie-chart"), {
-                                        type: 'pie',
-                                        data: {
-                                          labels: ["Internos", "Externos"],
-                                          datasets: [{
-                                            label: "Trabalhadores",
-                                            backgroundColor: ["#2d3870", "rgb(82, 111, 255)"],
-                                            data: [2478,5267]
-                                          }]
-                                        },
-                                        options: {
-                                          title: {
-                                            display: true,
-                                            text: 'Trabalhadores Yamaha'
-                                          }
-                                        }
-                                    });
-                                    </script>
-                                    </center>                   
-                                </details> </td>    
+                                <td id="coldata" class="aba">
+                                    <a href="#modalgraphs" data-toggle="modal">Moto Voadora</a>                 
                                 </td>
+                                <td id="coldata" class="aba">
+                                    <a href="#modalgraphs" data-toggle="modal">8 Meses</a>
+                                    <center>
+ 
+                                </td>
+                                <td id="coldata">
+                                    <a href="#modalgraphs" data-toggle="modal">90</a>
+                                    <center>
+ 
                                 <td>SP</td>
                             </tr>
                             <tr>
@@ -323,6 +278,76 @@
     </div>
 </div>
 </div>
+
+
+<!-- Modal body - Graphics -->
+<div class="modal fade" id="modalgraphs" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+
+            <canvas id="bar-chart" class="chart-fix"></canvas>
+            <script>
+                new Chart(document.getElementById("bar-chart"), {
+                type: 'bar',
+                data: {
+                labels: ["Projeto1", "Projeto2", "Projeto3"],
+                datasets: [
+                    {
+                    label: "Número de funcionários/Projeto",
+                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)","#ef0404"],
+                    data: [734,784,433]
+                    }
+                ]
+                },
+                options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Funcionários por projeto'
+                }
+                }
+            });
+            </script>
+            </center>   
+
+
+            <canvas id="pie-chart"></canvas>
+            <script>new Chart(document.getElementById("pie-chart"), {
+                type: 'pie',
+                data: {
+                  labels: ["Internos", "Externos"],
+                  datasets: [{
+                    label: "Trabalhadores",
+                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)"],
+                    data: [2478,5267]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Trabalhadores Yamaha'
+                  }
+                }
+            });
+            </script>
+            </center>                   
+         </td>    
+        </td>
+
+    </div>
+        </div>
+        <div class="modal-footer">
+        <button class="hand_hover" type="button" data-dismiss="modal">Criar</button>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
 
     </body>
 </html>
