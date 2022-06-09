@@ -1,4 +1,5 @@
 //Login
+var btnAtivado = false
 var visibilityClick = false
 function frg(){
     const eye = document.getElementById("eye")
@@ -39,45 +40,52 @@ function criarProjeto(){
         tamanho = ((percentual+7)*tamanho)
         }
     else{
-        tamanho = (anoRes*((percentual+7)*11) + ((percentual+7)*tamanho)) + 15
+        tamanho = (anoRes*((percentual+7)*11) + ((percentual+7)*tamanho)) + 14
         }
     mesInicio+=1
     console.log("Antes: "+mesInicio)
     mesInicio = ((percentual+7)*(mesInicio-1))
     console.log("Depois: "+mesInicio)
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
-    $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
-    $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
     console.log("Tamanho:"+tamanho)
     console.log("MesInicio:"+mesInicio)
     console.log("ResAno:"+anoRes)
     if(tamanho>80){
+        if(btnAtivado == false){
+            gerarBtn()
+            btnAtivado = true
+            alert(btnAtivado)
+        }
         let x = 85*(anoRes+1)
         let y = (50/(anoRes+1*(percentual+100)))
+        tamanho = tamanho
+        $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
+        $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
         window.document.getElementById("add").innerHTML += "<div>"+"---- "+String(anoFim)+" --->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
         $("#add").css("width",(x)+"%")
         $(".month").css("min-width",(y)+"%"+"!important")
         console.log("y: "+y)
-    }
+
+    }else{ $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
+    $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")}
     
 }
 
+var x = 0
 
-function scrollOn(){
-    console.log(window.Date())
+function gerarBtn(){
+    document.getElementById("Controle").innerHTML = "<button class=\"btn-controle\" onclick=\"keyB()\"><span class=\"material-symbols-outlined\">arrow_back_ios</span></button><button class=\"btn-controle\" onclick=\"keyA()\"><span class=\"material-symbols-outlined\">arrow_forward_ios</span></button>"
 }
 
-
-var x = 0
 function keyB(){
-    x += 100
+    x -= 100
     console.log(x)
     $("#calendario").css("left","auto")
     $("#calendario").css("right",(x)+"px")
 }
 
 function keyA(){
-    x -= 100 
+    x += 100 
     console.log(x)
     $("#calendario").css("left","auto")
     $("#calendario").css("right",(x)+"px")

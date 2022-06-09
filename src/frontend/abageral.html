@@ -15,7 +15,7 @@
     <title>Aba Geral</title>
 </head>
 
-<body onload="scrollOn();generateGraphics();">
+<body onload="generateGraphics();"> <!-- Função que registra o data atual -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <div class="container-nosso"> <!--Area de todas aplicação-->
@@ -32,7 +32,6 @@
                 <ul id="estilonav">  <!-- Barra de navegação do HEADER -->
                     <li><a class="active" href="abageral.html">Visão Geral</a></li>
                     <li><a class="n-active" href="projetos.html">Por Projeto</a></li>
-                    <li><a href="/profissionais" >Entrar</a></li>
                 </ul>
             </nav>
             <div class="leva">
@@ -85,18 +84,15 @@
                 });
             </script>
             <hr>
-            </script>
             <canvas id="bar-chart" width="100px" height="30px"></canvas>
-            <!-- <script>
-                // gráfico de colunas 
-            </script> -->
+
 
 
             <hr>
 
            
         </div>
-        <div id="calendario"> <!-- Segunda parte do conteudo não estatico da aplicação, Responsavel pelo calendario dinamico -->
+        <div id="calendario"> <!-- Segunda parte do conteudo não statico da aplicação, Responsavel pelo calendario dinamico -->
             <div class="month-div" id="add">
                 <ul class="month">    
                     <li><h3> jan </h3></li>
@@ -114,13 +110,14 @@
                 </ul>
             </div>
                 
-            <u id="c-todos">
+            <u id="c-todos"> <!-- Todos os projetos exibidos no calendario sáo alocados aqui -->
             </u>
         </div>
+
         <div id="Controle">
-            <button class="btn-controle" onclick="keyB()">B</button>
-            <button class="btn-controle" onclick="keyA()">A</button>
+            
         </div>
+
         <div id="menu">  <!-- Menu lateral, aqui é colocado todos os botões e a logo da aplicação -->
              <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div> <!-- Logo -->
                 <nav id="nav-menu"> <!-- Botões -->

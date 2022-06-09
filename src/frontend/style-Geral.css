@@ -194,13 +194,15 @@ header{
 .month-div{
     object-fit: cover;
     display: flex;
-    position: relative;
-    top: 15%;
+    position: sticky;
+    top: 24%;
     border-bottom: 1px solid #8b8b8b;
     background-color: var(--azulForte);
     width: 85%; /* Propriedade que permite o calendario ser dinâmico */
     max-height: 46px;
     flex-direction: row;
+    max-width: 90000px;
+    
     
 }
 .month{
@@ -214,7 +216,7 @@ header{
     position: relative;
     bottom: 20px;
     justify-content: space-between;
-    min-width: 50%;
+    /* min-width: 50%; */
 }
 
 
@@ -241,12 +243,12 @@ header{
 /* Controladores - Calendario */
 
 #Controle{
-    position: fixed;
+    position: relative; 
     display: flex;
     flex-direction: row;
     gap: 200px;
     z-index: 1;
-    top: 90%;
+    top: 20%;
     left: 50%;
     
 }
@@ -254,8 +256,8 @@ header{
     text-align: center;
     color: #F2F2F2;
     background-color: var(--azulForte);
-    width: 80px;
-    height: 60px;
+    width: 70px;
+    height: 50px;
     border-radius: 30px;
     transition: 0.5s;
 }
@@ -598,18 +600,15 @@ table{
     }
 
     #tabhor input{
-    width: 20%;
-    
-    }
-    #horastrabalhadas{
-        margin-top: 35px;
+        width: 70px;
+        margin-top: 15px;
+        margin-left: 50px;
     }
 
     #tabhor{
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-left: 10px;
+    margin-top: -20px;
+    margin-left: 10px;
+    margin-bottom: 20px;
     }
 
 
@@ -636,3 +635,4 @@ table{
     white-space: normal;
     word-wrap: break-word;
 }
+
