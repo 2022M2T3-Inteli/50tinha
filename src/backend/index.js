@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const hostname = '127.0.0.1';
 
-const port = 3061;
+const port = 3081;
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const DBPATH = 'dbteste.db';
@@ -16,33 +16,13 @@ app.use(express.json());
 /* Definição dos endpoints */
 
 /****** CRUD ******************************************************************/
-app.get('/curriculo', (req, res) => {
-	res.statusCode = 200;
-	res.setHeader('Access-Control-Allow-Origin',
-	'*');
-	
-	var db = new sqlite3.Database(DBPATH);
-	var sql = 'SELECT * FROM profissionais WHERE userId = 2';
-	db.get(sql, [], (err, row) => {
-	if (err) {
-	throw err;
-	}
-	res.write('<!DOCTYPE html> \n<meta charset="UTF-8">\n<head> \n\t<title>MEUCURRÍCULO</title><style>.linha { border-bottom: solid 1px black;}</style>\n</head> \
-	\n<body> \
-	\n\t<div id="main"> \
-	\n\t\t<h1>MEU CURRÍCULO</h1>');
-	res.write('\n\t\t<div class="linha">' + row.title + '</div> \n\t</div>');
-	res.write('\n</body> \n</html>');
-	});
-	});
-
 // Retorna todos registros (é o R do CRUD - Read)
 app.get('/profissionais', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM profissionais ORDER BY name COLLATE NOCASE';
+  var sql = 'SELECT * FROM PROFISSIONAIS ORDER BY idFunc';
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
@@ -58,7 +38,7 @@ app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = "INSERT INTO profissionais (name, hours, field, role, type) VALUES ('" + req.body.name + "', " + req.body.hours + ",'"+ req.body.field +"','" + req.body.role + "','" + req.body.type +"')";
+	sql = `INSERT INTO PROFISSIONAIS (idFunc, nome, area, tipo, estado, idCargo) VALUES (${req.body.idFunc}, '${req.body.nome}', '${req.body.area}', '${req.body.tipo}', '${req.body.estado}', ${req.body.idCargo})`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {
@@ -78,7 +58,7 @@ app.patch('/profissionais/atualizar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = `UPDATE profissionais SET name = '${req.body.name}', type = '${req.body.type}', hours = ${req.body.hours} WHERE id = ${req.body.id}`;
+	sql = `UPDATE PROFISSIONAIS SET nome = '${req.body.nome}', area = '${req.body.area}', tipo = '${req.body.tipo}', estado = '${req.body.estado}' WHERE idFunc = ${req.body.idFunc}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
@@ -94,7 +74,7 @@ app.delete('/profissionais/deletar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = "DELETE FROM profissionais WHERE id = " + "'" + req.body.id + "'";
+	sql = `DELETE FROM PROFISSIONAIS WHERE idFunc = ${req.body.idFunc}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
@@ -113,7 +93,7 @@ app.get('/projetos', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM projetos ORDER BY name COLLATE NOCASE';
+  var sql = 'SELECT * FROM PROJETOS ORDER BY idProject';
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
@@ -130,7 +110,7 @@ app.post('/projetos/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Acess-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = `INSERT INTO projetos (name, area, numberFunc, duration) VALUES ('${req.body.name}' , '${req.body.area}' , ${req.body.numberFunc} , ${req.body.duration})`;
+	sql = `INSERT INTO PROJETOS (idProject, nome, area, mesInicio, anoInicio, mesFim, anoFim) VALUES (${req.body.idProject}, '${req.body.nome}', '${req.body.area}', '${req.body.mesInicio}', ${req.body.anoInicio}, '${req.body.mesFim}', ${req.body.anoFim})`;
 	var db = new sqlite3.Database(DBPATH); //Abre o banco
 	console.log(sql);
 	db.run (sql, [], err => {
@@ -147,7 +127,7 @@ app.post('/projetos/adicionar', urlencodedParser, (req, res) => {
 app.patch('/projetos/atualizar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-	sql = `UPDATE projetos SET name = '${req.body.name}' , area = '${req.body.area}' , numberFunc = ${req.body.numberFunc} , duration = ${req.body.duration} WHERE id = ${req.body.id}`;
+	sql = `UPDATE PROJETOS SET nome = '${req.body.nome}', area = '${req.body.area}', mesInicio = '${req.body.mesInicio}', anoInicio = ${req.body.anoInicio}, mesFim = '${req.body.mesFim}', anoFim = ${req.body.anoFim} WHERE idProject = ${req.body.idProject}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
@@ -163,7 +143,7 @@ app.patch('/projetos/atualizar', urlencodedParser, (req, res) => {
 app.delete('/projetos/deletar', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-    sql = `DELETE FROM projetos WHERE id = ${req.body.id}`;
+    sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [],  err => {
         if (err) {
@@ -172,6 +152,77 @@ app.delete('/projetos/deletar', urlencodedParser, (req, res) => {
         res.end();
     });
     db.close(); // Fecha o banco
+});
+
+
+////////////////////////////////ALOCACAO//////////////////////////
+
+app.get('/alocacao', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM ALOCACAO ORDER BY idAlocacao';
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		
+		}
+	res.json(rows)
+	});
+	db.close(); // Fecha o banco
+});
+
+// Insere um registro (é o C do CRUD - Create)
+app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	sql = `INSERT INTO ALOCACAO (idAlocacao, idFunc, idProject, horasAlocadasProjeto, mes, ano) VALUES (${req.body.idAlocacao}, ${req.body.idFunc}, ${req.body.idProject}, ${req.body.horasAlocadasProjeto}, '${req.body.mes}', ${req.body.ano})`;
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	console.log(sql);
+	db.run(sql, [],  err => {
+		if (err) {
+		    throw err;
+		}
+		else console.log(sql);
+	});
+	db.close(); // Fecha o banco
+	res.end();
+});
+
+
+
+// Atualiza um registro (é o U do CRUD - Update)
+app.patch('/alocacao/atualizar', urlencodedParser, (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	sql = `UPDATE ALOCACAO SET idFunc = ${req.body.idFunc}, idProject = ${req.body.idProject}, horasAlocadasProjeto = ${req.body.horasAlocadasProjeto}, mes = '${req.body.mes}', ano = ${req.body.ano} WHERE idAlocacao = ${req.body.idAlocacao}`;
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	db.run(sql, [],  err => {
+		if (err) {
+		    throw err;
+		}
+		res.end();
+	});
+	db.close(); // Fecha o banco
+});
+
+// Exclui um registro (é o D do CRUD - Delete)
+app.delete('/alocacao/deletar', urlencodedParser, (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	sql = `DELETE FROM ALOCACAO WHERE idAlocacao = ${req.body.idAlocacao}`;
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	db.run(sql, [],  err => {
+		if (err) {
+		    throw err; 
+		}
+		res.end();
+	});
+	db.close(); // Fecha o banco
 });
 
 /* Inicia o servidor */
