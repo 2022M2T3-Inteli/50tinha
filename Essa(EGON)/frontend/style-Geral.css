@@ -19,19 +19,14 @@
     max-height: 200px;
 }
 
-.geral{
-    position: relative;
-    left: 12rem;
-    top: 180px;
-    width: 90vw;
-}
 
 html,body,.container{
     font-family: yamaha-inter !important;
     padding: 0 !important;
     margin: 0 !important;
     height: 100vw;
-    width: 100vw;
+    
+    
 }
 
 html{
@@ -43,8 +38,11 @@ a{
     text-decoration-line: none;
 }
 
+.limite-largura{
+    width: 100% !important;
+}
+
 .container-nosso{
-    width: 100%;
     height: 100%;
 }
 
@@ -55,10 +53,6 @@ li{
     max-width: 320px;
 }
 
-ul{
-    margin: 0!important;
-    padding: 0;
-}
 
 th{
     text-align: center !important;
@@ -159,21 +153,44 @@ header{
     background-color: #eeeeee;
 }
 
-#month-div{
+/* graficos */
+
+#graficos{
+    position: relative;
+    max-width: 84.5%;
+    top: 190px;
+    left: 16.5%;
+    z-index: -1;
+    margin: 0px !important;
+
+}
+
+/* CALENDARIO */
+
+#calendario{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    top: 220px;
+    z-index: -1;
+    margin: 0px !important;
+
+}
+
+.month-div{
+    object-fit: cover;
+    display: flex;
+    gap: 20px;
     position: relative;
     top: 80%;
     border-bottom: 1px solid #8b8b8b;
-    margin: 0 !important;
     padding: 0;
     background-color: var(--azulForte);
     width: 100%;
     max-height: 46px;
     left: -0.1%;
 }
-
-#month{
-    width: 85%;
-    max-width: 1500px;
+.month{
+    width: 100%;
     font-family: 'Times New Roman', Roboto, Times, serif !important;
     position: relative;
     margin: 0;
@@ -186,32 +203,11 @@ header{
     justify-content: space-around;
 }
 
-/* CALENDARIO */
-
-#calendario{
-    position: relative;
-    width: 100vw;
-    max-width: 84.5%;
-    background-color: rgb(255, 255, 255);
-    top: 220px;
-    left: 16.5%;
-    z-index: -1;
-    margin: 0px !important;
-
-}
-
 #c-todos > li{   
     padding: 7px;
     display: flex;
     justify-content: center;
     max-width: 99%;
-}
-
-#c-todos > li:nth-child(9){
-    position: relative;
-    max-width: 200px;   
-    left: 4%;
-
 }
 
 #c-todos > li > div{ 
