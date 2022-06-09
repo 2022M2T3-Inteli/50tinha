@@ -162,7 +162,10 @@ app.get('/alocacao', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM ALOCACAO ORDER BY idAlocacao';
+  var sql = `SELECT PROJETOS.nome, SUM(horasAlocadasProjeto) AS somaHoras FROM alocacao
+  INNER JOIN PROJETOS ON ALOCACAO.idProject = PROJETOS.idProject
+  GROUP BY PROJETOS.idProject
+  ORDER BY PROJETOS.nome COLLATE NOCASE`;
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
@@ -198,7 +201,7 @@ app.patch('/alocacao/atualizar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = `UPDATE ALOCACAO SET idFunc = ${req.body.idFunc}, idProject = ${req.body.idProject}, horasAlocadasProjeto = ${req.body.horasAlocadasProjeto}, mes = '${req.body.mes}', ano = ${req.body.ano} WHERE idAlocacao = ${req.body.idAlocacao}`;
+	sql = `UPDATE ALOCACAO SET horasAlocadasProjeto = ${req.body.horasAlocadasProjeto}, mes = '${req.body.mes}', ano = ${req.body.ano} WHERE idAlocacao = ${req.body.idAlocacao}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {

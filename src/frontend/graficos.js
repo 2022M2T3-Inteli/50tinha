@@ -4,20 +4,23 @@ function generateGraphics(){
     let requestGraph = new XMLHttpRequest();
 
     requestGraph.onreadystatechange = function(){
+        console.log(this.responseText + "Resposta")
         let dados = JSON.parse(this.response)
         tamanhoDados = dados.length
-        let arrayIds = []
+        console.log(tamanhoDados + "é o tamanho")
+        let arrayHoras = []
         let arrayNomes = []
         for(let i = 0; i < tamanhoDados; i++){
-            arrayIds.push(dados[i].idProject)
+            console.log(i + "é o for")
+            arrayHoras.push(dados[i].somaHoras)
             arrayNomes.push(dados[i].nome)
         }
-        graficos(arrayNomes);
+        graficos(arrayNomes, arrayHoras);
     }
 
-    url = "localhost:3061/alocacao"
+    url = "http://localhost:3081/alocacao"
     requestGraph.open("GET", url, true)
-    requestGraph.setEncoding()
+    requestGraph.send()
 
 }
 
