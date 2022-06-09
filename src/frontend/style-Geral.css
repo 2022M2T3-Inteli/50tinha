@@ -598,15 +598,18 @@ table{
     }
 
     #tabhor input{
-        width: 70px;
-        margin-top: 15px;
-        margin-left: 50px;
+    width: 20%;
+    
+    }
+    #horastrabalhadas{
+        margin-top: 35px;
     }
 
     #tabhor{
-    margin-top: -20px;
-    margin-left: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 10px;
     }
 
 
