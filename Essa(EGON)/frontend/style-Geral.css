@@ -4,6 +4,7 @@
     font-family: yamaha-inter;
 }
 
+/* Aqui definoas cores em váriaveis para usar nesse projeto */
 :root{
     --azult-t-Escuro:#2d3870;
    --azulForte:rgb(82, 111, 255);
@@ -14,25 +15,25 @@
    --branco:#F2F2F2;
 }
 
+/* Esssas são as configurações gerais para nosso HTML */
 .aba{
     max-width:300px ;
     max-height: 200px;
 }
 
-.geral{
-    position: relative;
-    left: 12rem;
-    top: 180px;
-    width: 90vw;
-}
 
-html,body,.container{
+
+html,body,.container{ 
+    white-space: nowrap;
     font-family: yamaha-inter !important;
     padding: 0 !important;
     margin: 0 !important;
     height: 100vw;
-    width: 100vw;
+    
+    
 }
+
+
 
 html{
     overflow-x: hidden;
@@ -43,8 +44,11 @@ a{
     text-decoration-line: none;
 }
 
+.limite-largura{
+    width: 100% !important;
+}
+
 .container-nosso{
-    width: 100%;
     height: 100%;
 }
 
@@ -55,10 +59,6 @@ li{
     max-width: 320px;
 }
 
-ul{
-    margin: 0!important;
-    padding: 0;
-}
 
 th{
     text-align: center !important;
@@ -159,59 +159,72 @@ header{
     background-color: #eeeeee;
 }
 
-#month-div{
-    position: relative;
-    top: 80%;
-    border-bottom: 1px solid #8b8b8b;
-    margin: 0 !important;
-    padding: 0;
-    background-color: var(--azulForte);
-    width: 100%;
-    max-height: 46px;
-    left: -0.1%;
-}
+/* graficos */
 
-#month{
-    width: 85%;
-    max-width: 1500px;
-    font-family: 'Times New Roman', Roboto, Times, serif !important;
+#graficos{
     position: relative;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-    color: #ffffff;
-    position: relative;
-    bottom: 9px;
-    justify-content: space-around;
-}
-
-/* CALENDARIO */
-
-#calendario{
-    position: relative;
-    width: 100vw;
     max-width: 84.5%;
-    background-color: rgb(255, 255, 255);
-    top: 220px;
+    top: 190px;
     left: 16.5%;
     z-index: -1;
     margin: 0px !important;
 
 }
 
-#c-todos > li{   
+/* CALENDARIO */
+
+#calendario{
+    display: flex;
+    position: relative;
+    top: 220px;
+    left: 15%;
+    z-index: -1;
+    margin: 0px !important;
+    width: 100%;
+    flex-direction: column;
+    transition: 0.1s;
+    
+}
+
+#add{
+    position:sticky;
+    width: 85%;
+}
+
+.month-div{
+    object-fit: cover;
+    display: flex;
+    position: relative;
+    top: 15%;
+    border-bottom: 1px solid #8b8b8b;
+    background-color: var(--azulForte);
+    width: 85%; /* Propriedade que permite o calendario ser dinâmico */
+    max-height: 46px;
+    flex-direction: row;
+    
+}
+.month{
+    width: 100%;
+    font-family: 'Times New Roman', Roboto, Times, serif !important;
+    margin: 0;
+    padding: 10px 20px 0px 20px;
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    position: relative;
+    bottom: 20px;
+    justify-content: space-between;
+    min-width: 50%;
+}
+
+
+#c-todos > li, #add > div{
     padding: 7px;
     display: flex;
     justify-content: center;
-    max-width: 99%;
-}
-
-#c-todos > li:nth-child(9){
-    position: relative;
-    max-width: 200px;   
-    left: 4%;
-
+    max-height: 80px;
+    max-width: 6000px;
+    
 }
 
 #c-todos > li > div{ 
@@ -222,7 +235,35 @@ header{
     padding: 15px;
     margin-bottom: 15px;;
     width: 99%;
+    
 }
+
+/* Controladores - Calendario */
+
+#Controle{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    z-index: 1;
+    top: 90%;
+    left: 50%;
+    
+}
+.btn-controle{
+    text-align: center;
+    color: #F2F2F2;
+    background-color: var(--azulForte);
+    width: 80px;
+    height: 60px;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+.btn-controle:hover{
+    color: #b8aed1;
+    background-color: #352d85;
+}
+
 
 /* MENU LATERAL */
 
@@ -267,6 +308,7 @@ header{
     align-items: center;
     height: 100%;
     gap: 30px;
+    padding: 0%;
 }
 
 .ative-centra{
@@ -375,6 +417,8 @@ header{
     width: 25%;
 }
 
+/* Aba profissionais */
+
 table{
     text-align: center;
     width: 100%;
@@ -453,7 +497,6 @@ table{
    /* Modal do projeto */
 
 #buttonmodal{
-    /* position: absolute; */
     text-align: center;
     width: 65%;
     top: 150%;
@@ -510,7 +553,7 @@ table{
     cursor: pointer;
 }
 
-/* Por projeto aba dos infernos aaaaaaa */
+/* Aba por projeto */
 
 .ajuste{
     position: absolute;

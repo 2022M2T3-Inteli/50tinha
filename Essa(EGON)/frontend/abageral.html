@@ -16,11 +16,11 @@
     <title>Aba Geral</title>
 </head>
 
-<body>
+<body onload="scrollOn()">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <div class="container-nosso">
-        <header>
+    <div class="container-nosso"> <!--Area de todas aplicação-->
+        <header> <!-- Nosso HEADER Statico -->
             <div class="barra-pesqusia">
                 <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
 
@@ -30,10 +30,10 @@
                 
             </div>
             <nav class="bar">
-                <ul id="estilonav">
+                <ul id="estilonav">  <!-- Barra de navegação do HEADER -->
                     <li><a class="active" href="abageral.html">Visão Geral</a></li>
                     <li><a class="n-active" href="projetos.html">Por Projeto</a></li>
-                    <li><a href="/profissionais" >Profissionais</a></li>
+                    <li><a href="/profissionais" >Entrar</a></li>
                 </ul>
             </nav>
             <div class="leva">
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </header>
-        <div id="calendario">
+        <div id="graficos"> <!-- Primeira parte do conteudo não statico da aplicação / area dedicada aos gráficos -->
             <canvas id="line-chart" width="100px" height="30px"></canvas>
             <script>
                 new Chart(document.getElementById("line-chart"), {
@@ -114,30 +114,37 @@
 
             <hr>
 
-            <div id="month-div">
-                <ul id="month">    
+           
+        </div>
+        <div id="calendario"> <!-- Segunda parte do conteudo não statico da aplicação, Responsavel pelo calendario dinamico -->
+            <div class="month-div" id="add">
+                <ul class="month">    
                     <li><h3> jan </h3></li>
-                    <li><h3> fev </h3></li>
-                    <li><h3> mar </h3></li>
-                    <li><h3> abr </h3></li>
-                    <li><h3> mai </h3></li>
-                    <li><h3> jun </h3></li>
-                    <li><h3> jul </h3></li>
-                    <li><h3> ago </h3></li>
-                    <li><h3> set </h3></li>
-                    <li><h3> out </h3></li>
-                    <li><h3> nov </h3></li>
-                    <li><h3> dez </h3></li>
+                 <li><h3> fev </h3></li>
+                 <li><h3> mar </h3></li>
+                 <li><h3> abr </h3></li>
+                 <li><h3> mai </h3></li>
+                 <li><h3> jun </h3></li>
+                 <li><h3> jul </h3></li>
+                 <li><h3> ago </h3></li>
+                 <li><h3> set </h3></li>
+                 <li><h3> out </h3></li>
+                 <li><h3> nov </h3></li>
+                 <li><h3> dez </h3></li>
                 </ul>
             </div>
-            
+                
             <u id="c-todos">
             </u>
         </div>
-        <div id="menu">
-            <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div>
-            <nav id="nav-menu">
-                <ul class="centro">
+        <div id="Controle">
+            <button class="btn-controle" onclick="keyB()">B</button>
+            <button class="btn-controle" onclick="keyA()">A</button>
+        </div>
+        <div id="menu">  <!-- Menu lateral, aqui é colocado todos os botões e a logo da aplicação -->
+             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div> <!-- Logo -->
+                <nav id="nav-menu"> <!-- Botões -->
+                    <ul class="centro">
                     <div class="profi">
                         <li class="ordem"><a class="centra ordem" href="profissionais.html"><span
                                     class="material-symbols-outlined">
@@ -156,8 +163,8 @@
                             </span>Criar Projeto
                         </li>
                     </div>
-                </ul>
-            </nav>
+                    </ul>
+                 </nav>
         </div>
     </div>
     <!-- Modal body -->
@@ -187,7 +194,7 @@
                     <div id="inicio">
                         <p>Data de início</p>
                         <label for="dia">Dia: </label>
-                        <select name="dia" id="dia" ;>
+                        <select name="dia" id="dia">
                             <option value="01">1</option>
                             <option value="02">2</option>
                             <option value="03">3</option>
@@ -221,7 +228,7 @@
                             <option value="31">31</option>
                         </select>
                         <label for="meses">Mês: </label>
-                        <select name="meses" id="meses" ;>
+                        <select name="meses" id="meses" >
                             <option value="0">Janeiro</option>
                             <option value="1">Fevereiro</option>
                             <option value="2">Março</option>
@@ -257,7 +264,7 @@
                 <div id="duracao">
                     <p>Estimativa de término:</p>
                     <label for="meses1">Mês: </label>
-                    <select name="meses1" id="meses1" ;>
+                    <select name="meses1" id="meses1" >
                         <option value="0">Janeiro</option>
                         <option value="1">Fevereiro</option>
                         <option value="2">Março</option>
@@ -272,7 +279,7 @@
                         <option value="11">Dezembro</option>
                     </select>
                     <label for="Ano">Ano: </label>
-                    <select name="Ano" id="Ano">
+                    <select name="Ano" id="Ano1">
                         <option value="2022">2022</option>
                         <option value="2023">2023</option>
                         <option value="2024">2024</option>

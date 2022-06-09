@@ -15,6 +15,27 @@ app.use(express.json());
 
 /* Definição dos endpoints */
 
+/****** CRUD ******************************************************************/
+app.get('/curriculo', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin',
+	'*');
+	
+	var db = new sqlite3.Database(DBPATH);
+	var sql = 'SELECT * FROM profissionais WHERE userId = 2';
+	db.get(sql, [], (err, row) => {
+	if (err) {
+	throw err;
+	}
+	res.write('<!DOCTYPE html> \n<meta charset="UTF-8">\n<head> \n\t<title>MEUCURRÍCULO</title><style>.linha { border-bottom: solid 1px black;}</style>\n</head> \
+	\n<body> \
+	\n\t<div id="main"> \
+	\n\t\t<h1>MEU CURRÍCULO</h1>');
+	res.write('\n\t\t<div class="linha">' + row.title + '</div> \n\t</div>');
+	res.write('\n</body> \n</html>');
+	});
+	});
+
 // Retorna todos registros (é o R do CRUD - Read)
 app.get('/profissionais', (req, res) => {
 	res.statusCode = 200;
