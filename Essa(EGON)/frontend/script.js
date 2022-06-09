@@ -46,7 +46,6 @@ function criarProjeto(){
     mesInicio = ((percentual+7)*(mesInicio-1))
     console.log("Depois: "+mesInicio)
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
-<<<<<<< Updated upstream
     $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
     $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
     console.log("Tamanho:"+tamanho)
@@ -61,12 +60,27 @@ function criarProjeto(){
         console.log("y: "+y)
     }
     
-=======
-    $("#c-todos > li:nth-child("+n+")").css("max-width",tamanho+"px");
-    console.log(tamanho)    
-    $("#c-todos > li:nth-child("+n+")").css("margin-left",mesInicio*82+"px")
-<<<<<<< HEAD
->>>>>>> Stashed changes
+}
+
+
+function scrollOn(){
+    console.log(window.Date())
+}
+
+
+var x = 0
+function keyB(){
+    x += 100
+    console.log(x)
+    $("#calendario").css("left","auto")
+    $("#calendario").css("right",(x)+"px")
+}
+
+function keyA(){
+    x -= 100 
+    console.log(x)
+    $("#calendario").css("left","auto")
+    $("#calendario").css("right",(x)+"px")
 }
 
 //Requição AJAX
@@ -102,6 +116,4 @@ function geraTabela(){
     request.open("GET", url, true);
     request.send()
     
-=======
->>>>>>> parent of b6fde30... Merge remote-tracking branch 'origin/JvLetsBora-patch-1' into main
 }
