@@ -96,32 +96,78 @@ const rodape = document.getElementById("rodape")
 rodape.onload = geraTabela()
 const tabela= document.getElementById("hover_tabela")
 
-function geraTabela(){
-    let request = new XMLHttpRequest();
+// function geraTabela(){   FICA COM DEUS PARTE DO PABLÃO
+//     let request = new XMLHttpRequest();
 
-    request.onreadystatechange = function(){
-        let MyJson = JSON.parse(this.responseText);
-        let MyJsonSize = MyJson.length;
-        // tabela.innerHTML = ""
-        for(let i = 0; i < MyJsonSize; i++ ){
-            if(MyJson[i].hours < 50 ){
-                quadrado = "quadrado_verde";
-            }
-            else if(MyJson[i].hours >= 50 && MyJson[i].hours < 70){
-                quadrado = "quadrado_amarelo";
-            }
-            else if(MyJson[i].hours >= 70 && MyJson[i].hours < 88 ){
-                quadrado = "quadrado_vermelho";
-            }
-            else if(MyJson[i].hours >= 88 ){
-                quadrado = "quadrado_preto";
-            } 
-        tabela.innerHTML += `<tr> <td><a data-toggle="modal" href="#modalhoras"><div class="modal_professional" > ${MyJson[i].name} </div></a></td> <td> ${MyJson[i].role} </td><td> ${MyJson[i].type} </td><td> ${MyJson[i].field} </td>  <td> <span class=${quadrado}> ${MyJson[i].hours}/170/176 </span> </td></tr>`;
-        }
-    }
+//     request.onreadystatechange = function(){
+//         let MyJson = JSON.parse(this.responseText);
+//         let MyJsonSize = MyJson.length;
+//         // tabela.innerHTML = ""
+//         for(let i = 0; i < MyJsonSize; i++ ){
+//             if(MyJson[i].hours < 50 ){
+//                 quadrado = "quadrado_verde";
+//             }
+//             else if(MyJson[i].hours >= 50 && MyJson[i].hours < 70){
+//                 quadrado = "quadrado_amarelo";
+//             }
+//             else if(MyJson[i].hours >= 70 && MyJson[i].hours < 88 ){
+//                 quadrado = "quadrado_vermelho";
+//             }
+//             else if(MyJson[i].hours >= 88 ){
+//                 quadrado = "quadrado_preto";
+//             } 
+//         tabela.innerHTML += `<tr> <td><a data-toggle="modal" href="#modalhoras"><div class="modal_professional" > ${MyJson[i].name} </div></a></td> <td> ${MyJson[i].role} </td><td> ${MyJson[i].type} </td><td> ${MyJson[i].field} </td>  <td> <span class=${quadrado}> ${MyJson[i].hours}/170/176 </span> </td></tr>`;
+//         }
+//     }
 
-    let url = "http://localhost:3061/profissionais"
-    request.open("GET", url, true);
-    request.send()
+//     let url = "/profissionais"
+//     request.open("get", url, true);
+//     request.send()
     
+// }
+
+function adicionarProfissionais() {
+    let url = "/profissionais";
+ 
+    let xhttp = new XMLHttpRequest(); //método do HTML que permite que faça requisições por script, no front
+ 
+    xhttp.open("get", url, false) ; //abre a requisição do XMLHttpRequest com esses parâmetros. False é sobre ser síncrono, pois vai pegar só uma requisição. True é assíncrono (para realizar mais de uma requisição ao mesmo tempo)
+ 
+    xhttp.send(); //manda para o servidor 
+    
+    let data = JSON.parse(xhttp.responseText); //recebe o dado que retorna do xhttp enviado ao servidor
+    console.log(data[0]);
+ 
+    $("#corpo-tabela-profissionais")[0].innerHTML = ''; //aqui tiramos todas as informações do array. Índice 0 pois o jQuery traz todos os elementos de honors, mas queremos só o primeiro - que é a própria DIV (para depois dividir em linhas)
+ 
+    data.forEach(PROFISSIONAIS => {    //cada linha da tabela se torna uma linha (se transforma sempre em uma linha diferente). forEach = paraCada. 
+       
+       //acessa o 1º objeto da div que colocamos para exibir os profissionais  
+       $("#corpo-tabela-profissionais")[0].innerHTML += `
+          <tr> 
+            <td> <a data-toggle="modal" href="#modalhoras"><div class="modal_professional"> ${PROFISSIONAIS.nome} </div> </a> </td>
+            <td> ${PROFISSIONAIS.nome} </td>
+            <td> ${PROFISSIONAIS.tipo} </td>
+            <td> ${PROFISSIONAIS.estado} </td>
+            <td> ${PROFISSIONAIS.area} </td>
+          </tr>             
+       `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa deliciosa string (`)
+          //${} permite passar um script  
+          //foi correlacionado, dinamicamente, o banco de dados com a parte a ser implementada no texto
+    });
 }
+
+//function storeForms(nome) {
+    
+    //alert(formRecieved.toString());
+    //alert('text(): '+ formRecieved.text());
+    //var jsonString = JSON.stringify(formRecieved);
+    //var htmlText = escape(formRecieved.innerHTML);
+    //var htmlText = formRecieved.innerHTML;
+    //var simplyString = String(formRecieved);
+//    db.transaction(function (tx) {
+//        tx.executeSql('INSERT INTO PROFISSIONAIS(nome) VALUES(?)', [nome]);
+//    }, function (err) {
+//    alert('StoreForms ERROR: ' + JSON.stringify(err));
+//    })
+//}

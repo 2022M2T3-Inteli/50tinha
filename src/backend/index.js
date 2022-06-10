@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const hostname = '127.0.0.1';
 
-const port = 3081;
+const port = 3091;
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const DBPATH = 'dbteste.db';
@@ -38,7 +38,7 @@ app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = `INSERT INTO PROFISSIONAIS (idFunc, nome, area, tipo, estado, idCargo) VALUES (${req.body.idFunc}, '${req.body.nome}', '${req.body.area}', '${req.body.tipo}', '${req.body.estado}', ${req.body.idCargo})`;
+	sql = `INSERT INTO PROFISSIONAIS (nome, area, tipo, estado, idCargo) VALUES ('${req.body.nome}', '${req.body.area}', '${req.body.tipo}', '${req.body.estado}', ${req.body.idCargo})`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {
