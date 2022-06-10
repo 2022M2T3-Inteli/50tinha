@@ -16,7 +16,7 @@ function generateGraphics(){
         graficos(arrayNomes, arrayHoras);
     }
 
-    url = "http://localhost:3081/alocacao/grafico2"
+    url = "/alocacao/grafico2"
     requestGraph.open("GET", url, true)
     requestGraph.send()
 
