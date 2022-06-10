@@ -105,6 +105,23 @@ app.get('/projetos', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
+// Pega informações para timeline
+app.get('/projetos/timeline', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = `SELECT nome, mesInicio, anoInicio, mesFim, anoFim FROM PROJETOS ORDER BY idProject COLLATE NOCASE`;
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		
+		}
+	res.json(rows)
+	});
+	db.close(); // Fecha o banco
+});
+
 //insere um novo projeto (C do CRUD)
 app.post('/projetos/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
@@ -162,6 +179,43 @@ app.get('/alocacao', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM PROJETOS ORDER BY idProject';
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		
+		}
+	res.json(rows)
+	});
+	db.close(); // Fecha o banco
+});
+
+// Pega alocação para gráficos 1
+app.get('/alocacao/grafico1', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = `SELECT PROJETOS.nome, SUM(horasAlocadasProjeto) AS somaHoras FROM alocacao
+  INNER JOIN PROJETOS ON ALOCACAO.idProject = PROJETOS.idProject
+  GROUP BY PROJETOS.idProject
+  ORDER BY PROJETOS.nome COLLATE NOCASE`;
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		
+		}
+	res.json(rows)
+	});
+	db.close(); // Fecha o banco
+});
+
+// Pega alocação para gráficos 2
+app.get('/alocacao/grafico2', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
   var sql = `SELECT PROJETOS.nome, SUM(horasAlocadasProjeto) AS somaHoras FROM alocacao
   INNER JOIN PROJETOS ON ALOCACAO.idProject = PROJETOS.idProject
   GROUP BY PROJETOS.idProject
@@ -211,6 +265,7 @@ app.patch('/alocacao/atualizar', urlencodedParser, (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
+
 
 // Exclui um registro (é o D do CRUD - Delete)
 app.delete('/alocacao/deletar', urlencodedParser, (req, res) => {
