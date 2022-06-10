@@ -68,6 +68,7 @@ function generateLines(){
             }
             console.log(i + " é o for ")
             criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
+            // criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, meses.dados[i].mesInicio, meses.dados[i].mesFim)
         }
     }
 
