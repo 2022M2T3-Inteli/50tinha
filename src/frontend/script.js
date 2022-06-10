@@ -1,3 +1,4 @@
+var x = 0
 //Login
 var btnAtivado = false
 var visibilityClick = false

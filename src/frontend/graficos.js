@@ -66,25 +66,21 @@ function generateLines(){
                 novembro: 10,
                 dezembro: 11
             }
-            console.log(i + " é o for caraio")
-            console.log(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, dados[i].mesInicio, dados[i].mesFim)
-            // criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, meses.dados[i].mesInicio, meses.dados[i].mesFim)
+            console.log(i + " é o for ")
+            criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
         }
     }
 
-    url = "http://localhost:3081/projetos/timeline"
+    url = "/projetos/timeline"
     requestLines.open("GET", url, true);
     requestLines.send();
 }
 
-var largura = window.screen.height
-var larguraAjuste = largura - (largura*0.15)
-n = 0; // Usado para indentificar o numero de projetos e ordenados
-res = 90;
 
-
-function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb){
-    n +=1;
+function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
+    var n = i
+    var largura = window.screen.height
+    var larguraAjuste = largura - (largura*0.15)
     var nP = nomedb; // np = Nome do projeto
     var anoInicio = parseInt(anoIniciodb);
     var anoFim = parseInt(anoFimdb);
