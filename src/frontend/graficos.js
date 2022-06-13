@@ -1,6 +1,28 @@
 const { get } = require("ajax");
 const { request } = require("express");
 
+
+
+function getEmployees(){
+    let requestLines = new XMLHttpRequest();
+    /*relaciona a duração com o tamanho do grafico*/
+
+    requestLines.onreadystatechange = function(){
+        let dados = JSON.parse(this.responseText)
+        let tamanhoDados = dados.length
+        for(let i = 0; i < tamanhoDados; i++){
+            console.log(i + " é o for 2 ")
+            alocacao(nome,id)
+            // criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, meses.dados[i].mesInicio, meses.dados[i].mesFim)
+        }
+    }
+    /*rota que será exibida*/
+
+    url = "/projetos/timeline"
+    requestLines.open("GET", url, true);
+    requestLines.send();
+}
+
 /* função que quando executada gerará o gráfico*/
 function generateGraphics(){
     let requestGraph = new XMLHttpRequest();
@@ -136,7 +158,11 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     
 }
 
-
+function alocacao(nomedb,iddb){
+    var nome = nomedb
+    var id = iddb
+    document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
+}
 
 function gerarBtn(){
     document.getElementById("Controle").innerHTML = "<button class=\"btn-controle\" onclick=\"keyB()\"><span class=\"material-symbols-outlined\">arrow_back_ios</span></button><button class=\"btn-controle\" onclick=\"keyA()\"><span class=\"material-symbols-outlined\">arrow_forward_ios</span></button>"
