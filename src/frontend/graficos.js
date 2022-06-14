@@ -6,7 +6,7 @@ function generateGraphics(){
     let requestGraph = new XMLHttpRequest();
     /* informações que serão coletadas do banco de dados para gerar o gráfico*/
 
-    requestGraph.onreadystatechange = function(){
+    requestGraph.onload = function(){
         let dados = JSON.parse(this.response)
         let tamanhoDados = dados.length
         let arrayHoras = []
@@ -30,7 +30,7 @@ function getEmployees(){
     let requestLines = new XMLHttpRequest();
     /*relaciona a duração com o tamanho do grafico*/
 
-    requestLines.onreadystatechange = function(){
+    requestLines.onload = function(){
         let dados = JSON.parse(this.responseText)
         let tamanhoDados = dados.length
         for(let i = 0; i < tamanhoDados; i++){
@@ -75,7 +75,7 @@ function generateLines(){
     let requestLines = new XMLHttpRequest();
     /*relaciona a duração com o tamanho do grafico*/
 
-    requestLines.onreadystatechange = function(){
+    requestLines.onload = function(){
         let dados = JSON.parse(this.responseText)
         let tamanhoDados = dados.length
         for(let i = 0; i < tamanhoDados; i++){

@@ -246,7 +246,19 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-
+            <button class="hand_hover" type="submit" data-dismiss="modal">Alocação</button>
+            <div id="alocacao">
+                <label for="alocacaos">Alocar: </label>
+                <select name="alocacaos" id="alocacaos">
+                    <option value="sp">SP</option>
+                    <option value="am">AM</option>
+                    <option value="ambos">Ambos</option>
+                </select>
+                <div id="nfuncionarios">
+                    <label for="nfunciona">Número de Funcionários: </label>
+                    <input type="number" name="nfunciona">
+                </div>
+            </div>
             <canvas id="bar-chart" class="chart-fix"></canvas>
             <script>
                 new Chart(document.getElementById("bar-chart"), {
