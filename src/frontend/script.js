@@ -21,10 +21,12 @@ var x = 0
 
 
 function keyB(){
-    x -= 100
-    console.log(x)
-    $("#calendario").css("left","auto")
-    $("#calendario").css("right",(x)+"px")
+    console.log("É o seu numero: "+$("#calendario").css("left"))
+    if(parseInt($("#calendario").css("left")) < 235){
+        x -= 100
+        $("#calendario").css("left","auto")
+        $("#calendario").css("right",(x)+"px")
+    }
 }
 
 function keyA(){
