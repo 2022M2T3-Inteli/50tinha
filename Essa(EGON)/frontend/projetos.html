@@ -10,17 +10,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="criarprojmodal.css">
 
     
     <title>Projetos</title>
 </head>
-    <body onload="geraTabelaProj();">
+    <body>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <!--PÁGINA DE PROJETOS-->
 
     <div class="container-nosso">
         <header>
-            <div class="barra-pesqusia"> <!--Caixa de pesquisa-->
+            <div class="barra-pesqusia">
                 <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
                 
                 <input class="barra-texto" type="text" name="" placeholder="Pesquisar projeto">
@@ -28,28 +28,28 @@
                 <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span>
             </div>
             <nav class="bar">
-                <ul id="estilonav"><!--barra de páginas -->
+                <ul id="estilonav">
                     <li><a class="n-active"  href="abageral.html">Visão Geral</a></li>
                     <li><a  class="active" href="projetos.html">Por Projeto</a></li>
                 </ul>
             </nav>
             <div class="leva">
-                <div class="login"><!--ícone do profissional logado-->
+                <div class="login">
                     <a class="" href="index.html">Roberto</a>
                 </div>
             </div>
         </header>
                 <div class="CorpoProfissionais ajuste">
-                    <div class="col container limite-largura">
-                        <table id="tabelaProj" class="table table-sm table-hover"><!-- tabela dos projetos-->
+                    <div class="col container">
+                        <table class="table table-sm table-hover">
                             <tr>
-                                <th>Projeto</th><!--primeira linha da tabela-->
+                                <th>Projeto</th>
                                 <th>Duração</th>
                                 <th>Nº Funcionários/Projetos</th>
                                 <th>Unidade</th>
                             </tr>
                             <tr>
-                                <td id="coldata" class="aba"><!-- abre os gráficos específicos-->
+                                <td id="coldata" class="aba">
                                     <a href="#modalgraphs" data-toggle="modal">Moto Voadora</a>                 
                                 </td>
                                 <td id="coldata" class="aba">
@@ -63,22 +63,66 @@
  
                                 <td>SP</td>
                             </tr>
+                            <tr>
+                                <td> 1a</td>
+                                <td> 2a</td>
+                                <td> 3a</td>
+                                <td> 4a</td>
+                            </tr>
+                            <tr>
+                                <td> 1a</td>
+                                <td> 2a</td>
+                                <td> 3a</td>
+                                <td> 4a</td>
+                            </tr>
+                            <tr> 
+                                <td> 2c</td>
+                                <td> 3c</td>
+                                <td> 4c</td>
+                            </tr>
+                            <tr>
+                                <td> 1d</td>
+                                <td> 2d</td>
+                                <td> 3d</td>
+                                <td> 4d</td>
+                            </tr>
+                            <tr>
+                                <td> 1e</td>
+                                <td> 2e</td>
+                                <td> 3e</td>
+                                <td> 4e</td>
+                            </tr>
+                            <tr>
+                                <td> 1d</td>
+                                <td> 2d</td>
+                                <td> 3d</td>
+                                <td> 4d</td>
+                            </tr>
+                            <tr>
+                                <td> 1e</td>
+                                <td> 2e</td>
+                                <td> 3e</td>
+                                <td> 4e</td>
+                            </tr>
+                            <tr>
+                                <td> 1d</td>
+                                <td> 2d</td>
+                                <td> 3d</td>
+                                <td> 4d</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
-        <div id="menu"><!--menu lateral onde ficam os botões-->
+        <div id="menu">
             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div>
             <nav id="nav-menu">
                 <ul class="centro">
-                    <!--botão que leva para página de profissionais-->
                     <div class="profi" > <li class="ordem"><a  class="centra ordem" href="profissionais.html"><span class="material-symbols-outlined">
                         person_search
                         </span>Profissionais</a></li></div>
-                         <!--botão que leva para página de projetos-->
                     <div class="ative-projeto"> <li class="ordem"><span class="material-symbols-outlined">
                         task
                         </span>Projetos</li></div>
-                        <!--botão que leva para tela de adicionar projetos-->
                     <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem">
                         <span class="material-symbols-outlined">
                         add
@@ -88,33 +132,34 @@
         </div>
     </div>
 
-<!-- modal para criar novos projetos -->
+<!-- Modal body -->
 <div class="modal fade" id="modalpro" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-            <form>
-            <!--atribuições que serão selecionadas para o projeto-->
+    <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
             <div id="nome">
                 <label for="nome">Nome do Projeto</label>
-                <input id="nomeProj" name="nome" type="text">
+                <input name="nome" type="text">
     </div>
     <div id="unidade">
             <label for="unidades">Unidades: </label>
-            <select id="unidadeProj" name="unidades" id="unidades">
+            <select name="unidades" id="unidades">
                 <option value="sp">SP</option>
                 <option value="am">AM</option>
                 <option value="ambos">Ambos</option>
             </select>
+        <div id="nfuncionarios">
+        <label for="nfunciona">Número de Funcionários: </label>
+        <input type="number" name="nfunciona">
+        </div>
     </div>
-            <!--dia, mês e ano de início-->
         <div id="inicio">
         <p>Data de início</p>
             <label for="dia">Dia: </label>
-            <select name="dia" id="diaInicioProj";>
+            <select name="dia" id="dia";>
                 <option value="01">1</option>
                 <option value="02">2</option>
                 <option value="03">3</option>
@@ -148,23 +193,23 @@
                 <option value="31">31</option>
                 </select>
                 <label for="meses">Mês: </label>
-                <select name="meses" id="mesInicioProj" ;>
-                    <option value="Janeiro">Janeiro</option>
-                    <option value="Fevereiro">Fevereiro</option>
-                    <option value="Março">Março</option>
-                    <option value="Abril">Abril</option>
-                    <option value="Maio">Maio</option>
-                    <option value="Junho">Junho</option>
-                    <option value="Julho">Julho</option>
-                    <option value="Agosto">Agosto</option>
-                    <option value="Setembro">Setembro</option>
-                    <option value="Outubro">Outubro</option>
-                    <option value="Novembro">Novembro</option>
-                    <option value="Dezembro">Dezembro</option>
+                <select name="meses" id="meses" ;>
+                    <option value="0">Janeiro</option>
+                    <option value="1">Fevereiro</option>
+                    <option value="2">Março</option>
+                    <option value="3">Abril</option>
+                    <option value="4">Maio</option>
+                    <option value="5">Junho</option>
+                    <option value="6">Julho</option>
+                    <option value="7">Agosto</option>
+                    <option value="8">Setembro</option>
+                    <option value="9">Outubro</option>
+                    <option value="10">Novembro</option>
+                    <option value="11">Dezembro</option>
                     <label for="Ano">Ano: </label>
                 </select>
             <label for="Ano">Ano: </label>
-            <select name="Ano" id="anoInicioProj">
+            <select name="Ano" id="Ano">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -182,25 +227,24 @@
     </div>
     </div>
     <div id="duracao">
-          <!--dia, mês e ano do término-->
         <p>Estimativa de termino:</p>
             <label for="meses1">Mês: </label>
-            <select name="meses1" id="mesFimProj" ;>
-                <option value="Janeiro">Janeiro</option>
-                <option value="Fevereiro">Fevereiro</option>
-                <option value="Março">Março</option>
-                <option value="Abril">Abril</option>
-                <option value="Maio">Maio</option>
-                <option value="Junho">Junho</option>
-                <option value="Julho">Julho</option>
-                <option value="Agosto">Agosto</option>
-                <option value="Setembro">Setembro</option>
-                <option value="Outubro">Outubro</option>
-                <option value="Novembro">Novembro</option>
-                <option value="Dezembro">Dezembro</option>
+            <select name="meses1" id="meses1" ;>
+                <option value="0">Janeiro</option>
+                <option value="1">Fevereiro</option>
+                <option value="2">Março</option>
+                <option value="3">Abril</option>
+                <option value="4">Maio</option>
+                <option value="5">Junho</option>
+                <option value="6">Julho</option>
+                <option value="7">Agosto</option>
+                <option value="8">Setembro</option>
+                <option value="9">Outubro</option>
+                <option value="10">Novembro</option>
+                <option value="11">Dezembro</option>
             </select>
             <label for="Ano">Ano: </label>
-            <select name="Ano" id="anoFimProj">
+            <select name="Ano" id="Ano">
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -218,7 +262,7 @@
     </div>
     <div id="area">
         <label for="areas">Área Trabalhada: </label>
-        <select name="areas" id="areaProj">
+        <select name="areas" id="areas">
             <option value="area1">Área 1</option>
             <option value="area2">Área 2</option>
             <option value="area3">Área 3</option>
@@ -226,11 +270,9 @@
             <option value="area5">Área 5</option>
         </select>
     </div>
-    <button class="hand_hover" type="submit" onclick="enviaProjeto();" data-dismiss="modal">Criar</button>
-    </form>
         </div>
-          <!--botão que cria o projeto-->
         <div class="modal-footer">
+        <button class="hand_hover" type="button" data-dismiss="modal">Criar</button>
         </div>
     </div>
     </div>
@@ -238,7 +280,7 @@
 </div>
 
 
-<!-- modal dos gráficos -->
+<!-- Modal body - Graphics -->
 <div class="modal fade" id="modalgraphs" role="dialog">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -270,9 +312,7 @@
                 }
             });
             </script>
-            </center> 
-
-            <!--atribui cores aos gráficos-->
+            </center>   
 
 
             <canvas id="pie-chart"></canvas>
@@ -300,7 +340,7 @@
 
     </div>
         </div>
-        <div class="modal-footer"> <!--modal de criar projetos-->
+        <div class="modal-footer">
         <button class="hand_hover" type="button" data-dismiss="modal">Criar</button>
         </div>
     </div>
@@ -308,6 +348,6 @@
 </div>
 </div>
 
-    <script src="script.js" ></script>
+
     </body>
 </html>

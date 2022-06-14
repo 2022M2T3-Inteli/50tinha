@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="criarprojmodal.css">
+</head>
+<body>
+
+<div class="container">
+ 
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Criar Projeto</button>
+
+  
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Criar Projeto</h4>
+        </div>
+        <div class="modal-body">
+            <div id="nome">
+                <label for="nome">Nome do Projeto</label>
+                <input name="nome" type="text">
+       </div>
+       <div id="unidade">
+               <label for="unidades">Unidades: </label>
+               <select name="unidades" id="unidades">
+                   <option value="sp">SP</option>
+                   <option value="am">AM</option>
+               </select>
+        <div id="nfuncionarios">
+          <label for="nfunciona">Número de Funcionários: </label>
+          <input type="number" name="nfunciona">
+        </div>      
+           
+       </div>
+          <div id="inicio">
+           <p>Data de início</p>
+               <label for="dia">Dia: </label>
+               <select name="dia" id="dia";>
+                  <option value="01">1</option>
+                  <option value="02">2</option>
+                  <option value="03">3</option>
+                  <option value="04">4</option>
+                  <option value="05">5</option>
+                  <option value="06">6</option>
+                  <option value="07">7</option>
+                  <option value="08">8</option>
+                  <option value="09">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                </select>
+
+
+                <label for="meses">Mês: </label>
+               <select name="meses" id="meses";>
+                   <option value="Janeiro">Janeiro</option>
+                   <option value="Fevereiro">Fevereiro</option>
+                   <option value="Março">Março</option>
+                   <option value="Abril">Abril</option>
+                   <option value="Maio">Maio</option>
+                   <option value="Junho">Junho</option>
+                   <option value="Julho">Julho</option>
+                   <option value="Agosto">Agosto</option>
+                   <option value="Setembro">Setembro</option>
+                   <option value="Outubro">Outubro</option>
+                   <option value="Novembro">Novembro</option>
+                   <option value="Dezembro">Dezembro</option>
+                   <label for="Ano">Ano: </label>
+                   </select>
+
+
+               <label for="Ano">Ano: </label>
+               <select name="Ano" id="Ano">
+                   <option value="2022">2022</option>
+                   <option value="2023">2023</option>
+                   <option value="2024">2024</option>
+                   <option value="2025">2025</option>
+                   <option value="2026">2026</option>
+                   <option value="2027">2027</option>
+                   <option value="2028">2028</option> 
+                   <option value="2029">2029</option>
+                   <option value="2030">2030</option>
+                   <option value="2031">2031</option>
+                   <option value="2032">2032</option>
+                   <option value="2033">2033</option>
+                   <option value="2034">2034</option>
+               </select>
+       </div>       
+      </div>
+
+       <div id="duracao">
+           <p>Estimativa de termino:</p>
+               <label for="meses">Mês: </label>
+               <select name="meses" id="meses";>
+                   <option value="Janeiro">Janeiro</option>
+                   <option value="Fevereiro">Fevereiro</option>
+                   <option value="Março">Março</option>
+                   <option value="Abril">Abril</option>
+                   <option value="Maio">Maio</option>
+                   <option value="Junho">Junho</option>
+                   <option value="Julho">Julho</option>
+                   <option value="Agosto">Agosto</option>
+                   <option value="Setembro">Setembro</option>
+                   <option value="Outubro">Outubro</option>
+                   <option value="Novembro">Novembro</option>
+                   <option value="Dezembro">Dezembro</option>
+               </select>
+               <label for="Ano">Ano: </label>
+               <select name="Ano" id="Ano">
+                   <option value="2022">2022</option>
+                   <option value="2023">2023</option>
+                   <option value="2024">2024</option>
+                   <option value="2025">2025</option>
+                   <option value="2026">2026</option>
+                   <option value="2027">2027</option>
+                   <option value="2028">2028</option> 
+                   <option value="2029">2029</option>
+                   <option value="2030">2030</option>
+                   <option value="2031">2031</option>
+                   <option value="2032">2032</option>
+                   <option value="2033">2033</option>
+                   <option value="2034">2034</option>
+               </select>
+       </div>       
+       <div id="area">
+         <label for="areas">Área Trabalhada: </label>
+         <select name="areas" id="areas">
+            <option value="area1">Área 1</option>
+            <option value="area2">Área 2</option>
+            <option value="area3">Área 3</option>
+            <option value="area4">Área 4</option>
+            <option value="area5">Área 5</option>
+         </select>
+       </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-dismiss="modal">Criar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+</body>
+</html>

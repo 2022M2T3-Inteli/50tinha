@@ -1,8 +1,10 @@
 const { get } = require("ajax");
 const { request } = require("express");
 
+/* função que quando executada gerará o gráfico*/
 function generateGraphics(){
     let requestGraph = new XMLHttpRequest();
+    /* informações que serão coletadas do banco de dados para gerar o gráfico*/
 
     requestGraph.onreadystatechange = function(){
         let dados = JSON.parse(this.response)
@@ -16,12 +18,15 @@ function generateGraphics(){
         graficos(arrayNomes, arrayHoras);
     }
 
+    /*rota que o gráfico será exibidp*/
+
     url = "/alocacao/grafico2"
     requestGraph.open("GET", url, true)
     requestGraph.send()
 
 }
 
+/*atribui legenda e cores para o grafico*/
 function graficos(nomeProj, horasProj){
     new Chart(document.getElementById("bar-chart"), {
         type: 'bar',
@@ -45,8 +50,10 @@ function graficos(nomeProj, horasProj){
     });
 }
 
+/* calendário */
 function generateLines(){
     let requestLines = new XMLHttpRequest();
+    /*relaciona a duração com o tamanho do grafico*/
 
     requestLines.onreadystatechange = function(){
         let dados = JSON.parse(this.responseText)
@@ -70,13 +77,14 @@ function generateLines(){
             criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
         }
     }
+    /*rota que será exibida*/
 
     url = "/projetos/timeline"
     requestLines.open("GET", url, true);
     requestLines.send();
 }
 
-
+/*define como será a exibição do projeto se ele durar mais que um ano*/
 function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     var n = i
     var largura = window.screen.height
@@ -117,8 +125,8 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
         tamanho = tamanho
         $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
         $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
-        window.document.getElementById("add").innerHTML += "<div>"+"---- "+String(anoFim)+" --->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
-        $("#add").css("width",(x)+"%")
+        window.document.getElementById("add").innerHTML += "<div class=\"step-c\">"+"|----"+String(anoFim)+"---->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
+        // $("#add").css("width",(x)+"%")
         $(".month").css("min-width",(y)+"%"+"!important")
         console.log("y: "+y)
 
