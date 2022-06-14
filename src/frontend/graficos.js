@@ -26,26 +26,6 @@ function generateGraphics(){
 
 }
 
-function getEmployees(){
-    let requestLines = new XMLHttpRequest();
-    /*relaciona a duração com o tamanho do grafico*/
-
-    requestLines.onload = function(){
-        let dados = JSON.parse(this.responseText)
-        let tamanhoDados = dados.length
-        for(let i = 0; i < tamanhoDados; i++){
-            console.log(i + " é o for 2 ")
-            alocacao(nome,id)
-            // criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, meses.dados[i].mesInicio, meses.dados[i].mesFim)
-        }
-    }
-    /*rota que será exibida*/
-
-    url = "/projetos/timeline"
-    requestLines.open("GET", url, true);
-    requestLines.send();
-}
-
 /*atribui legenda e cores para o grafico*/
 function graficos(nomeProj, horasProj){
     new Chart(document.getElementById("bar-chart"), {
@@ -137,7 +117,6 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
         if(btnAtivado == false){
             gerarBtn()
             btnAtivado = true
-            alert(btnAtivado)
         }
         let x = 85*(anoRes+1)
         let y = (50/(anoRes+1*(percentual+100)))
@@ -152,13 +131,6 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     }else{ $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
     $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")}
     
-}
-
-
-function alocacao(nomedb,iddb){
-    var nome = nomedb
-    var id = iddb
-    document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
 }
 
 function gerarBtn(){

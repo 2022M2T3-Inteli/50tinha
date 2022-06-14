@@ -93,7 +93,7 @@ function geraTabelaProj(){
             // else{
             //     duracao.push(eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio))
             // }
-            console.log(duracao[i]);
+            // console.log(duracao[i]);
             tabelaProj.innerHTML +=`<tr> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td></tr>`
         }
     }
@@ -145,4 +145,27 @@ var meses = {
     outubro: 9,
     novembro: 10,
     dezembro: 11
+}
+
+function getEmployees(){
+    let requestLines = new XMLHttpRequest();
+    requestLines.onload = function(){
+        let dados = JSON.parse(this.responseText)
+        let tamanhoDados = dados.length
+        for(let i = 0; i < tamanhoDados; i++){
+            alocacao(dados[i].nome,dados[i].id)
+        }
+    }
+    /*rota que será exibida*/
+
+    url = "/profissionais"
+    requestLines.open("GET", url, true);
+    requestLines.send();
+}
+
+
+function alocacao(nomedb,iddb){
+    var nome = nomedb
+    var id = iddb
+    document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
 }

@@ -1,5 +1,6 @@
 const express = require('express'); 
 const bodyParser = require('body-parser');
+const { json } = require('express');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const hostname = '127.0.0.1';
 
@@ -32,6 +33,8 @@ app.get('/profissionais', (req, res) => {
 	});
 	db.close(); // Fecha o banco
 });
+
+
 
 // Insere um registro 
 app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
