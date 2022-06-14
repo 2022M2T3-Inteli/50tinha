@@ -15,11 +15,12 @@
     <title>Aba Geral</title>
 </head>
 
-<body onload="generateGraphics();generateLines();"> <!-- Função que registra o data atual -->
+<body onload="generateGraphics();generateLines();"> <!-- função que registra a data atual -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <div class="container-nosso"> <!--Area de todas aplicação-->
-        <header> <!-- Nosso HEADER Statico -->
+    <div class="container-nosso"> <!-- área de todas aplicações -->
+
+        <header> <!-- nosso HEADER estático -->
             <div class="barra-pesqusia">
                 <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
 
@@ -28,8 +29,9 @@
                 <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span>
                 
             </div>
-            <nav class="bar">
-                <ul id="estilonav">  <!-- Barra de navegação do HEADER -->
+            <nav class="bar">   
+
+                <ul id="estilonav">  <!-- barra de navegação do HEADER -->
                     <li><a class="active" href="abageral.html">Visão Geral</a></li>
                     <li><a class="n-active" href="projetos.html">Por Projeto</a></li>
                 </ul>
@@ -40,12 +42,14 @@
                 </div>
             </div>
         </header>
-        <div id="graficos"> <!-- Primeira parte do conteudo não statico da aplicação / area dedicada aos gráficos -->
+
+        <div id="graficos"> <!-- primeira parte do conteudo não estatico da aplicação / área dedicada aos gráficos -->
             <canvas id="line-chart" width="100px" height="30px"></canvas>
             <script>
                 new Chart(document.getElementById("line-chart"), {
                     type: 'line',
                     data: {
+                        
                         labels: ["Jan", "Fev", "Mar", "Abr", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
                         datasets: [{
                             label: "Limitações com recursos internos",
@@ -92,7 +96,8 @@
 
            
         </div>
-        <div id="calendario"> <!-- Segunda parte do conteudo não statico da aplicação, Responsavel pelo calendario dinamico -->
+        <!--calendário dinâmico-->
+        <div id="calendario"> <!-- segunda parte do conteúdo não estatico da aplicação, responsável pelo calendário dinâmico -->
             <div class="month-div" id="add">
                 <ul class="month">    
                     <li><h3> jan </h3></li>
@@ -110,7 +115,7 @@
                 </ul>
             </div>
                 
-            <u id="c-todos"> <!-- Todos os projetos exibidos no calendario sáo alocados aqui -->
+            <u id="c-todos"> <!-- todos os projetos exibidos no calendário sáo alocados aqui -->
             </u>
         </div>
 
@@ -118,9 +123,9 @@
             
         </div>
 
-        <div id="menu">  <!-- Menu lateral, aqui é colocado todos os botões e a logo da aplicação -->
-             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div> <!-- Logo -->
-                <nav id="nav-menu"> <!-- Botões -->
+        <div id="menu">  <!-- Menu lateral. Aqui são colocados todos os botões e a logo da Yamaha -->
+             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div> <!-- logo -->
+                <nav id="nav-menu"> <!-- botões -->
                     <ul class="centro">
                     <div class="profi">
                         <li class="ordem"><a class="centra ordem" href="profissionais.html"><span
@@ -144,7 +149,9 @@
                  </nav>
         </div>
     </div>
-    <!-- Modal body -->
+
+
+    <!-- modal para adicionar projetos -->
     <div class="modal fade" id="modalpro" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -153,6 +160,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="nome">
+                        <!--atributos do projeto-->
                         <label for="nome">Nome do Projeto</label>
                         <input name="nome" type="text" id="nP">
                     </div>
@@ -168,6 +176,7 @@
                             <input type="number" name="nfunciona">
                         </div>
                     </div>
+                    <!-- dia, mês e ano que inicia o projeto-->
                     <div id="inicio">
                         <p>Data de início</p>
                         <label for="dia">Dia: </label>
@@ -238,6 +247,7 @@
                         </select>
                     </div>
                 </div>
+                <!-- dia, mês e ano que encerra o projeto-->
                 <div id="duracao">
                     <p>Estimativa de término:</p>
                     <label for="meses1">Mês: </label>
@@ -272,6 +282,7 @@
                         <option value="2034">2034</option>
                     </select>
                 </div>
+                <!-- área do projeto -->
                 <div id="area">
                     <label for="areas">Área Trabalhada: </label>
                     <select name="areas" id="areas">
@@ -284,6 +295,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <!-- botão que chama a função do JavaScript para criar o projeto-->
                 <button type="button" onclick="criarProjeto()" data-dismiss="modal" id="teste">Criar</button>
             </div>
         </div>
