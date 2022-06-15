@@ -93,7 +93,7 @@
             <div class="modal-body">
                 <div id="nome">
                     <label for="nome">Nome do Funcionario</label>
-                    <input name="nome" type="text">
+                    <input id="nomeFunc" type="text">
         </div>
         <div id="unidade">
                 <label for="unidades">Estado: </label>
@@ -106,8 +106,8 @@
         <div id="inicio">
                 <label for="CLT">CLT?:</label>
                 <select name="tipo" id="CLT">
-                  <option value="simclt">Sim</option>
-                  <option value="naoclt">Nao</option>
+                  <option value="sim">Sim</option>
+                  <option value="nao">Nao</option>
                 </select>
         </div>
         <div id="horastrabalhadas">
@@ -119,15 +119,15 @@
         <div id="inicio">
             <label for="areas">Área Trabalhada: </label>
             <select name="area" id="areas">
-                <option value="area1">GOVERNANÇA</option>
-                <option value="area2">SISTEMAS</option>
-                <option value="area3">INFRAESTRUTURA</option>
-                <option value="area4">SEGURANÇA DA INFORMAÇÃO</option>
+                <option value="governanca">GOVERNANÇA</option>
+                <option value="sistemas">SISTEMAS</option>
+                <option value="infraestrutura">INFRAESTRUTURA</option>
+                <option value="seguranca da informacao">SEGURANÇA DA INFORMAÇÃO</option>
             </select>
         </div>
             </div>
             <div class="modal-footer">
-              <button type="button" data-dismiss="modal" onclick="enviarDados();"> Criar </button>
+              <button type="submit" data-dismiss="modal" action="/profissionais" onclick="enviarDados();"> Criar </button>
             </div>
         </div>
         </div>

@@ -22,7 +22,7 @@ app.get('/profissionais', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	var db = new sqlite3.Database(DBPATH); // Abre o ban	co
   var sql = 'SELECT * FROM PROFISSIONAIS ORDER BY idFunc';
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
@@ -41,7 +41,7 @@ app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-	sql = `INSERT INTO PROFISSIONAIS (nome, area, tipo, estado, idCargo) VALUES ('${req.body.nome}', '${req.body.area}', '${req.body.tipo}', '${req.body.estado}', ${req.body.idCargo})`;
+	sql = `INSERT INTO PROFISSIONAIS (nome, area, tipo, estado) VALUES ('${req.body.nome}', '${req.body.area}', '${req.body.tipo}', '${req.body.estado}')`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {
@@ -50,7 +50,7 @@ app.post('/profissionais/adicionar', urlencodedParser, (req, res) => {
 		}
 		else console.log(sql);
 	});
-	db.close(); // Fecha o banco
+	db.close(); // Fecha o banco	
 	res.end();
 });
 

@@ -36,13 +36,7 @@ function keyA(){
     $("#calendario").css("right",(x)+"px")
 }
 
-//Requição AJAX
-// const rodape = document.getElementById("rodape")
-// rodape.onload = geraTabela()
-// const tabela= document.getElementById("hover_tabela")
-
-
-function adicionarProfissionais() {
+function adicionarProfissionais() { ////////////MUDAR PROFISSIONAIS.NOME DUPLICADO
     let url = "/profissionais";
  
     let xhttp = new XMLHttpRequest(); //método do HTML que permite que faça requisições por script, no front
@@ -171,3 +165,6 @@ function alocacao(nomedb,iddb){
     var id = iddb
     document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
 }
+
+
+fu
