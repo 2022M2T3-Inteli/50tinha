@@ -259,7 +259,8 @@
                     <input type="number" name="nfunciona">
                 </div>
             </div>
-            <canvas id="bar-chart" class="chart-fix"></canvas>
+            <center>
+            <canvas id="bar-chart" class="chart-fix" height="170"></canvas>
             <script>
                 new Chart(document.getElementById("bar-chart"), {
                 type: 'bar',
@@ -282,12 +283,14 @@
                 }
             });
             </script>
+            </div>
             </center> 
+
 
             <!--atribui cores aos gráficos-->
 
-
-            <canvas id="pie-chart"></canvas>
+            <center>
+            <canvas id="pie-chart" height="200"></canvas>
             <script>new Chart(document.getElementById("pie-chart"), {
                 type: 'pie',
                 data: {
@@ -306,7 +309,8 @@
                 }
             });
             </script>
-            </center>                   
+            </center>     
+            <br>              
          </td>    
         </td>
 
