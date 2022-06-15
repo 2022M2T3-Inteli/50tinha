@@ -1,6 +1,5 @@
 const { get } = require("ajax");
 const { request } = require("express");
-
 /* função que quando executada gerará o gráfico*/
 function generateGraphics(){
     let requestGraph = new XMLHttpRequest();
@@ -49,7 +48,6 @@ function graficos(nomeProj, horasProj){
         }
     });
 }
-
 /* calendário */
 function generateLines(){
     let requestLines = new XMLHttpRequest();
@@ -57,7 +55,9 @@ function generateLines(){
 
     requestLines.onload = function(){
         let dados = JSON.parse(this.responseText)
-        let tamanhoDados = dados.length
+        let tamanhoDados = dados.length //2022
+        let anos = []
+        var porta = true
         for(let i = 0; i < tamanhoDados; i++){
             var meses = {
                 janeiro: 0,
@@ -73,8 +73,12 @@ function generateLines(){
                 novembro: 10,
                 dezembro: 11
             }
-            criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
+            anos.push(dados[i].anoFim)
+            
+
+            criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i,porta)
         }
+        return novaArr;
     }
     /*rota que será exibida*/
 
@@ -82,10 +86,10 @@ function generateLines(){
     requestLines.open("GET", url, true);
     requestLines.send();
 }
-
 /*define como será a exibição do projeto se ele durar mais que um ano*/
-function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
-    var n = i
+function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i,pode){
+    var novoAno = pode
+    var n = i +1
     var largura = window.screen.height
     var larguraAjuste = largura - (largura*0.15)
     var nP = nomedb; // np = Nome do projeto
@@ -96,14 +100,14 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     var mesFinal = parseInt(mesFinaldb)
     var tamanho = ((mesFinal - mesInicio)+1)
     var percentual = 1/larguraAjuste
-    var anoA = 11
-    console.log("Ano: "+anoRes+" anoA: "+anoA)
-    console.log(larguraAjuste)
+    console.log("Projeto: "+nP+ " - "+n)
+    console.log("AnoResto: "+anoRes)
     if( anoRes == 0 ){
         tamanho = ((percentual+7)*tamanho)
         }
     else{
-        tamanho = (anoRes*((percentual+7)*11) + ((percentual+7)*tamanho)) + 14
+        console.log("ELSE AQUI ESTOU")
+        tamanho = (anoRes*((percentual+7)*11) + ((percentual+7)*tamanho))
         }
     mesInicio+=1
     console.log("Antes: "+mesInicio)
@@ -111,26 +115,22 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     console.log("Depois: "+mesInicio)
     document.getElementById("c-todos").innerHTML += "<li><div>"+nP+"</div></li>";
     console.log("Tamanho:"+tamanho)
-    console.log("MesInicio:"+mesInicio)
-    console.log("ResAno:"+anoRes)
     if(tamanho>80){
         if(btnAtivado == false){
             gerarBtn()
             btnAtivado = true
         }
-        let x = 85*(anoRes+1)
         let y = (50/(anoRes+1*(percentual+100)))
-        tamanho = tamanho
+        tamanho = tamanho + 19 + anoRes
         $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
         $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
+        if(novoAno == true){
         window.document.getElementById("add").innerHTML += "<div class=\"step-c\">"+"|----"+String(anoFim)+"---->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
-        // $("#add").css("width",(x)+"%")
         $(".month").css("min-width",(y)+"%"+"!important")
-        console.log("y: "+y)
+        }
 
     }else{ $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
     $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")}
-    
 }
 
 function gerarBtn(){

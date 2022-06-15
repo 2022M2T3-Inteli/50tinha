@@ -114,7 +114,7 @@ app.get('/projetos/timeline', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erros
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = `SELECT nome, mesInicio, anoInicio, mesFim, anoFim FROM PROJETOS ORDER BY idProject COLLATE NOCASE`;
+  var sql = `SELECT nome, mesInicio, anoInicio, mesFim, anoFim FROM PROJETOS NOCASE`;
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
