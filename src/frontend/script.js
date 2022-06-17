@@ -167,4 +167,3 @@ function alocacao(nomedb,iddb){
 }
 
 
-fu

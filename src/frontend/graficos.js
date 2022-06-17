@@ -55,9 +55,8 @@ function generateLines(){
 
     requestLines.onload = function(){
         let dados = JSON.parse(this.responseText)
-        let tamanhoDados = dados.length //2022
+        let tamanhoDados = dados.length 
         let anos = []
-        var porta = true
         for(let i = 0; i < tamanhoDados; i++){
             var meses = {
                 janeiro: 0,
@@ -76,9 +75,15 @@ function generateLines(){
             anos.push(dados[i].anoFim)
             
 
-            criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i,porta)
+            criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
         }
-        return novaArr;
+        var novaArr = anos.filter(function(este, i) {
+            return anos.indexOf(este) === i;
+        });
+        for (let i = 1; i < novaArr.length; i++) {
+            criarCalendario(novaArr[i],i)
+            
+        }
     }
     /*rota que será exibida*/
 
@@ -87,8 +92,7 @@ function generateLines(){
     requestLines.send();
 }
 /*define como será a exibição do projeto se ele durar mais que um ano*/
-function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i,pode){
-    var novoAno = pode
+function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
     var n = i +1
     var largura = window.screen.height
     var larguraAjuste = largura - (largura*0.15)
@@ -120,19 +124,23 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i,p
             gerarBtn()
             btnAtivado = true
         }
-        let y = (50/(anoRes+1*(percentual+100)))
         tamanho = tamanho + 19 + anoRes
         $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
         $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
-        if(novoAno == true){
-        window.document.getElementById("add").innerHTML += "<div class=\"step-c\">"+"|----"+String(anoFim)+"---->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
-        $(".month").css("min-width",(y)+"%"+"!important")
-        }
-
     }else{ $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
     $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")}
 }
 
 function gerarBtn(){
     document.getElementById("Controle").innerHTML = "<button class=\"btn-controle\" onclick=\"keyB()\"><span class=\"material-symbols-outlined\">arrow_back_ios</span></button><button class=\"btn-controle\" onclick=\"keyA()\"><span class=\"material-symbols-outlined\">arrow_forward_ios</span></button>"
+}
+
+
+function criarCalendario(fim,anos){
+    var largura = window.screen.height
+    var larguraAjuste = largura - (largura*0.15)
+    var percentual = 1/larguraAjuste
+    let y = (50/(anos+1*(percentual+100)))
+    window.document.getElementById("add").innerHTML += "<div class=\"step-c\">"+"|----"+String(fim)+"---->"+"</div><ul class=\"month\"><li><h3> jan </h3></li><li><h3> fev </h3></li><li><h3> mar </h3></li><li><h3> abr </h3></li><li><h3> mai </h3></li><li><h3> jun </h3></li><li><h3> jul </h3></li><li><h3> ago </h3></li><li><h3> set </h3></li><li><h3> out </h3></li><li><h3> nov </h3></li><li><h3> dez </h3></li></ul>"
+    $(".month").css("min-width",(y)+"%"+"!important")
 }
