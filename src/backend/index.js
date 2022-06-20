@@ -2,14 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { json } = require('express');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
-const hostname = '127.0.0.1';
+//const hostname = '127.0.0.1';
 
-const port = 3091;
+const port = process.env.PORT || 3000;
+const path = require("path")
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
-const DBPATH = 'dbteste.db';
+const DBPATH = path.join(__dirname, 'dbteste.db');
 
-app.use(express.static("../frontend/"));
+app.use(express.static(path.join(__dirname,"../frontend/")));
 
 app.use(express.json());
 
@@ -307,6 +308,6 @@ app.delete('/alocacao/deletar', urlencodedParser, (req, res) => {
 });
 
 /* Inicia o servidor */
-app.listen(port, hostname, () => {
-  console.log(`BD server running at http://${hostname}:${port}/`);
+app.listen(port, () => {
+  console.log(`BD server running at port ${port}`);
 });
