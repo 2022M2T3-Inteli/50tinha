@@ -241,7 +241,7 @@
 <!-- modal dos gráficos -->
 <div class="modal fade" id="modalgraphs" role="dialog">
     <div class="modal-dialog">
-    <div class="modal-content">
+         <div class="modal-content">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
@@ -252,68 +252,67 @@
                 <select name="alocacaos" id="alocacaos">
                 </select>
                 <div id="nfuncionarios">
-                    <label for="nfunciona">Horas Totais: </label>
-                    <input type="number" name="nfunciona">
+                    <label for="nfunciona">Horas Totais a Alocar: </label>
+                    <input type="number" placeholder="Por Funcionario" name="nfunciona">
                 </div>
             </div>
-            <center>
-            <canvas id="bar-chart" class="chart-fix" height="170"></canvas>
-            <script>
-                new Chart(document.getElementById("bar-chart"), {
-                type: 'bar',
-                data: {
-                labels: ["Projeto1", "Projeto2", "Projeto3"],
-                datasets: [
-                    {
-                    label: "Número de funcionários/Projeto",
-                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)","#ef0404"],
-                    data: [734,784,433]
+            <!-- <div id="graficos">
+
+            </div> -->
+                <center>
+                    <canvas id="bar-chart" class="chart-fix" height="170"></canvas>
+                    <script>
+                    new Chart(document.getElementById("bar-chart"), {
+                    type: 'bar',
+                    data: {
+                    labels: ["Projeto1", "Projeto2", "Projeto3"],
+                    datasets: [
+                        {
+                        label: "Número de funcionários/Projeto",
+                        backgroundColor: ["#2d3870", "rgb(82, 111, 255)","#ef0404"],
+                        data: [734,784,433]
+                        }
+                    ]
+                    },
+                    options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Funcionários por projeto'
                     }
-                ]
-                },
-                options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Funcionários por projeto'
-                }
-                }
-            });
-            </script>
+                    }
+                    });
+                    </script>
+                    </div>
+                </center> 
+    
+    
+                <!--atribui cores aos gráficos-->
+    
+                    <center>
+                            <canvas id="pie-chart" height="200"></canvas>
+                        <script>new Chart(document.getElementById("pie-chart"), {
+                            type: 'pie',
+                            data: {
+                            labels: ["Internos", "Externos"],
+                            datasets: [{
+                                label: "Trabalhadores",
+                                backgroundColor: ["#2d3870", "rgb(82, 111, 255)"],
+                                data: [2478,5267]
+                            }]
+                                },
+                            options: {
+                            title: {
+                                 display: true,
+                                 text: 'Trabalhadores Yamaha'
+                              }
+                             }
+                                 });
+                        </script>
+                    </center>     
+                 </div>
             </div>
-            </center> 
-
-
-            <!--atribui cores aos gráficos-->
-
-            <center>
-            <canvas id="pie-chart" height="200"></canvas>
-            <script>new Chart(document.getElementById("pie-chart"), {
-                type: 'pie',
-                data: {
-                  labels: ["Internos", "Externos"],
-                  datasets: [{
-                    label: "Trabalhadores",
-                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)"],
-                    data: [2478,5267]
-                  }]
-                },
-                options: {
-                  title: {
-                    display: true,
-                    text: 'Trabalhadores Yamaha'
-                  }
-                }
-            });
-            </script>
-            </center>     
-            <br>              
-         </td>    
-        </td>
-
-    </div>
         </div>
-    </div>
     </div>
 </div>
 </div>
