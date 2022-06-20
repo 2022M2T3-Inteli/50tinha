@@ -8,6 +8,19 @@
 # Grupo 50tinha - Turma 3 - Grupo 2 - Projeto Yamaha
 <div align="center">
   <img src="https://adalove.inteli.edu.br/newada-img/groups/b8306143-fded-4e6d-b19c-d9469d90ddd3.png">
-</div>
-## Integrantes: <a href="https://www.linkedin.com/in/erictach/">Eric Tachdjian</a>, <a href="https://www.linkedin.com/in/israel-carvalho-706133241/>Israel Carvalho </a>, <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">João Vitor Oliveira</a>, Pedro Munhoz, Pablo Ruan Viana, Raissa Sabino, Isabela Rocha
+</div><br>
+<h2> Integrantes: </h2>
+- <a href="https://www.linkedin.com/in/erictach/">Eric Tachdjian</a> <br>
+- <a href="https://www.linkedin.com/in/israel-carvalho-706133241/">Israel Carvalho</a> <br>
+- <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">João Vitor Oliveira</a> <br>
+- <a href="">Pedro Munhoz</a> <br>
+- <a href="">Raissa Sabino</a> <br>
+- <a href="">Isabela Rocha</a> <br>
+- <a href="">Pablo Ruan Viana</a> <br>
+- Professor Orientador: <a href="https://www.linkedin.com/in/egondaxbacher/">Egon Daxbacher</a>
+<br>
+
+<h2> Estrutura de Pastas: </h2>
+
+
 
