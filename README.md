@@ -5,8 +5,9 @@
 </p> <br>
 
 # Yamaha Planning System <br>
-# Grupo 50tinha
-# Grupo 2 - Turma 3 - Projeto Yamaha
+# Grupo 50tinha - Turma 3 - Grupo 2 - Projeto Yamaha
 <div align="center">
   <img src="https://adalove.inteli.edu.br/newada-img/groups/b8306143-fded-4e6d-b19c-d9469d90ddd3.png">
-  
+</div>
+## Integrantes: <a href="https://www.linkedin.com/in/erictach/">Eric Tachdjian</a>, <a href="https://www.linkedin.com/in/israel-carvalho-706133241/>Israel Carvalho </a>, <a href="https://www.linkedin.com/in/jv-oliveira-rodrigues/">João Vitor Oliveira</a>, Pedro Munhoz, Pablo Ruan Viana, Raissa Sabino, Isabela Rocha
+
