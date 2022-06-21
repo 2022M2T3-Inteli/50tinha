@@ -161,11 +161,11 @@
                     <div id="nome">
                         <!--atributos do projeto-->
                         <label for="nome">Nome do Projeto</label>
-                        <input name="nome" type="text" id="nP">
+                        <input name="nome" type="text" id="nomeProj">
                     </div>
                     <div id="unidade">
                         <label for="unidades">Unidades: </label>
-                        <select name="unidades" id="unidades">
+                        <select name="unidades" id="unidadeProj">
                             <option value="sp">SP</option>
                             <option value="am">AM</option>
                             <option value="ambos">Ambos</option>
@@ -295,7 +295,7 @@
             </div>
             <div class="modal-footer">
                 <!-- botão que chama a função do JavaScript para criar o projeto-->
-                <button type="button" onclick="criarProjeto()" data-dismiss="modal" id="teste">Criar</button>
+                <button type="submit" onclick="enviaProjeto()" data-dismiss="modal" id="teste">Criar</button>
             </div>
         </div>
     </div>

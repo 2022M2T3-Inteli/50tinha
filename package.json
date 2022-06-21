@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "node-js-getting-started",
   "version": "0.3.0",
   "description": "A sample Node.js app using Express 4",
@@ -12,10 +11,6 @@
     "test": "node test.js"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-    "i": "^0.3.7"
-  }
-=======
     "ejs": "^3.1.5",
     "express": "^4.15.2",
     "sqlite3": "^5.0.8"
@@ -34,11 +29,4 @@
     "express"
   ],
   "license": "MIT"
->>>>>>> Stashed changes
 }
-=======
-  "dependencies": {
-    "i": "^0.3.7"
-  }
-}
->>>>>>> TesteJv

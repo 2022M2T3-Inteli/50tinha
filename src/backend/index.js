@@ -6,7 +6,7 @@ const { json } = require('express');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 //const hostname = '127.0.0.1';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 2000;
 const path = require("path")
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
@@ -134,9 +134,9 @@ app.get('/projetos/tabela', (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erros
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = `SELECT PROJETOS.nome, PROJETOS.unidade, PROJETOS.anoInicio, PROJETOS.mesInicio, PROJETOS.anoFim, PROJETOS.mesFim,
-  count(ALOCACAO.idFunc) as numberFunc from ALOCACAO
-  INNER JOIN PROJETOS ON ALOCACAO.idProject = PROJETOS.idProject
+  var sql = `SELECT nome, unidade, anoInicio, mesInicio, anoFim, mesFim, 
+  count(ALOCACAO.idFunc) as numberFunc from PROJETOS
+  INNER JOIN ALOCACAO on PROJETOS. idProject = ALOCACAO.idProject
   GROUP BY PROJETOS.idProject
   ORDER BY PROJETOS.nome COLLATE NOCASE`;
 	db.all(sql, [],  (err, rows ) => {

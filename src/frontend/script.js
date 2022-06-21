@@ -96,6 +96,7 @@ function geraTabelaProj(){
     url = "projetos/tabela"
     requestProj.open("GET", url, true)
     requestProj.send()
+    
 }
 
 //POST PROJETOS
