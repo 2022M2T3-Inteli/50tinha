@@ -1,5 +1,9 @@
 const express = require('express'); 
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
+const { json } = require('express');
+=======
+>>>>>>> TesteJv
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 //const hostname = '127.0.0.1';
 
