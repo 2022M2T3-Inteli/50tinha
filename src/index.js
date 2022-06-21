@@ -9,7 +9,7 @@ const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const DBPATH = path.join(__dirname, 'dbteste.db');
 
-app.use(express.static(path.join(__dirname,"../frontend/")));
+app.use(express.static(path.join(__dirname,"./frontend/")));
 
 app.use(express.json());
 
