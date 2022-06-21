@@ -72,7 +72,7 @@ function adicionarProfissionais() { ////////////MUDAR PROFISSIONAIS.NOME DUPLICA
 function geraTabelaProj(){
     const tabelaProj = document.getElementById("tabelaProj")
     let requestProj = new XMLHttpRequest();
-    requestProj.onreadystatechange = function(){
+    requestProj.onload = function(){
         let dados = JSON.parse(this.responseText);
         let tamanhoDados = dados.length;
         let duracao = []
@@ -84,10 +84,10 @@ function geraTabelaProj(){
         <th>Ações</th>
         </tr>`
         for(let i = 0; i < tamanhoDados; i++){
-
+            let noSpaceName = dados[i].nome.replace(" ", "_")
             duracao.push((dados[i].anoFim - dados[i].anoInicio)*12 + eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio)) // O if estava sendo inútil, então tirei o código dele
-
-            tabelaProj.innerHTML +=`<tr id="projeto_${dados[i].idProject}"> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td><td><div class="linha"> <a href="#" onclick="editar(${dados[i].idProject},${dados[i].nome},${dados[i].mesInicio},${dados[i].mesFim})">Editar</a> <a href="/projetos.html" onclick="excluirProjeto(${dados[i].idProject})">Excluir</a> </div></td></tr>`
+            console.log(`${dados[i].idProject},${dados[i].nome},${dados[i].mesInicio},${dados[i].mesFim}`)
+            tabelaProj.innerHTML +=`<tr id="projeto_${dados[i].idProject}"> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td><td><div class="linha"> <a href="#" onclick="editar(${dados[i].idProject},${noSpaceName},${dados[i].mesInicio},${dados[i].mesFim});" >Editar</a> <a href="/projetos.html" onclick="excluirProjeto(${dados[i].idProject})">Excluir</a> </div></td></tr>`
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     }
     url = "/projetos"
@@ -171,13 +171,10 @@ function excluirProjeto(idP){
     });
 }
 
-function editar(idP,nomeP,mesI,mesF){
-    console.log("Veio")
-    let nome = nomeP
-    let inicio = mesI
-    let fim = mesF
-    let index = eval('"projeto_"+idP')
-    alert(index)
+function editar(idP,nomeP,iniP,fimP){
+    let spaceName = nomeP.replace("_", " ")
+    console.log(spaceName)
+
     document.getElementById(index).innerHTML = "<div>olá</div>"
 
 }
