@@ -639,3 +639,12 @@ table{
 #alocacao{
     margin: 20px;
 }
+
+.linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--azulForte);
+    gap: 15px;
+}

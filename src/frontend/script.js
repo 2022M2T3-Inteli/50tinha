@@ -81,19 +81,16 @@ function geraTabelaProj(){
         <th>Duração</th>
         <th>Nº Funcionários/Projetos</th>
         <th>Unidade</th>
+        <th>Ações</th>
         </tr>`
         for(let i = 0; i < tamanhoDados; i++){
-            // if(dados[i].anoFim - dados[i].anoInicio > 0){
-            // }
+
             duracao.push((dados[i].anoFim - dados[i].anoInicio)*12 + eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio)) // O if estava sendo inútil, então tirei o código dele
-            // else{
-            //     duracao.push(eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio))
-            // }
-            // console.log(duracao[i]);
-            tabelaProj.innerHTML +=`<tr> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td></tr>`
-        }
+
+            tabelaProj.innerHTML +=`<tr id="projeto_${dados[i].idProject}"> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td><td><div class="linha"> <a href="#" onclick="editar(${dados[i].idProject},${dados[i].nome},${dados[i].mesInicio},${dados[i].mesFim})">Editar</a> <a href="/projetos.html" onclick="excluirProjeto(${dados[i].idProject})">Excluir</a> </div></td></tr>`
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     }
-    url = "projetos/tabela"
+    url = "/projetos"
     requestProj.open("GET", url, true)
     requestProj.send()
 }
@@ -159,6 +156,31 @@ function getEmployees(){
     requestLines.send();
 }
 
+function excluirProjeto(idP){
+    url = "/projetos/deletar"
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(
+            {
+                "idProject": idP
+            }
+        )
+    });
+}
+
+function editar(idP,nomeP,mesI,mesF){
+    console.log("Veio")
+    let nome = nomeP
+    let inicio = mesI
+    let fim = mesF
+    let index = eval('"projeto_"+idP')
+    alert(index)
+    document.getElementById(index).innerHTML = "<div>olá</div>"
+
+}
 
 function alocacao(nomedb,iddb){
     var nome = nomedb

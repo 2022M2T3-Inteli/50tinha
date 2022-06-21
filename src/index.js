@@ -180,14 +180,21 @@ app.patch('/projetos/atualizar', urlencodedParser, (req, res) => {
 });
 
 
-// Exclui um projeto
+// Exclui um projeto    ${req.body.idProject}
 app.delete('/projetos/deletar', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
-    sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     var db = new sqlite3.Database(DBPATH); // Abre o banco
+	sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     db.run(sql, [],  err => {
         if (err) {
+			sql = `DELETE FROM ALOCACAO WHERE idProject = ${req.body.idProject}`;
+			db.run(sql, [],  err => {
+				if (err) {
+					throw err;
+				}
+				res.end();
+			});
             throw err;
         }
         res.end();
