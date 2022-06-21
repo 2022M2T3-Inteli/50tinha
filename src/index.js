@@ -188,13 +188,6 @@ app.delete('/projetos/deletar', urlencodedParser, (req, res) => {
 	sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     db.run(sql, [],  err => {
         if (err) {
-			sql = `DELETE FROM ALOCACAO WHERE idProject = ${req.body.idProject}`;
-			db.run(sql, [],  err => {
-				if (err) {
-					throw err;
-				}
-				res.end();
-			});
             throw err;
         }
         res.end();
