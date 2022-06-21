@@ -94,20 +94,20 @@ deve possuir o valor "node app.js".
 
 ## 🗃 Histórico de lançamentos
 
-* 0.2.1 - 29/04/2022
+* 0.2.6 - 29/04/2022
     * Criação do Front End da aplicação
     * Criação do WAD
-* 0.2.0 - 13/05/2022
+* 0.3.2 - 13/05/2022
     * Criação do Back End
     * Atualização do WAD
-* 0.1.1 - 27/05/2022
+* 0.4.3 - 27/05/2022
     * Criação do Banco de Dados utilizando SQL e Node.js
     * Modificação do Back End e Front End
-* 0.1.0 - 10/06/2022
+* 0.7.5 - 10/06/2022
     * Primeira versão "apresentavel" do site
     * Junção do Back com o Front End
     * Banco de Dados começa a ser integrado
-* 0.0.1 - 01/01/2022
+* 1.1.1 - 24/06/2022
     * Gráficos funcionais linkados com o Banco de Dados
     * Tabelas finalizadas
     * Front End Finalizado
