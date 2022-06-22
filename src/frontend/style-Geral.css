@@ -655,3 +655,7 @@ table{
     padding-left: 90px !important;
     padding-right: 90px !important;
 }
+
+.limitador{
+    max-width: 90px;
+}
