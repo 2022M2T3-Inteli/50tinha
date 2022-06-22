@@ -17,6 +17,8 @@ function frg(){
     }
 }
 
+var nomes = new Map();
+
 var x = 0
 
 
@@ -72,7 +74,7 @@ function adicionarProfissionais() { ////////////MUDAR PROFISSIONAIS.NOME DUPLICA
 function geraTabelaProj(){
     const tabelaProj = document.getElementById("tabelaProj")
     let requestProj = new XMLHttpRequest();
-    requestProj.onreadystatechange = function(){
+    requestProj.onload = function(){
         let dados = JSON.parse(this.responseText);
         let tamanhoDados = dados.length;
         let duracao = []
@@ -81,22 +83,22 @@ function geraTabelaProj(){
         <th>Duração</th>
         <th>Nº Funcionários/Projetos</th>
         <th>Unidade</th>
+        <th>Ano</th>
+        <th class="acoesProjeto">Ações</th>
         </tr>`
         for(let i = 0; i < tamanhoDados; i++){
-            // if(dados[i].anoFim - dados[i].anoInicio > 0){
-            // }
             duracao.push((dados[i].anoFim - dados[i].anoInicio)*12 + eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio)) // O if estava sendo inútil, então tirei o código dele
-            // else{
-            //     duracao.push(eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio))
-            // }
-            // console.log(duracao[i]);
-            tabelaProj.innerHTML +=`<tr> <td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${dados[i].nome}</a> </td><td id="coldata" class="aba"> <a href="#modalgraphs" data-toggle="modal">${duracao[i]} Meses</a> <center> </td><td id="coldata"> <a href="#modalgraphs" data-toggle="modal">${dados[i].numberFunc}</a> <center> <td>${dados[i].unidade}</td></tr>`
-        }
+            nomes.set("nP"+dados[i].idProject,[dados[i].nome,dados[i].unidade])
+            tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\"> "+duracao[i]+"Meses</a> <center> </td><td id=\"coldata\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].numberFunc+"</a> <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
-    url = "projetos/tabela"
+    url = "/projetos"
     requestProj.open("GET", url, true)
     requestProj.send()
 }
+
+
+
 
 //POST PROJETOS
 function enviaProjeto(){
@@ -128,7 +130,7 @@ function enviaProjeto(){
     });
 }
 
-var meses = {
+var meses = { // Ajuda nas conversões necessarias de number para string
     janeiro: 0,
     fevereiro: 1,
     março: 2,
@@ -140,9 +142,23 @@ var meses = {
     setembro: 8,
     outubro: 9,
     novembro: 10,
-    dezembro: 11
+    dezembro: 11,
+    n0: "janeiro",
+    n1: "fevereiro",
+    n2: "março",
+    n3: "abril",
+    n4: "maio",
+    n5: "junho",
+    n6: "julho",
+    n7: "agosto",
+    n8: "setembro",
+    n9: "outubro",
+    n10: "novembro",
+    n11: "dezembro"
 }
 
+
+// Coleta os profissionais do banco de dados e passa suas informações como argumento para função alocacao(),  Linha:167
 function getEmployees(){
     let requestLines = new XMLHttpRequest();
     requestLines.onload = function(){
@@ -159,7 +175,96 @@ function getEmployees(){
     requestLines.send();
 }
 
+// Exclui os projetos
+function excluirProjeto(idP){
+    url = "/projetos/deletar"
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(
+            {
+                "idProject": idP
+            }
+        )
+    });
+}
 
+// Edita os projetos
+function editar(idP,inicio,fim,anoI,anoF){
+    let idNP = code(idP,"NP")
+    let idMI = code(idP,"MI")
+    let idAI = code(idP,"AI")
+    let idMF = code(idP,"MF")
+    let idAF = code(idP,"AF")
+    let idUP = code(idP,"UP")
+    let anoFim = anoF
+    let anoInicio = anoI
+    let idProjeto = "projeto_"+idP
+    let mesInicio = inicio.toString()
+    let mesFim = fim.toString()
+    let lista = nomes.get("nP"+idP) // indice [0] reprensta o nome do projeto; indice [1] reprensta a cidade do projeto 
+    let selecao =""
+    // let duracao = (parseInt(anoFim) - parseInt(anoInicio)*12 + parseInt(mesFim) - parseInt(mesInicio) )
+    mesInicio = eval("meses.n"+mesInicio)
+    mesFim = eval("meses.n"+mesFim)
+    if(lista[1] == "AM"){
+        selecao = "<select id=\""+idUP+"\"><option value=\"am\">AM</option><option value=\"sp\">SP</option><option value=\"ambos\">Ambos</option> </select>"
+    }else{selecao = "<select id=\""+idUP+"\"><option value=\"sp\">SP</option><option value=\"am\">AM</option><option value=\"ambos\">Ambos</option> </select>"}
+    document.getElementById(idProjeto).innerHTML = "<form method=\"post\"><td id=\"coldata\" class=\"aba\"><input id=\""+idNP+"\" type=\"text\" placeholder=\""+lista[0]+"\"></td>  <td id=\"coldata\" class=\"aba\"><input id=\""+idMI+"\" type=\"text\" placeholder=\""+mesInicio+"\"><input id=\""+idMF+"\" type=\"text\" placeholder=\""+mesFim+"\"></td>  <td id=\"coldata\">Auto</td> <td>"+selecao+"</td> <td><input id=\""+idAI+"\" type=\"text\" placeholder=\""+anoInicio+"\"> a <input id=\""+idAF+"\" type=\"text\" placeholder=\""+anoFim+"\"></td> <td><div class=\"linha\"> <button class=\"hand_hover\" type=\"submit\" onclick=\"atualizar("+idP+");\" >Confirmar</button> <a href=\"/projetos.html\" onclick=\"excluirProjeto()\">Excluir</a> </div></td></form>"
+    
+    // Impossibilita que os de mais projetos sejam clicaveis
+        // tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\"> "+duracao+"Meses</a> <center> </td><td id=\"coldata\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].numberFunc+"</a> <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
+
+}
+
+// Atualiza os projetos
+function atualizar(idP){
+    let idNP = code(idP,"NP")
+    let idMI = code(idP,"MI")
+    let idAI = code(idP,"AI")
+    let idMF = code(idP,"MF")
+    let idAF = code(idP,"AF")
+    let idUP = code(idP,"UP")
+
+
+
+    const nomeP = document.getElementById(idNP).value;
+    const mesInicio = document.getElementById(idMI).value;
+    const mesFim =  document.getElementById(idMF).value;
+    const anoInicio = parseInt(document.getElementById(idAI).value);
+    const anoFim = parseInt(document.getElementById(idAF).value);
+    const unidade = document.getElementById(idUP).value
+
+    url = "/projetos/atualizar"
+    $.ajax({
+        type: "PATCH",
+        url: url,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify(
+            {   
+                "nome": nomeP,
+                "area": "Teste",
+                "mesInicio": mesInicio,
+                "anoInicio": anoInicio,
+                "mesFim": mesFim,
+                "anoFim": anoFim,
+                "unidade": unidade,
+                "idProject": idP,   
+            }
+        )
+    });
+    window.location.reload(); //essa função mágica faz com que atualize a página, sem haver a necessidade de recarregar manualmente para ver a adição do profissional na tabela
+}
+
+function code(a,b){
+    a = b+a
+    return a;
+}
+
+// Adiciona os profissionais do banco de dados ao modal de alocação
 function alocacao(nomedb,iddb){
     var nome = nomedb
     var id = iddb

@@ -168,7 +168,7 @@ app.post('/projetos/adicionar', urlencodedParser, (req, res) => {
 app.patch('/projetos/atualizar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
-	sql = `UPDATE PROJETOS SET nome = '${req.body.nome}', area = '${req.body.area}', mesInicio = '${req.body.mesInicio}', anoInicio = ${req.body.anoInicio}, mesFim = '${req.body.mesFim}', anoFim = ${req.body.anoFim} WHERE idProject = ${req.body.idProject}`;
+	sql = `UPDATE PROJETOS SET nome = '${req.body.nome}', area = '${req.body.area}', mesInicio = '${req.body.mesInicio}', anoInicio = ${req.body.anoInicio}, mesFim = '${req.body.mesFim}', anoFim = ${req.body.anoFim}, unidade = '${req.body.unidade}' WHERE idProject = ${req.body.idProject}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	db.run(sql, [],  err => {
 		if (err) {
@@ -180,12 +180,12 @@ app.patch('/projetos/atualizar', urlencodedParser, (req, res) => {
 });
 
 
-// Exclui um projeto
+// Exclui um projeto    ${req.body.idProject}
 app.delete('/projetos/deletar', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
-    sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     var db = new sqlite3.Database(DBPATH); // Abre o banco
+	sql = `DELETE FROM PROJETOS WHERE idProject = ${req.body.idProject}`;
     db.run(sql, [],  err => {
         if (err) {
             throw err;

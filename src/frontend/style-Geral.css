@@ -639,3 +639,19 @@ table{
 #alocacao{
     margin: 20px;
 }
+
+/* Tabela Projetos */
+
+.linha{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--azulForte);
+    gap: 15px;
+}
+
+.acoesProjeto{
+    padding-left: 90px !important;
+    padding-right: 90px !important;
+}
