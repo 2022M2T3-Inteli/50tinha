@@ -49,32 +49,28 @@ function graficos(nomeProj, horasProj){
     });
 }
 /* calendário */
-function generateLines(){
+var meses = { // OBJ usado para converter os valores do banco, possibilitando as contas.    
+    janeiro: 0,
+    fevereiro: 1,
+    março: 2,
+    abril: 3,
+    maio: 4,
+    junho: 5,
+    julho: 6,
+    agosto: 7,
+    setembro: 8,
+    outubro: 9,
+    novembro: 10,
+    dezembro: 11
+}
+function generateLines(){ // Essa Função é chamada no momento do carregamento da tag body na aba visão geral, relacionando a duração com o tamanho do grafico
     let requestLines = new XMLHttpRequest();
-    /*relaciona a duração com o tamanho do grafico*/
-
     requestLines.onload = function(){
-        let dados = JSON.parse(this.responseText)
+        let dados = JSON.parse(this.responseText) // Essa linha representa a devolutiva da consulta ao banco de dados amarzenada em um array com varios dicionários.
         let tamanhoDados = dados.length 
-        let anos = []
+        let anos = [] // Guarda os anos dos projetos. Ela é passada como argumento na funsao criarCalendario()
         for(let i = 0; i < tamanhoDados; i++){
-            var meses = {
-                janeiro: 0,
-                fevereiro: 1,
-                março: 2,
-                abril: 3,
-                maio: 4,
-                junho: 5,
-                julho: 6,
-                agosto: 7,
-                setembro: 8,
-                outubro: 9,
-                novembro: 10,
-                dezembro: 11
-            }
             anos.push(dados[i].anoFim)
-            
-
             criarProjeto(dados[i].nome, dados[i].anoInicio, dados[i].anoFim, eval("meses."+dados[i].mesInicio), eval("meses."+dados[i].mesFim),i)
         }
         var novaArr = anos.filter(function(este, i) {
@@ -124,7 +120,7 @@ function criarProjeto(nomedb, anoIniciodb, anoFimdb, mesIniciodb, mesFinaldb,i){
             gerarBtn()
             btnAtivado = true
         }
-        tamanho = tamanho + 19 + anoRes
+        tamanho = tamanho + (percentual+19) * anoRes 
         $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
         $("#c-todos > li:nth-child("+n+")").css("margin-left",parseInt(mesInicio)+"%")
     }else{ $("#c-todos > li:nth-child("+n+")").css("width",(tamanho)+"%");
