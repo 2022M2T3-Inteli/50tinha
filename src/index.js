@@ -108,6 +108,24 @@ app.get('/projetos', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
+//exibe algum projeto
+app.get('/projetos/single', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro
+
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM PROJETOS WHERE idProject =' + req.body.idProject;
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		}
+		else console.log(sql);
+
+	res.json(rows);
+	});
+	db.close(); // Fecha o banco
+});
+
 // Pega informações e exibe na tela
 app.get('/projetos/timeline', (req, res) => {
 	res.statusCode = 200;
@@ -271,6 +289,23 @@ app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
 	res.end();
 });
 
+// Adiciona profissional na alocação
+app.post('/alocacao/adicionar/profissional', urlencodedParser, (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
+
+	sql = `INSERT INTO ALOCACAO (idProf) VALUES (${req.body.idProf}) WHERE idFunc = ${req.body.idFunc}`;
+	var db = new sqlite3.Database(DBPATH); // Abre o banco
+	console.log(sql);
+	db.run(sql, [],  err => {
+		if (err) {
+		    throw err;
+		}
+		else console.log(sql);
+	});
+	db.close(); // Fecha o banco
+	res.end();
+});
 
 
 // Atualiza um registro 
