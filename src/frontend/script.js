@@ -154,7 +154,7 @@ var meses = { // Ajuda nas conversões necessarias de number para string
     n8: "setembro",
     n9: "outubro",
     n10: "novembro",
-    n11: ""
+    n11: "dezembro"
 }
 
 
@@ -193,6 +193,12 @@ function excluirProjeto(idP){
 
 // Edita os projetos
 function editar(idP,inicio,fim,anoI,anoF){
+    let idNP = code(idP,"NP")
+    let idMI = code(idP,"MI")
+    let idAI = code(idP,"AI")
+    let idMF = code(idP,"MF")
+    let idAF = code(idP,"AF")
+    let idUP = code(idP,"UP")
     let anoFim = anoF
     let anoInicio = anoI
     let idProjeto = "projeto_"+idP
@@ -204,9 +210,9 @@ function editar(idP,inicio,fim,anoI,anoF){
     mesInicio = eval("meses.n"+mesInicio)
     mesFim = eval("meses.n"+mesFim)
     if(lista[1] == "AM"){
-        selecao = "<select><option value=\"am\">AM</option><option value=\"sp\">SP</option><option value=\"ambos\">Ambos</option> </select>"
-    }else{selecao = "<select><option value=\"sp\">SP</option><option value=\"am\">AM</option><option value=\"ambos\">Ambos</option> </select>"}
-    document.getElementById(idProjeto).innerHTML = "<form method=\"post\"><td id=\"coldata\" class=\"aba\"><input  type=\"text\" placeholder=\""+lista[0]+"\"></td>  <td id=\"coldata\" class=\"aba\"><input  type=\"text\" placeholder=\""+mesInicio+"\"><input  type=\"text\" placeholder=\""+mesFim+"\"></td>  <td id=\"coldata\">Auto</td> <td>"+selecao+"</td> <td><input  type=\"text\" placeholder=\""+anoInicio+"\"> a <input  type=\"text\" placeholder=\""+anoFim+"\"></td> <td><div class=\"linha\"> <button class=\"hand_hover\" type=\"submit\" onclick=\"atualizar("+idP+");\" >Confirmar</button> <a href=\"/projetos.html\" onclick=\"excluirProjeto()\">Excluir</a> </div></td></form>"
+        selecao = "<select id=\""+idUP+"\"><option value=\"am\">AM</option><option value=\"sp\">SP</option><option value=\"ambos\">Ambos</option> </select>"
+    }else{selecao = "<select id=\""+idUP+"\"><option value=\"sp\">SP</option><option value=\"am\">AM</option><option value=\"ambos\">Ambos</option> </select>"}
+    document.getElementById(idProjeto).innerHTML = "<form method=\"post\"><td id=\"coldata\" class=\"aba\"><input id=\""+idNP+"\" type=\"text\" placeholder=\""+lista[0]+"\"></td>  <td id=\"coldata\" class=\"aba\"><input id=\""+idMI+"\" type=\"text\" placeholder=\""+mesInicio+"\"><input id=\""+idMF+"\" type=\"text\" placeholder=\""+mesFim+"\"></td>  <td id=\"coldata\">Auto</td> <td>"+selecao+"</td> <td><input id=\""+idAI+"\" type=\"text\" placeholder=\""+anoInicio+"\"> a <input id=\""+idAF+"\" type=\"text\" placeholder=\""+anoFim+"\"></td> <td><div class=\"linha\"> <button class=\"hand_hover\" type=\"submit\" onclick=\"atualizar("+idP+");\" >Confirmar</button> <a href=\"/projetos.html\" onclick=\"excluirProjeto()\">Excluir</a> </div></td></form>"
     
     // Impossibilita que os de mais projetos sejam clicaveis
         // tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\"> "+duracao+"Meses</a> <center> </td><td id=\"coldata\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].numberFunc+"</a> <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
@@ -215,13 +221,23 @@ function editar(idP,inicio,fim,anoI,anoF){
 
 // Atualiza os projetos
 function atualizar(idP){
-    const nomeP = document.getElementById('nomeFunc').value;
-    const mesInicio = document.getElementById('unidades').value;
-    const anoInicio = document.getElementById('CLT').value;
-    const mesFim = document.getElementById('areas').value;
-    const anoFim = document.getElementById('areas').value;
+    let idNP = code(idP,"NP")
+    let idMI = code(idP,"MI")
+    let idAI = code(idP,"AI")
+    let idMF = code(idP,"MF")
+    let idAF = code(idP,"AF")
+    let idUP = code(idP,"UP")
 
-    url = "/projetos/deletar"
+
+
+    const nomeP = document.getElementById(idNP).value;
+    const mesInicio = document.getElementById(idMI).value;
+    const mesFim =  document.getElementById(idMF).value;
+    const anoInicio = parseInt(document.getElementById(idAI).value);
+    const anoFim = parseInt(document.getElementById(idAF).value);
+    const unidade = document.getElementById(idUP).value
+
+    url = "/projetos/atualizar"
     $.ajax({
         type: "PATCH",
         url: url,
@@ -235,11 +251,17 @@ function atualizar(idP){
                 "anoInicio": anoInicio,
                 "mesFim": mesFim,
                 "anoFim": anoFim,
+                "unidade": unidade,
                 "idProject": idP,   
             }
         )
     });
     window.location.reload(); //essa função mágica faz com que atualize a página, sem haver a necessidade de recarregar manualmente para ver a adição do profissional na tabela
+}
+
+function code(a,b){
+    a = b+a
+    return a;
 }
 
 // Adiciona os profissionais do banco de dados ao modal de alocação
