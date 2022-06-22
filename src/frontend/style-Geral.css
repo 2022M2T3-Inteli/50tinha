@@ -499,9 +499,12 @@ table{
    /* Modal do projeto */
 
 #buttonmodal{
+    position: fixed;
     text-align: center;
-    width: 65%;
-    top: 150%;
+    width: 12.5%;
+    height: 10%;
+    top: 80%;
+    left: 83.5%;
     border-radius: 25px;
     background-color: var(--azulForte);
     border: 2px solid #d6d9ff;
@@ -654,4 +657,8 @@ table{
 .acoesProjeto{
     padding-left: 90px !important;
     padding-right: 90px !important;
+}
+
+.limitador{
+    max-width: 90px;
 }
