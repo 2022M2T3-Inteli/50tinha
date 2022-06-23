@@ -108,6 +108,24 @@ app.get('/projetos', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
+//exibe algum projeto
+app.get('/projetos/single/:idProject', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro
+ 
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+  var sql = 'SELECT * FROM PROJETOS WHERE idProject = ' + req.params.idProject;
+    db.all(sql, [],  (err, rows ) => {
+        if (err) {
+            throw err;
+        }
+        else console.log(sql);
+ 
+    res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
 // Pega informações e exibe na tela
 app.get('/projetos/timeline', (req, res) => {
 	res.statusCode = 200;
@@ -258,7 +276,7 @@ app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
 
-	sql = `INSERT INTO ALOCACAO (idAlocacao, idFunc, idProject, horasAlocadasProjeto, mes, ano) VALUES (${req.body.idAlocacao}, ${req.body.idFunc}, ${req.body.idProject}, ${req.body.horasAlocadasProjeto}, '${req.body.mes}', ${req.body.ano})`;
+	sql = `INSERT INTO ALOCACAO (idFunc, idProject, horasAlocadasProjeto, mes, ano) VALUES (${req.body.idFunc}, ${req.body.idProject}, ${req.body.horasAlocadasProjeto}, '${req.body.mes}', ${req.body.ano})`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {
@@ -271,7 +289,23 @@ app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
 	res.end();
 });
 
-
+// Atualiza profissional na alocação para algum existente
+app.patch('/alocacao/adicionar/profissional', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro
+ 
+    sql = `UPDATE ALOCACAO SET idFunc = ${req.body.idProf}, WHERE idAlocacao = ${req.body.idFunc}`;
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    console.log(sql);
+    db.run(sql, [],  err => {
+        if (err) {
+            throw err;
+        }
+        else console.log(sql);
+    });
+    db.close(); // Fecha o banco
+    res.end();
+});
 
 // Atualiza um registro 
 app.patch('/alocacao/atualizar', urlencodedParser, (req, res) => {
