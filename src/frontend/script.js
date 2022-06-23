@@ -165,7 +165,7 @@ function getEmployees(){
         let dados = JSON.parse(this.responseText)
         let tamanhoDados = dados.length
         for(let i = 0; i < tamanhoDados; i++){
-            alocacao(dados[i].nome,dados[i].id)
+            alocacao(dados[i].nome,dados[i].idFunc)
         }
     }
     /*rota que será exibida*/

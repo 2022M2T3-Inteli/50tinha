@@ -109,12 +109,12 @@ app.get('/projetos', (req, res) => {
 });
 
 //exibe algum projeto
-app.get('/projetos/single', (req, res) => {
+app.get('/projetos/single/:idProject', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = 'SELECT * FROM PROJETOS WHERE idProject =' + req.body.idProject;
+  var sql = 'SELECT * FROM PROJETOS WHERE idProject = ' + req.params.idProject;
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
@@ -276,7 +276,7 @@ app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
 
-	sql = `INSERT INTO ALOCACAO (idAlocacao, idFunc, idProject, horasAlocadasProjeto, mes, ano) VALUES (${req.body.idAlocacao}, ${req.body.idFunc}, ${req.body.idProject}, ${req.body.horasAlocadasProjeto}, '${req.body.mes}', ${req.body.ano})`;
+	sql = `INSERT INTO ALOCACAO (idFunc, idProject, horasAlocadasProjeto, mes, ano) VALUES (${req.body.idFunc}, ${req.body.idProject}, ${req.body.horasAlocadasProjeto}, '${req.body.mes}', ${req.body.ano})`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {
@@ -290,11 +290,11 @@ app.post('/alocacao/adicionar', urlencodedParser, (req, res) => {
 });
 
 // Adiciona profissional na alocação
-app.post('/alocacao/adicionar/profissional', urlencodedParser, (req, res) => {
+app.patch('/alocacao/adicionar/profissional', urlencodedParser, (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro 
 
-	sql = `INSERT INTO ALOCACAO (idProf) VALUES (${req.body.idProf}) WHERE idFunc = ${req.body.idFunc}`;
+	sql = `UPDATE ALOCACAO SET idFunc = ${req.body.idProf}, WHERE idAlocacao = ${req.body.idFunc}`;
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
 	console.log(sql);
 	db.run(sql, [],  err => {

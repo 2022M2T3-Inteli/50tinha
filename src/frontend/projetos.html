@@ -63,6 +63,14 @@
                             </tr>
                         </table>
                     </div>
+                    <!-- Botão de criar projetos -->
+                    <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal">
+                        <li class="ordem">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>Criar Projeto
+                        </li>
+                    </div>
                 </div>
         <div id="menu"><!--menu lateral onde ficam os botões-->
             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div>
@@ -77,10 +85,7 @@
                         task
                         </span>Projetos</li></div>
                         <!--botão que leva para tela de adicionar projetos-->
-                    <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem">
-                        <span class="material-symbols-outlined">
-                        add
-                        </span>Criar Projeto</li></div>
+                    
                 </ul>
             </nav>
         </div>
@@ -251,7 +256,7 @@
                 </select>
                 <div id="nfuncionarios">
                     <label for="nfunciona">Horas Totais a Alocar: </label>
-                    <input type="number" placeholder="Por Funcionario" name="nfunciona">
+                    <input type="number" id="horasAlocadas" placeholder="Por Funcionario" name="nfunciona">
                 </div>
             </div>
             <!-- <div id="graficos">

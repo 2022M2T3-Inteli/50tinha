@@ -23,45 +23,69 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
 }
 
 const assignBtn = document.getElementById("assign-btn");
-assignBtn.onclick = () => assignProf()
+assignBtn.onclick = () => assignProfIntoProj()
 
 var idClickedProj
 $(document).ready(function(){
     $('body').on('click', '.aAssign', function (e) {
         idClickedProj = $(this).closest('tr').attr('id')
-        let finalId
+        let finalId = ""
         for(i = 8; i < idClickedProj.length; i++){
-            console.log(idClickedProj.charAt(i))
             finalId += idClickedProj.charAt(i)
         }
         idClickedProj = finalId
-        console.log(idClickedProj)
     })
 })
 
-function assignProf(){
-    const idProf = document.getElementById("alocacaos").value
-    url1 = "/alocacao/acidionar/prof"
-    url2 = "/projetos/single"
-    idClickedProj
-    console.log(idClickedProj + " projetoo")
-    let clickedProj = new XMLHttpRequest
+function assignProfIntoProj(){
+    const idProf = Number(document.getElementById("alocacaos").value)
+    console.log(idProf)
+    const horasAlocadas = Number(document.getElementById("horasAlocadas").value)
+    url1 = "/alocacao/acidionar/profissional"
+    url2 = "/projetos/single/"
+    url3 = "/alocacao/adicionar"
+    Number(idClickedProj)
+    let params = JSON.stringify({idProject: Number(idClickedProj)});
+    console.log(params)
+    let clickedProj = new XMLHttpRequest();
     clickedProj.onload = function(){
-        data = JSON.parse(this.responseText)
-        dataLenght = data.lenght
-        console.log(data[1].nome + " pegou krll")
+        let data = JSON.parse(this.responseText)
+        let dataLength = data.length
+        console.log(data[0].nome + " pegou krll")
+        let idFunc = idProf
+        let idProj = data[0].idProject
+        let horasAlocadasProj = horasAlocadas
+        let mesProj = data[0].mesInicio
+        let anoProj = data[0].anoInicio
+        //Adiciona uma nova alocação
+        $.ajax({
+            type: "POST",
+            url: url3,
+            contentType: "application/json; charset=utf-8",  //por padrão, temos que avisar que a aplicação é do tipo json e que os caracteres aceitam caracteres especiais
+            dataType: "json", //o conteúdo do dado é json
+            data: JSON.stringify(  //transforma os valores em uma string do tipo json
+                {
+                    "idFunc": idFunc, //idFunc, idProject, horasAlocadasProjeto, mes, ano
+                    "idProject": idProj,
+                    "horasAlocadasProjeto": horasAlocadasProj,
+                    "mes": mesProj,
+                    "ano": anoProj
+                }   
+            )
+        });
+
+        // $.ajax({
+        //     type: "PATCH",
+        //     url: url1,
+        //     contentType: "application/json; charset=utf-8",  //por padrão, temos que avisar que a aplicação é do tipo json e que os caracteres aceitam caracteres especiais
+        //     dataType: "json", //o conteúdo do dado é json
+        //     data: JSON.stringify(  //transforma os valores em uma string do tipo json
+        //         {
+        //             "idAlocacao": 
+        //         }   
+        //     )
+        // });
     }
-    clickedProj.open("GET", url2, true)
-    clickedProj.send()
-    $.ajax({
-        type: "POST",
-        url: url,
-        contentType: "application/json; charset=utf-8",  //por padrão, temos que avisar que a aplicação é do tipo json e que os caracteres aceitam caracteres especiais
-        dataType: "json", //o conteúdo do dado é json
-        data: JSON.stringify(  //transforma os valores em uma string do tipo json
-            {
-                
-            }   
-        )
-    });
+    clickedProj.open("GET", url2+idClickedProj, true)
+    clickedProj.send(params)
 }
