@@ -46,7 +46,13 @@
           
           <div id="CorpoProfissionais">
               <table id="hover_tabela">
-                  
+                  <tr>
+                    <th> Nome </th>
+                    <th> Nº projetos</th>
+                    <th> CLT </th>
+                    <th> Estado </th>
+                    <th> Alocação mensal (projetos/mês/máx) </th>
+                  </tr> 
                   <tbody id="corpo-tabela-profissionais">
                   <tr>
                     <td><a data-toggle="modal" href="#modalhoras"><div class="modal_professional" > João Vitor Oliveira </div></a></td> 
@@ -67,13 +73,13 @@
                           </span>Profissionais</li></div>
                       <div class="projeto"> <li class="ordem"><a class="centra ordem" href="abageral.html"><span class="material-symbols-outlined">
                           task</span>Projetos</a></li></div>
+                      <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem">
+                        <span class="material-symbols-outlined">
+                        add
+                        </span>Adicionar</li></div>
                   </ul>
               </nav>
           </div>
-          <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem">
-            <span class="material-symbols-outlined">
-            add
-            </span>Adicionar</li></div>
       </div>
     
       <!-- Modal body -->
@@ -127,6 +133,51 @@
         </div>
       </div>
     </form>
+
+  <div class="modal fade" id="modalhoras" role="dialog">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5>Adicione as horas totais destinadas a projeto de cada mês: </h5>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+    </div>
+        <div id="tabhor">
+          <label for="Janeiro">Janeiro   :</label>
+                <input id='Janeiro' type="number" name="Janeiro" step="1" min="0" value="0"> <br>
+          <label for="Fevereiro">Fevereiro: </label>
+                <input id='Fevereiro' type="number" name="Fevereiro" step="1" min="0" value="0"> <br>
+          <label for="Março"> Março:    </label>
+                <input id='Março' type="number" name="Março" step="1" min="0" value="0"> <br>
+          <label for="Abril"> Abril:    </label>
+                <input id='Abril' type="number" name="Abril" step="1" min="0" value="0"> <br>
+          <label for="Maio"> Maio:     </label>
+                <input id='Maio' type="number" name="Maio" step="1" min="0" value="0"> <br>
+          <label for="Junho"> Junho:    </label>
+                <input id='Junho' type="number" name="Junho" step="1" min="0" value="0"> <br>
+          <label for="Julho"> Julho:    </label>
+                <input id='Julho' type="number" name="Julho" step="1" min="0" value="0"> <br>
+          <label for="Agosto"> Agosto:   </label>
+                <input id='Agosto' type="number" name="Agosto" step="1" min="0" value="0"> <br>
+        <label for="Setembro"> Setembro:  </label>
+                <input id='Setembro' type="number" name="Setembro" step="1" min="0" value="0"> <br>
+        <label for="Outubro"> Outubro:   </label>
+                <input id='Outubro' type="number" name="Outubro" step="1" min="0" value="0"> <br>
+        <label for="Novembro"> Novembro:  </label>
+                <input id='Novembro' type="number" name="Novembro" step="1" min="0" value="0"> <br>
+        <label for="Dezembro"> Dezembro:  </label>
+                <input id='Dezembro' type="number" name="Dezembro" step="1" min="0" value="0"> <br>
+        </div>
+    </div>
+        <div class="modal-footer">
+          <button class="hand_hover" type="button" data-dismiss="modal" class="hand_hover" >Editar</button>
+        </div>
+        </div>
+      
+    </div>
+    <div id="rodape" ></div>
     <script src="script.js" ></script>
     <script src="enviar-dados.js"> </script>
   </body>

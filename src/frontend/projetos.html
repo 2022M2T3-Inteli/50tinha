@@ -249,14 +249,14 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            <button class="hand_hover" type="submit" data-dismiss="modal">Alocar</button>
+            <button id="assign-btn" class="hand_hover" type="submit" data-dismiss="modal">Alocar</button>
             <div id="alocacao">
                 <label for="alocacaos">Alocar: </label>
                 <select name="alocacaos" id="alocacaos">
                 </select>
                 <div id="nfuncionarios">
                     <label for="nfunciona">Horas Totais a Alocar: </label>
-                    <input type="number" placeholder="Por Funcionario" name="nfunciona">
+                    <input type="number" id="horasAlocadas" placeholder="Por Funcionario" name="nfunciona">
                 </div>
             </div>
             <!-- <div id="graficos">
@@ -319,7 +319,7 @@
     </div>
 </div>
 </div>
-
+    <script src="enviar-dados.js"></script>
     <script src="script.js" ></script>
     </body>
 </html>
