@@ -20,4 +20,4 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
         )
     });
     window.location.reload(); //essa função mágica faz com que atualize a página, sem haver a necessidade de recarregar manualmente para ver a adição do profissional na tabela
-}//
+}
