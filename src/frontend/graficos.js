@@ -34,7 +34,7 @@ function graficos(nomeProj, horasProj){
             datasets: [
                 {
                     label: "Horas",
-                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f"],
+                    backgroundColor: ["#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f","#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f","#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f","#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f","#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f","#2d3870", "rgb(82, 111, 255)", "#8d8d8d", "#ef0404", "#39cfd75f"],
                     data: horasProj
                 }
             ]

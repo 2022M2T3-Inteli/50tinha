@@ -94,12 +94,12 @@ function geraTabelaProj(){
         for(let i = 0; i < tamanhoDados; i++){
             duracao.push((dados[i].anoFim - dados[i].anoInicio)*12 + eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio)) // O if estava sendo inútil, então tirei o código dele
             nomesP.set("nP"+dados[i].idProject,[dados[i].nome,dados[i].unidade])
-            tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\" class=\"aAssign\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\"> "+duracao[i]+"Meses</a> <center> </td><td id=\"coldata\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].numberFunc+"</a> <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
+            tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\" class=\"aAssign\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\"> "+duracao[i]+"Meses</a> <center> </td><td id=\"coldata\"> <a href=\"#modalgraphs\" data-toggle=\"modal\">"+dados[i].countProjs+"</a> <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
  
 
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
-    url = "/projetos"
+    url = "/projetos/tabela"
     requestProj.open("GET", url, true)
     requestProj.send()
 }
