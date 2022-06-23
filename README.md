@@ -24,26 +24,17 @@
 
 ## 📁 Estrutura de pastas
 
-```
-Alunos inteli (remover essa observação do readme.md após leitura e execução):
-
-Supondo que você é da Turma 4 e Projeto 5, substitua:
-
-T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_Web_application_document.pdf
-por
-T4_G5_V01_Web_application_document.pdf
-
-Faça o mesmo para a documentação em formato DOCX.
-```
-
 |--> documentos<br>
-  &emsp;| --> outros <br>
-  &emsp;| T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_Web_application_document.pdf<br>
-  &emsp;| T(NUMERO_DA_TURMA)_G(NUMERO_DO_GRUPO)_V(VERSÃO)_Web_application_document.docx<br>
+  &emsp;| --> Documentos Antigos
+  &emsp;| T3_G2_V2.1_Web_application_document.pdf<br>
+  &emsp;| T3_G2_V4.1_Web_application_document.pdf<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|--> Backend<br>
+  &emsp;|-->dbteste.db
+  &emsp;|-->package.json
   &emsp;|--> Frontend<br>
+  &emsp; &emsp|-->fonts
+  &emsp; &emsp|-->img
 | readme.md<br>
 | license.txt
 
@@ -51,9 +42,9 @@ Dentre os arquivos presentes na raiz do projeto, definem-se:
 
 - <b>readme.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
 
-- <b>documentos</b>: aqui estarão todos os documentos do projeto. Há também uma pasta denominada <b>outros</b> onde estão presentes aqueles documentos complementares ao <b>web application document</b>.
+- <b>documentos</b>: aqui estarão todos os documentos do projeto. Há também uma pasta denominada <b>Documentos Antigos</b> onde estão as versões antigas dos documentos</b>.
 
-- <b>imagens</b>: imagens relacionadas ao projeto como um todo (por exemplo imagens do sistema, do grupo, logotipos e afins).
+- <b>img</b>: imagens relacionadas ao projeto como um todo (por exemplo imagens do sistema, do grupo, logotipos e afins).
 
 - <b>src</b>: nesta pasta encontra-se todo o código fonte do sistema (existem duas subpastas <b>backend</b> e <b>frontend</b> que contêm, respectivamente, o código do servidor e o código da página web).
 
@@ -74,23 +65,10 @@ Isso instalará todas as dependências definidas no arquivo <b>package.json</b> 
 ```sh
 npm start
 ```
-5. Agora você pode acessar a aplicação através do link http://localhost:1234/
+5. Agora você pode acessar a aplicação através do link http://localhost:3000/
 6. O servidor está online.
 
 
-```
-Alunos inteli (remover essa observação do readme.md após leitura e execução):
-
-1. Certifique-se que há um arquivo "package.json" na pasta backend do projeto.
-
-2. Dentro deste arquivo, encontre a propriedade "scripts", e adicione um atributo de nome "start"
-com o valor "node <CAMINHO_DO_ARQUIVO_DO_SERVIDOR>." Atenção: "<CAMINHO_DO_ARQUIVO_DO_SERVIDOR>" 
-deve ser substituído pelo caminho para o arquivo principal da aplicação, utilizado para subir o
-servidor. Por exemplo, se o arquivo utilizado para subir o servidor é "app.js", o atributo start
-deve possuir o valor "node app.js".
-
-3. No arquivo utilizado para subir a aplicação, defina a porta padrão de execução para "1234".
-````
 
 ## 🗃 Histórico de lançamentos
 
@@ -121,3 +99,4 @@ deve possuir o valor "node app.js".
 Aqui estão as referências usadas no projeto:
 
 1. <https://creativecommons.org/share-your-work/>
+2. <https://www3.yamaha-motor.com.br/>
