@@ -25,18 +25,18 @@
 ## 📁 Estrutura de pastas
 
 |--> documentos<br>
-  &emsp;| --> Documentos Antigos
+  &emsp;| --> Documentos Antigos<br>
   &emsp;| T3_G2_V2.1_Web_application_document.pdf<br>
   &emsp;| T3_G2_V4.1_Web_application_document.pdf<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|-->dbteste.db
-  &emsp;|-->package.json
+  &emsp;|-->dbteste.db<br>
+  &emsp;|-->package.json<br>
   &emsp;|--> Frontend<br>
-  &emsp; &emsp|-->fonts
-  &emsp; &emsp|-->img
+  &emsp; &emsp;|-->fonts<br>
+  &emsp; &emsp;|-->img<br>
 | readme.md<br>
-| license.txt
+| license.txt<br>
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
 
@@ -92,7 +92,7 @@ npm start
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">YAMAHA PLANEJAMENTO DE CAPACIDADE</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Eric Tachdjian, Pablo Viana, Israel Carvalho, Pedro Munhoz, Isabela Rocha, Raissa Sabino, João Vitor Oliveira</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">YAMAHA PLANEJAMENTO DE CAPACIDADE by Inteli, Eric Tachdjian, Pablo Viana, Israel Carvalho, Pedro Munhoz, Isabela Rocha, Raissa Sabino, João Vitor Oliveira</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
 
 ## 🎓 Referências
 
