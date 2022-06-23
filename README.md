@@ -25,18 +25,18 @@
 ## 📁 Estrutura de pastas
 
 |--> documentos<br>
-  &emsp;| --> Documentos Antigos
+  &emsp;| --> Documentos Antigos<br>
   &emsp;| T3_G2_V2.1_Web_application_document.pdf<br>
   &emsp;| T3_G2_V4.1_Web_application_document.pdf<br>
 |--> imagens<br>
 |--> src<br>
-  &emsp;|-->dbteste.db
-  &emsp;|-->package.json
+  &emsp;|-->dbteste.db<br>
+  &emsp;|-->package.json<br>
   &emsp;|--> Frontend<br>
-  &emsp; &emsp|-->fonts
-  &emsp; &emsp|-->img
+  &emsp; &emsp;|-->fonts<br>
+  &emsp; &emsp;|-->img<br>
 | readme.md<br>
-| license.txt
+| license.txt<br>
 
 Dentre os arquivos presentes na raiz do projeto, definem-se:
 
