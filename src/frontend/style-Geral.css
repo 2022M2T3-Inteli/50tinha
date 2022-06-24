@@ -551,8 +551,14 @@ table{
 }
 
 #nfuncionarios{
-    margin-top: 35px;
+    display: flex;
+    max-width: 200px;
+    margin-top: 33px;
+    word-wrap: break-word;
+    margin-bottom: 92px !important;
 }
+
+
 
 .hand_hover{
     cursor: pointer;
@@ -661,4 +667,12 @@ table{
 
 .limitador{
     max-width: 90px;
+}
+
+.liModal{
+    max-height: 60px;
+}
+
+.modal-mes{
+    width: 120% !important;
 }

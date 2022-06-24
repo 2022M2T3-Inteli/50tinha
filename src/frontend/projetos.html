@@ -245,7 +245,7 @@
 <!-- modal dos gráficos -->
 <div class="modal fade" id="modalgraphs" role="dialog">
     <div class="modal-dialog">
-         <div class="modal-content">
+         <div class="modal-content modal-mes">
         <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
@@ -256,65 +256,28 @@
                 <select name="alocacaos" id="alocacaos">
                 </select>
                 <div id="nfuncionarios">
-                    <label for="nfunciona">Horas Totais a Alocar: </label>
-                    <input type="number" id="horasAlocadas" placeholder="Por Funcionario" name="nfunciona">
+                    <ul>
+                        <li class="liModal"><label for="nfunciona">janeiro</label>
+                            <input type="number" id="janeiroAloca" placeholder="janeiro" class="limitador"><label for="nfunciona">fevereiro</label>
+                            <input type="number" id="fevereiroAloca" placeholder="fevereiro" class="limitador"><label for="nfunciona">março</label>
+                            <input type="number" id="marçoAloca" placeholder="março" class="limitador"></li>
+                        <li class="liModal"><label for="nfuncionaAloca">abril</label>
+                            <input type="number" id="abrilAloca" placeholder="abril" class="limitador"><label for="nfunciona">maio</label>
+                            <input type="number" id="maioAloca" placeholder="maio" class="limitador"><label for="nfunciona">    junho
+                            </label>
+                            <input type="number" id="junhoAloca" placeholder="junho" class="limitador"></li>
+                        <li class="liModal"><label for="nfunciona">julho</label>
+                            <input type="number" id="julhoAloca" placeholder="julho" class="limitador"><label for="nfunciona">agosto</label>
+                            <input type="number" id="agostoAloca" placeholder="agosto" class="limitador"><label for="nfunciona">setembro</label>
+                            <input type="number" id="setembroAloca" placeholder="setembro" class="limitador"></li>
+                        <li class="liModal"><label for="nfunciona">outubro</label>
+                            <input type="number" id="outubroAloca" placeholder="outubro" class="limitador"><label for="nfunciona">novembro</label>
+                            <input type="number" id="novembroAloca" placeholder="novembro" class="limitador"><label for="nfunciona">dezembro</label>
+                            <input type="number" id="dezembroAloca" placeholder="dezembro" class="limitador"></li>
+                    </ul>
                 </div>
             </div>
-            <!-- <div id="graficos">
-
-            </div> -->
-                <center>
-                    <canvas id="bar-chart" class="chart-fix" height="170"></canvas>
-                    <script>
-                    new Chart(document.getElementById("bar-chart"), {
-                    type: 'bar',
-                    data: {
-                    labels: ["Projeto1", "Projeto2", "Projeto3"],
-                    datasets: [
-                        {
-                        label: "Número de funcionários/Projeto",
-                        backgroundColor: ["#2d3870", "rgb(82, 111, 255)","#ef0404"],
-                        data: [734,784,433]
-                        }
-                    ]
-                    },
-                    options: {
-                    legend: { display: false },
-                    title: {
-                        display: true,
-                        text: 'Funcionários por projeto'
-                    }
-                    }
-                    });
-                    </script>
-                    </div>
-                </center> 
-    
-    
-                <!--atribui cores aos gráficos-->
-    
-                    <center>
-                            <canvas id="pie-chart" height="200"></canvas>
-                        <script>new Chart(document.getElementById("pie-chart"), {
-                            type: 'pie',
-                            data: {
-                            labels: ["Internos", "Externos"],
-                            datasets: [{
-                                label: "Trabalhadores",
-                                backgroundColor: ["#2d3870", "rgb(82, 111, 255)"],
-                                data: [2478,5267]
-                            }]
-                                },
-                            options: {
-                            title: {
-                                 display: true,
-                                 text: 'Trabalhadores Yamaha'
-                              }
-                             }
-                                 });
-                        </script>
-                    </center>     
-                 </div>
+               
             </div>
         </div>
     </div>
