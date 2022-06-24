@@ -39,9 +39,8 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
   
  function assignProfIntoProj(){
      const idProf = Number(document.getElementById("alocacaos").value)
-     console.log(idProf)
      const horasAlocadas = Number(document.getElementById("horasAlocadas").value)
-     url1 = "/alocacao/acidionar/profissional"
+  
      url2 = "/projetos/single/"
      url3 = "/alocacao/adicionar"
      Number(idClickedProj)

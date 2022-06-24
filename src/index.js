@@ -143,17 +143,17 @@ app.get('/projetos/timeline', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
-// Pega as informações para gerar a tabela de projetos
-app.get('/projetos/tabela', (req, res) => {
+// Pega os numeros de funcionario por projeto
+  app.get('/projetos/funcionario', (req, res) => {
 	res.statusCode = 200;
 	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erros
 
 	var db = new sqlite3.Database(DBPATH); // Abre o banco
-  var sql = `SELECT PROFISSIONAIS.nome, PROFISSIONAIS.idFunc, PROFISSIONAIS.area, PROFISSIONAIS.tipo, PROFISSIONAIS.estado, PROFISSIONAIS.idCargo,
-  COUNT(ALOCACAO.idFunc) as countProjs FROM ALOCACAO
-  INNER JOIN PROFISSIONAIS ON ALOCACAO.idFunc = PROFISSIONAIS.idFunc
-  GROUP BY PROFISSIONAIS.idFunc
-  ORDER BY PROFISSIONAIS.nome COLLATE NOCASE`;
+  var sql = `SELECT PROJETOS.nome, PROJETOS.idProject,
+  COUNT(ALOCACAO.idFunc) as funcAlocados FROM ALOCACAO
+  INNER JOIN PROJETOS ON ALOCACAO.idProject = PROJETOS.idProject
+  GROUP BY PROJETOS.idProject
+  ORDER BY PROJETOS.nome COLLATE NOCASE`;
 	db.all(sql, [],  (err, rows ) => {
 		if (err) {
 		    throw err;
