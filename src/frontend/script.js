@@ -43,7 +43,7 @@ var nomesP = new Map();
 var nomesF = new Map();
 
 function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
-    let url = "/profissionais";
+    let url = "/profissionais/tabelaprof";
  
     let xhttp = new XMLHttpRequest(); //método do HTML que permite que faça requisições por script, no front
  
@@ -57,19 +57,35 @@ function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
     $("#corpo-tabela-profissionais")[0].innerHTML = ''; //aqui tiramos todas as informações do array. Índice 0 pois o jQuery traz todos os elementos de "corpo-tabela-profissionais", mas queremos só o primeiro - que é a própria tabela (para depois dividir em linhas)
 
     document.getElementById("hover_tabela").innerHTML = "<tr><th> Nome </th><th> Nº projetos</th><th> CLT </th><th> Estado </th><th> Alocação mensal (projetos/mês/máx) </th><th class=\"acoesProjeto\"> Ações </th></tr> "
+    tamanhoDados = data.length
+    for (let i = 1; i < tamanhoDados; i++) {
+        if(((data[i].sum)/12).toFixed(0) < 50 ){
+            quadrado = "quadrado_verde";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 50 && ((data[i].sum)/12).toFixed(0) < 70){
+            quadrado = "quadrado_amarelo";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 70 && ((data[i].sum)/12).toFixed(0) < 88 ){
+            quadrado = "quadrado_vermelho";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 88 ){
+            quadrado = "quadrado_preto";
+        } 
+        $("#hover_tabela")[0].innerHTML += `
+           <tr id="profissional_${data[i].idFunc}"> 
+             <td> ${data[i].nome} </td>
+             <td> ${data[i].count} </td>
+             <td> ${data[i].tipo} </td>
+             <td> ${data[i].estado} </td>
+             <td> <span class=${quadrado}> ${((data[i].sum)/12).toFixed(0)}/120/178 </td>
+             <td> <div class="linha">  <a href="#" onclick="editarProfissional(${data[i].idFunc})" > Editar </a>  <a href="/profissionais.html" onclick="excluirProfissional(${data[i].idFunc})" > Excluir </a>  </div> </td>
+           </tr>             
+        `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa string (`)
+              
+    }
     data.forEach(PROFISSIONAIS => {  //cada linha da tabela se torna uma linha diferente. forEach = paraCada. 
        nomesF.set("funcionario"+PROFISSIONAIS.idFunc,[PROFISSIONAIS.nome,"Não Alocado",PROFISSIONAIS.tipo,PROFISSIONAIS.estado,PROFISSIONAIS.area])
        //acessa o 1º objeto da tabela e introduz a informação do banco de dados, acessando cada tabela do banco com o comando "${PROFISSIONAIS.}". No caso, "PROFISSIONAIS" é uma das tabelas e o que vem depois do "." é a coluna 
-       $("#hover_tabela")[0].innerHTML += `
-          <tr id="profissional_${PROFISSIONAIS.idFunc}"> 
-            <td> ${PROFISSIONAIS.nome} </td>
-            <td> ${PROFISSIONAIS.nome} </td>
-            <td> ${PROFISSIONAIS.tipo} </td>
-            <td> ${PROFISSIONAIS.estado} </td>
-            <td> ${PROFISSIONAIS.area} </td>
-            <td> <div class="linha">  <a href="#" onclick="editarProfissional(${PROFISSIONAIS.idFunc})" > Editar </a>  <a href="/profissionais.html" onclick="excluirProfissional(${PROFISSIONAIS.idFunc})" > Excluir </a>  </div> </td>
-          </tr>             
-       `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa string (`)
           //${} permite passar um script  
           //foi correlacionado, dinamicamente, o banco de dados com a parte a ser implementada no texto
     });

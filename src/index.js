@@ -34,6 +34,25 @@ app.get('/profissionais', (req, res) => {
 	db.close(); // Fecha o banco
 });
 
+app.get('/profissionais/tabelaprof', (req, res) => {
+	res.statusCode = 200;
+	res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+
+	var db = new sqlite3.Database(DBPATH); // Abre o ban	co
+  var sql = `SELECT PROFISSIONAIS.nome, COUNT(ALOCACAO.idFunc) as count, PROFISSIONAIS.tipo, PROFISSIONAIS.estado, sum(ALOCACAO.horasAlocadasProjeto) as sum, PROFISSIONAIS.idFunc from ALOCACAO
+  INNER JOIN PROFISSIONAIS ON ALOCACAO.idFunc = PROFISSIONAIS.idFunc
+	GROUP BY PROFISSIONAIS.idFunc
+	ORDER BY PROFISSIONAIS.nome COLLATE NOCASE`;
+	db.all(sql, [],  (err, rows ) => {
+		if (err) {
+		    throw err;
+		
+		}
+	res.json(rows)
+	});
+	db.close(); // Fecha o banco
+});
+
 
 
 // Insere um registro 
