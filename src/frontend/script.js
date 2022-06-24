@@ -98,6 +98,7 @@ function getFuncionario(){
 var idAtual = ""
 function clickId(a){
     idAtual = a
+    
 }
 
 //Get projetos
@@ -379,4 +380,118 @@ function alocacao(nomedb,iddb){
     document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
 }
 
+function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ ESTÁ COMO NULO AGORA
+    const nomeFunc = document.getElementById('nomeFunc').value;
+    const estadoFunc = document.getElementById('unidades').value;
+    const tipoFunc = document.getElementById('CLT').value;
+    const areaFunc = document.getElementById('areas').value;
+    
+    url = "/profissionais/adicionar"
+     $.ajax({
+         type: "POST",
+         url: url,
+         contentType: "application/json; charset=utf-8",  //por padrão, temos que avisar que a aplicação é do tipo json e que os caracteres aceitam caracteres especiais
+         dataType: "json", //o conteúdo do dado é json
+         data: JSON.stringify(  //transforma os valores em uma string do tipo json
+             {
+                 nome: nomeFunc, //o primeiro valor é como está no banco
+                 estado: estadoFunc,  //o segundo valor é a variável que contém o id do front-end
+                 tipo: tipoFunc,
+                 area: areaFunc
+             }  
+         )
+     });
+     window.location.reload(); //essa função mágica faz com que atualize a página, sem haver a necessidade de recarregar manualmente para ver a adição do profissional na tabela
+ }
+  
+ var alocacaoLista = [0,0,0,0,0,0,0,0,0,0,0,0,] // Representa a alocação por mês
+      alocacao[0] = janeiro = Number(document.getElementById("janeiroAloca").value)
+      alocacao[1] = fevereiro = Number(document.getElementById("fevereiroAloca").value)
+      alocacao[2] =  março = Number(document.getElementById("marçoAloca").value)
+      alocacao[3] = abril = Number(document.getElementById("abrilAloca").value)
+      alocacao[4] = maio = Number(document.getElementById("maioAloca").value)
+      alocacao[5] = junho = Number(document.getElementById("junhoAloca").value)
+      alocacao[6] = julho = Number(document.getElementById("julhoAloca").value)
+      alocacao[7] = agosto = Number(document.getElementById("agostoAloca").value)
+      alocacao[8] = setembro = Number(document.getElementById("setembroAloca").value)
+      alocacao[9] = outubro = Number(document.getElementById("outubroAloca").value)
+      alocacao[10] = novembro = Number(document.getElementById("novembroAloca").value)
+      alocacao[11] = dezembro = Number(document.getElementById("dezembroAloca").value)
 
+ const assignBtn = document.getElementById("assign-btn");
+ assignBtn.onclick = () => {
+    alocacao[0] = janeiro = Number(document.getElementById("janeiroAloca").value)
+      alocacao[1] = fevereiro = Number(document.getElementById("fevereiroAloca").value)
+      alocacao[2] =  março = Number(document.getElementById("marçoAloca").value)
+      alocacao[3] = abril = Number(document.getElementById("abrilAloca").value)
+      alocacao[4] = maio = Number(document.getElementById("maioAloca").value)
+      alocacao[5] = junho = Number(document.getElementById("junhoAloca").value)
+      alocacao[6] = julho = Number(document.getElementById("julhoAloca").value)
+      alocacao[7] = agosto = Number(document.getElementById("agostoAloca").value)
+      alocacao[8] = setembro = Number(document.getElementById("setembroAloca").value)
+      alocacao[9] = outubro = Number(document.getElementById("outubroAloca").value)
+      alocacao[10] = novembro = Number(document.getElementById("novembroAloca").value)
+      alocacao[11] = dezembro = Number(document.getElementById("dezembroAloca").value)
+
+for (let i = 0; i < alocacaoLista.length; i++) {
+   let mes = eval("meses.n"+i)
+   let hora = alocacao[i]
+    
+    assignProfIntoProj(mes,hora)
+    
+ }}
+ var idClickedProj
+ $(document).ready(function(){
+     $('body').on('click', '.aAssign', function () {
+         idClickedProj = $(this).closest('tr').attr('id')
+         let finalId = ""
+         for(i = 8; i < idClickedProj.length; i++){
+             finalId += idClickedProj.charAt(i)
+         }
+         idClickedProj = finalId
+     })
+ })
+ 
+
+ function assignProfIntoProj(mes,hora){
+   
+     const idProf = Number(document.getElementById("alocacaos").value)
+    
+
+  
+     url2 = "/projetos/single/"
+     url3 = "/alocacao/adicionar"
+     Number(idClickedProj)
+     let params = JSON.stringify({idProject: Number(idClickedProj)});
+     console.log(params)
+     let clickedProj = new XMLHttpRequest();
+     clickedProj.onload = function(){
+         let data = JSON.parse(this.responseText)
+         let dataLength = data.length
+         console.log(data[0].nome + " pegou krll")
+         let idFunc = idProf
+         let idProj = data[0].idProject
+         
+         let mesProj = mes
+         let anoProj = data[0].anoInicio
+         //Adiciona uma nova alocação
+         $.ajax({
+             type: "POST",
+             url: url3,
+             contentType: "application/json; charset=utf-8",  //por padrão, temos que avisar que a aplicação é do tipo json e que os caracteres aceitam caracteres especiais
+             dataType: "json", //o conteúdo do dado é json
+             data: JSON.stringify(  //transforma os valores em uma string do tipo json
+                 {
+                     "idFunc": idFunc, //idFunc, idProject, horasAlocadasProjeto, mes, ano
+                     "idProject": idProj,
+                     "horasAlocadasProjeto": hora,
+                     "mes": mesProj,
+                     "ano": anoProj
+                 }  
+             )
+         });
+
+     }
+     clickedProj.open("GET", url2+idClickedProj, true)
+     clickedProj.send(params)
+ } 
