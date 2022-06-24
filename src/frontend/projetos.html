@@ -250,34 +250,33 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
-            <button id="assign-btn" class="hand_hover" type="submit" data-dismiss="modal">Alocar</button>
             <div id="alocacao">
                 <label for="alocacaos">Alocar: </label>
                 <select name="alocacaos" id="alocacaos">
                 </select>
                 <div id="nfuncionarios">
                     <ul>
-                        <li class="liModal"><label for="nfunciona">janeiro</label>
-                            <input type="number" id="janeiroAloca" placeholder="janeiro" class="limitador"><label for="nfunciona">fevereiro</label>
-                            <input type="number" id="fevereiroAloca" placeholder="fevereiro" class="limitador"><label for="nfunciona">março</label>
-                            <input type="number" id="marçoAloca" placeholder="março" class="limitador"></li>
+                        <li class="liModal"><label for="nfunciona">janeiro</label> 
+                            <input type="number" id="janeiroAloca" value="0" class="limitador"><label for="nfunciona">fevereiro</label>
+                            <input type="number" id="fevereiroAloca" value="0" class="limitador"><label for="nfunciona">março</label>
+                            <input type="number" id="marçoAloca" value="0" class="limitador"></li>
                         <li class="liModal"><label for="nfuncionaAloca">abril</label>
-                            <input type="number" id="abrilAloca" placeholder="abril" class="limitador"><label for="nfunciona">maio</label>
-                            <input type="number" id="maioAloca" placeholder="maio" class="limitador"><label for="nfunciona">    junho
+                            <input type="number" id="abrilAloca" value="0"  class="limitador"><label for="nfunciona">maio</label>
+                            <input type="number" id="maioAloca" value="0" class="limitador"><label for="nfunciona">    junho
                             </label>
-                            <input type="number" id="junhoAloca" placeholder="junho" class="limitador"></li>
+                            <input type="number" id="junhoAloca" value="0" class="limitador"></li>
                         <li class="liModal"><label for="nfunciona">julho</label>
-                            <input type="number" id="julhoAloca" placeholder="julho" class="limitador"><label for="nfunciona">agosto</label>
-                            <input type="number" id="agostoAloca" placeholder="agosto" class="limitador"><label for="nfunciona">setembro</label>
-                            <input type="number" id="setembroAloca" placeholder="setembro" class="limitador"></li>
+                            <input type="number" id="julhoAloca" value="0" class="limitador"><label for="nfunciona">agosto</label>
+                            <input type="number" id="agostoAloca" value="0" class="limitador"><label for="nfunciona">setembro</label>
+                            <input type="number" id="setembroAloca" value="0" class="limitador"></li>
                         <li class="liModal"><label for="nfunciona">outubro</label>
-                            <input type="number" id="outubroAloca" placeholder="outubro" class="limitador"><label for="nfunciona">novembro</label>
-                            <input type="number" id="novembroAloca" placeholder="novembro" class="limitador"><label for="nfunciona">dezembro</label>
-                            <input type="number" id="dezembroAloca" placeholder="dezembro" class="limitador"></li>
+                            <input type="number" id="outubroAloca" value="0" class="limitador"><label for="nfunciona">novembro</label>
+                            <input type="number" id="novembroAloca" value="0" class="limitador"><label for="nfunciona">dezembro</label>
+                            <input type="number" id="dezembroAloca" value="0" class="limitador"></li>
                     </ul>
                 </div>
             </div>
-               
+            <button id="assign-btn" class="hand_hover" type="submit" data-dismiss="modal" onclick="enviar_meses();">Alocar</button>
             </div>
         </div>
     </div>
