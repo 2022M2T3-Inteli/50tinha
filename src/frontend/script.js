@@ -74,7 +74,7 @@ function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
         $("#hover_tabela")[0].innerHTML += `
            <tr id="profissional_${data[i].idFunc}"> 
              <td> ${data[i].nome} </td>
-             <td> ${data[i].count} </td>
+             <td> ${(data[i].count)/12} </td>
              <td> ${data[i].tipo} </td>
              <td> ${data[i].estado} </td>
              <td> <span class=${quadrado}> ${((data[i].sum)/12).toFixed(0)}/120/178 </td>
