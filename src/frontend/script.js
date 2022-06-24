@@ -511,3 +511,169 @@ for (let i = 0; i < alocacaoLista.length; i++) {
      clickedProj.open("GET", url2+idClickedProj, true)
      clickedProj.send(params)
  } 
+
+
+
+
+
+
+
+
+
+
+
+
+//  // Define os meses do ano para ser utilizado nos gráficos
+// const yearMounths = [
+//     'Janeiro',
+//     'Fevereiro',
+//     'Março',
+//     'Abril',
+//     'Maio',
+//     'Junho',
+//     'Julho',
+//     'Agosto',
+//     'Setembro',
+//     'Outubro',
+//     'Novembro',
+//     'Dezembro'
+//   ]
+  
+//   // Função que faz a requisição para gerar um dos dados do Gráfico de Horas Totais (Primeiro Gráfico)
+//   function getHoursNeeded(role) {
+//     let url
+//       url = 'abageral/totalhours'
+  
+//     // Instancia o objeto que será responsável por fazer as requisições
+//     let xhttp = new XMLHttpRequest()
+//     xhttp.open('get', url, false) // Abre a requisição com o método get, passando a URL do endpoint e fazendo-a de forma síncrona
+//     xhttp.send() // Envia a requisição
+  
+//     let data = JSON.parse(xhttp.responseText) // Pega os dados da resposta da requisição e os transforma para o formato JSON
+  
+//     // Define as horas necessárias mês a mês
+//     let hoursNeededPeerMounth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  
+//     // Percorre cada índice do array de objetos que retornou do banco e define as horas mensais de acordo com cada mês.
+//     data.forEach(row => {
+//       switch (row.month) {
+//         case 1:
+//           hoursNeededPeerMounth[0] += row.hours_assigned // caso o mês seja 1, as horas necessárias em janeiro aumentarão
+//           break
+//         case 2:
+//           hoursNeededPeerMounth[1] += row.hours_assigned // caso o mês seja 2, as horas necessárias em fevereiro aumentarão
+//           break
+//         case 3:
+//           hoursNeededPeerMounth[2] += row.hours_assigned // caso o mês seja 3, as horas necessárias em março aumentarão
+//           break
+//         case 4:
+//           hoursNeededPeerMounth[3] += row.hours_assigned // caso o mês seja 4, as horas necessárias em abril aumentarão
+//           break
+//         case 5:
+//           hoursNeededPeerMounth[4] += row.hours_assigned // caso o mês seja 5, as horas necessárias em maio aumentarão
+//           break
+//         case 6:
+//           hoursNeededPeerMounth[5] += row.hours_assigned // caso o mês seja 6, as horas necessárias em junho aumentarão
+//           break
+//         case 7:
+//           hoursNeededPeerMounth[6] += row.hours_assigned // caso o mês seja 7, as horas necessárias em julho aumentarão
+//           break
+//         case 8:
+//           hoursNeededPeerMounth[7] += row.hours_assigned // caso o mês seja 8, as horas necessárias em agosto aumentarão
+//           break
+//         case 9:
+//           hoursNeededPeerMounth[8] += row.hours_assigned // caso o mês seja 9, as horas necessárias em setembro aumentarão
+//           break
+//         case 10:
+//           hoursNeededPeerMounth[9] += row.hours_assigned // caso o mês seja 10, as horas necessárias em outubro aumentarão
+//           break
+//         case 11:
+//           hoursNeededPeerMounth[10] += row.hours_assigned // caso o mês seja 11, as horas necessárias em novembro aumentarão
+//           break
+//         case 12:
+//           hoursNeededPeerMounth[11] += row.hours_assigned // caso o mês seja 12, as horas necessárias em dezembro aumentarão
+//           break
+  
+//         default:
+//           break
+//       }
+//     })
+  
+//     // Retorna as horas necessárias
+//     return hoursNeededPeerMounth
+//   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   // Função que faz a requisição para gerar um dos dados do Gráfico de Horas Totais (Primeiro Gráfico)
+//   function getHoursAvailable(role) {
+//     let url
+//       url = 'dashboard/hoursavailable'
+  
+//     let xhttp = new XMLHttpRequest() // Instancia o objeto javascript que será responsável pela requisição
+//     xhttp.open('get', url, false) // Abre uma requisição no método Get de forma Síncrona
+//     xhttp.send() // Envia a requisição
+  
+//     let data = JSON.parse(xhttp.responseText) // Guarda a resposta da requisição em formato JSON
+//     let hoursMonth = data.projects_workload // Define as horas disponíveis por mês
+  
+//     // Define as horas mês a mês percorrendo o número de meses (formato do gráfico)
+//     let totalHours = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+//     if (hoursMonth) {
+//       for (i = 0; i < 12; i++) {
+//         totalHours[i] = hoursMonth
+//       }
+//     }
+//     // Retorna as horas totais mensais
+//     return totalHours
+//   }
+  
+
+  
+//   // Define o array que será responsável por guardar os dados do primeiro Gráfico (Horas Totais)
+//   let generalChartData = []
+  
+//   // Função que gera todos os dados do primeiro Gráfico, chamando as funções que geram cada tipo de dado dos gráficos
+//   function generateHoursChartData() {
+//     generalChartData = [
+//       {
+//         labels: yearMounths,
+//         datasets: [
+//           {
+//             label: 'Total de Horas Necessárias por Mês',
+//             backgroundColor: 'rgb(200, 0, 0)',
+//             borderColor: 'rgb(200, 0, 0)',
+//             fill: {
+//               target: 'origin',
+//               above: 'rgb(200, 0, 0, 15%)' // Area will be red above the origin
+//             },
+//             data: getHoursNeeded()
+//           },
+//           {
+//             label: 'Total de Horas de Funcionários Disponíveis por mês',
+//             backgroundColor: 'rgb(140, 0, 140)',
+//             borderColor: 'rgb(140, 0, 140)',
+//             data: getHoursAvailable(),
+//             pointRadius: 0
+//           }
+//         ]
+//       }
+//     ]
+//     // Chama a Função que gera o Gráfico
+//     return generateHoursChart()
+//   }
+  

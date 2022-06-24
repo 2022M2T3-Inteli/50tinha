@@ -2,13 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 //const hostname = '127.0.0.1';
-
+//const today = new Date()
+//const year = today.getFullYear()
 const port = process.env.PORT || 3000;
 const path = require("path")
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
 const DBPATH = 'dbteste.db';
-
 app.use(express.static("./frontend/"));
 
 app.use(express.json());
@@ -359,7 +359,46 @@ app.delete('/alocacao/deletar', urlencodedParser, (req, res) => {
 	db.close(); // Fecha o banco
 });
 
+
+// app.get('/totalhours', (req, res) => {
+// 	res.statusCode = 200
+// 	res.setHeader('Access-Control-Allow-Origin', '*')
+  
+// 	// Seleciona as colunas de horas alocadas, mês e função da tabela de alocação de função
+// 	var sql = 
+// 	  'SELECT horasAlocadasProjeto, mes FROM ALOCACAO WHERE year = ' +
+// 	  year
+  
+// 	// Faz a consulta ao banco, retornando todas as linhas de alocação de acordo com os parametros
+// 	db.all(sql, [], (err, rows) => {
+// 	  if (err) {
+// 		throw err
+// 	  }
+// 	  // Retorna os dados
+// 	  res.json(rows)
+// 	})
+//   })
+
+//   app.get('/hoursavailable', (req, res) => {
+// 	res.statusCode = 200
+// 	res.setHeader('Access-Control-Allow-Origin', '*')
+  
+// 	// Seleciona a coluna de tempo alocado para projetos da tabela de funcionários e os soma
+// 	var sql = 'SELECT SUM(horasAlocadasProjeto) AS projects_workload FROM FUNCIONARIOS'
+  
+// 	// Faz a consulta ao banco
+// 	db.get(sql, [], (err, row) => {
+// 	  if (err) {
+// 		throw err
+// 	  }
+// 	  // Retorna as horas disponíveis para projetos em uma linha
+// 	  res.json(row)
+// 	})
+//   }) 
+
+
 /* Inicia o servidor */
 app.listen(port, () => {
   console.log(`BD server running at port ${port}`);
 });
+// generateHoursChartData()
