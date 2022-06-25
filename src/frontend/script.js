@@ -77,7 +77,7 @@ function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
              <td> ${(data[i].count)/12} </td>
              <td> ${data[i].tipo} </td>
              <td> ${data[i].estado} </td>
-             <td> <span class=${quadrado}> ${((data[i].sum)/12).toFixed(0)}/120/178 </td>
+             <td> <span class=${quadrado}> ${((data[i].sum)/12).toFixed(0)}/88/178 </td>
              <td> <div class="linha">  <a href="#" onclick="editarProfissional(${data[i].idFunc})" > Editar </a>  <a href="/profissionais.html" onclick="excluirProfissional(${data[i].idFunc})" > Excluir </a>  </div> </td>
            </tr>             
         `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa string (`)
