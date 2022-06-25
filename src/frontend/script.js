@@ -43,7 +43,7 @@ var nomesP = new Map();
 var nomesF = new Map();
 
 function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
-    let url = "/profissionais";
+    let url = "/profissionais/tabelaprof";
  
     let xhttp = new XMLHttpRequest(); //método do HTML que permite que faça requisições por script, no front
  
@@ -57,19 +57,35 @@ function adicionarProfissionais() { // !MUDAR PROFISSIONAIS.NOME DUPLICADO!
     $("#corpo-tabela-profissionais")[0].innerHTML = ''; //aqui tiramos todas as informações do array. Índice 0 pois o jQuery traz todos os elementos de "corpo-tabela-profissionais", mas queremos só o primeiro - que é a própria tabela (para depois dividir em linhas)
 
     document.getElementById("hover_tabela").innerHTML = "<tr><th> Nome </th><th> Nº projetos</th><th> CLT </th><th> Estado </th><th> Alocação mensal (projetos/mês/máx) </th><th class=\"acoesProjeto\"> Ações </th></tr> "
+    tamanhoDados = data.length
+    for (let i = 1; i < tamanhoDados; i++) {
+        if(((data[i].sum)/12).toFixed(0) < 50 ){
+            quadrado = "quadrado_verde";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 50 && ((data[i].sum)/12).toFixed(0) < 70){
+            quadrado = "quadrado_amarelo";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 70 && ((data[i].sum)/12).toFixed(0) < 88 ){
+            quadrado = "quadrado_vermelho";
+        }
+        else if(((data[i].sum)/12).toFixed(0) >= 88 ){
+            quadrado = "quadrado_preto";
+        } 
+        $("#hover_tabela")[0].innerHTML += `
+           <tr id="profissional_${data[i].idFunc}"> 
+             <td> ${data[i].nome} </td>
+             <td> ${(data[i].count)/12} </td>
+             <td> ${data[i].tipo} </td>
+             <td> ${data[i].estado} </td>
+             <td> <span class=${quadrado}> ${((data[i].sum)/12).toFixed(0)}/120/178 </td>
+             <td> <div class="linha">  <a href="#" onclick="editarProfissional(${data[i].idFunc})" > Editar </a>  <a href="/profissionais.html" onclick="excluirProfissional(${data[i].idFunc})" > Excluir </a>  </div> </td>
+           </tr>             
+        `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa string (`)
+              
+    }
     data.forEach(PROFISSIONAIS => {  //cada linha da tabela se torna uma linha diferente. forEach = paraCada. 
        nomesF.set("funcionario"+PROFISSIONAIS.idFunc,[PROFISSIONAIS.nome,"Não Alocado",PROFISSIONAIS.tipo,PROFISSIONAIS.estado,PROFISSIONAIS.area])
        //acessa o 1º objeto da tabela e introduz a informação do banco de dados, acessando cada tabela do banco com o comando "${PROFISSIONAIS.}". No caso, "PROFISSIONAIS" é uma das tabelas e o que vem depois do "." é a coluna 
-       $("#hover_tabela")[0].innerHTML += `
-          <tr id="profissional_${PROFISSIONAIS.idFunc}"> 
-            <td> ${PROFISSIONAIS.nome} </td>
-            <td> ${PROFISSIONAIS.nome} </td>
-            <td> ${PROFISSIONAIS.tipo} </td>
-            <td> ${PROFISSIONAIS.estado} </td>
-            <td> ${PROFISSIONAIS.area} </td>
-            <td> <div class="linha">  <a href="#" onclick="editarProfissional(${PROFISSIONAIS.idFunc})" > Editar </a>  <a href="/profissionais.html" onclick="excluirProfissional(${PROFISSIONAIS.idFunc})" > Excluir </a>  </div> </td>
-          </tr>             
-       `  //aqui pode colocar scripts dentros, funções e tudo mais dentro dessa string (`)
           //${} permite passar um script  
           //foi correlacionado, dinamicamente, o banco de dados com a parte a ser implementada no texto
     });
@@ -86,7 +102,6 @@ function getFuncionario(){
         var a = "a"
         for(let i = 0; i < tamanhoDados; i++){
             lista.push(dados[i].funcAlocados)
-            console.log(dados[i].funcAlocados)
 
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
@@ -96,9 +111,15 @@ function getFuncionario(){
     return lista
 }
 
+var idAtual = ""
+function clickId(a){
+    idAtual = a
+    
+}
+
 //Get projetos
 function geraTabelaProj(){
-
+    numeroFunc = getFuncionario()
     const tabelaProj = document.getElementById("tabelaProj")
     let requestProj = new XMLHttpRequest();
     requestProj.onload = function(){
@@ -116,7 +137,7 @@ function geraTabelaProj(){
         for(let i = 0; i < tamanhoDados; i++){
             duracao.push((dados[i].anoFim - dados[i].anoInicio)*12 + eval("meses." + dados[i].mesFim) - eval("meses."+ dados[i].mesInicio)) // O if estava sendo inútil, então tirei o código dele
             nomesP.set("nP"+dados[i].idProject,[dados[i].nome,dados[i].unidade])
-            tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a href=\"#modalgraphs\" data-toggle=\"modal\" class=\"aAssign\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> "+duracao[i]+" messes <center> </td><td id=\"coldata\"> "+numeroFunc[i]+" <center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
+            tabelaProj.innerHTML +="<tr id=\"projeto_"+dados[i].idProject+"\"> <td id=\"coldata\" class=\"aba\"> <a onclick=\"clickId(projeto_"+dados[i].idProject+")\" href=\"#modalgraphs\" data-toggle=\"modal\" class=\"aAssign\">"+dados[i].nome+"</a> </td><td id=\"coldata\" class=\"aba\"> "+duracao[i]+" Meses <center> </td><td id=\"coldata\"> "+numeroFunc[i]+"<center> <td>"+dados[i].unidade+"</td><td>"+dados[i].anoInicio+" a "+dados[i].anoFim+"</td><td><div class=\"linha\"> <a href=\"#\" onclick=\"editar("+dados[i].idProject+","+eval("meses."+ dados[i].mesInicio)+","+eval("meses." + dados[i].mesFim)+","+dados[i].anoInicio+","+dados[i].anoFim+");\" >Editar</a> <a href=\"/projetos.html\" onclick=\"excluirProjeto("+ dados[i].idProject+")\">Excluir</a> </div></td></tr>"
  
 
         }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
@@ -375,9 +396,7 @@ function alocacao(nomedb,iddb){
     document.getElementById("alocacaos").innerHTML += "<option value="+id+">"+nome+"</option>"
 }
 
-
 function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ ESTÁ COMO NULO AGORA
-    getFuncionario()
     const nomeFunc = document.getElementById('nomeFunc').value;
     const estadoFunc = document.getElementById('unidades').value;
     const tipoFunc = document.getElementById('CLT').value;
@@ -401,12 +420,45 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
      window.location.reload(); //essa função mágica faz com que atualize a página, sem haver a necessidade de recarregar manualmente para ver a adição do profissional na tabela
  }
   
+ var alocacaoLista = [0,0,0,0,0,0,0,0,0,0,0,0,] // Representa a alocação por mês
+      alocacao[0] = janeiro = Number(document.getElementById("janeiroAloca").value)
+      alocacao[1] = fevereiro = Number(document.getElementById("fevereiroAloca").value)
+      alocacao[2] =  março = Number(document.getElementById("marçoAloca").value)
+      alocacao[3] = abril = Number(document.getElementById("abrilAloca").value)
+      alocacao[4] = maio = Number(document.getElementById("maioAloca").value)
+      alocacao[5] = junho = Number(document.getElementById("junhoAloca").value)
+      alocacao[6] = julho = Number(document.getElementById("julhoAloca").value)
+      alocacao[7] = agosto = Number(document.getElementById("agostoAloca").value)
+      alocacao[8] = setembro = Number(document.getElementById("setembroAloca").value)
+      alocacao[9] = outubro = Number(document.getElementById("outubroAloca").value)
+      alocacao[10] = novembro = Number(document.getElementById("novembroAloca").value)
+      alocacao[11] = dezembro = Number(document.getElementById("dezembroAloca").value)
+
  const assignBtn = document.getElementById("assign-btn");
- assignBtn.onclick = () => assignProfIntoProj()
-  
+ assignBtn.onclick = () => {
+    alocacao[0] = janeiro = Number(document.getElementById("janeiroAloca").value)
+      alocacao[1] = fevereiro = Number(document.getElementById("fevereiroAloca").value)
+      alocacao[2] =  março = Number(document.getElementById("marçoAloca").value)
+      alocacao[3] = abril = Number(document.getElementById("abrilAloca").value)
+      alocacao[4] = maio = Number(document.getElementById("maioAloca").value)
+      alocacao[5] = junho = Number(document.getElementById("junhoAloca").value)
+      alocacao[6] = julho = Number(document.getElementById("julhoAloca").value)
+      alocacao[7] = agosto = Number(document.getElementById("agostoAloca").value)
+      alocacao[8] = setembro = Number(document.getElementById("setembroAloca").value)
+      alocacao[9] = outubro = Number(document.getElementById("outubroAloca").value)
+      alocacao[10] = novembro = Number(document.getElementById("novembroAloca").value)
+      alocacao[11] = dezembro = Number(document.getElementById("dezembroAloca").value)
+
+for (let i = 0; i < alocacaoLista.length; i++) {
+   let mes = eval("meses.n"+i)
+   let hora = alocacao[i]
+    
+    assignProfIntoProj(mes,hora)
+    
+ }}
  var idClickedProj
  $(document).ready(function(){
-     $('body').on('click', '.aAssign', function (e) {
+     $('body').on('click', '.aAssign', function () {
          idClickedProj = $(this).closest('tr').attr('id')
          let finalId = ""
          for(i = 8; i < idClickedProj.length; i++){
@@ -415,10 +467,13 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
          idClickedProj = finalId
      })
  })
-  
- function assignProfIntoProj(){
+ 
+
+ function assignProfIntoProj(mes,hora){
+   
      const idProf = Number(document.getElementById("alocacaos").value)
-     const horasAlocadas = Number(document.getElementById("horasAlocadas").value)
+    
+
   
      url2 = "/projetos/single/"
      url3 = "/alocacao/adicionar"
@@ -432,8 +487,8 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
          console.log(data[0].nome + " pegou krll")
          let idFunc = idProf
          let idProj = data[0].idProject
-         let horasAlocadasProj = horasAlocadas
-         let mesProj = data[0].mesInicio
+         
+         let mesProj = mes
          let anoProj = data[0].anoInicio
          //Adiciona uma nova alocação
          $.ajax({
@@ -445,7 +500,7 @@ function enviarDados(){  ///////////////////COLOCAR O ID DO PROFISSIONAL, PQ EST
                  {
                      "idFunc": idFunc, //idFunc, idProject, horasAlocadasProjeto, mes, ano
                      "idProject": idProj,
-                     "horasAlocadasProjeto": horasAlocadasProj,
+                     "horasAlocadasProjeto": hora,
                      "mes": mesProj,
                      "ano": anoProj
                  }  
