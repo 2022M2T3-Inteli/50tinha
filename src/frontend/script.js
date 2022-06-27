@@ -20,7 +20,7 @@ function frg(){
 
 var x = 0
 
-
+/*define as barras do calendario*/
 function keyB(){
     console.log("É o seu numero: "+$("#calendario").css("left"))
     if(parseInt($("#calendario").css("left")) < 235){

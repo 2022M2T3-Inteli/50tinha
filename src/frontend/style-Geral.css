@@ -150,7 +150,7 @@ header{
     display: flex;
     border-radius: 0px 25px 25px 0px;
     position: relative;
-    left: 3px;
+    left: -13px;
     background-color: #ffffff;
     width: 100px;
     height: 40px;

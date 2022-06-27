@@ -13,16 +13,17 @@
     <link rel="stylesheet" href="criarprojmodal.css">
     <title>Profissionais</title>
   </head>
-  <body onload="adicionarProfissionais();">
+  <!--Pagina de profissionais-->
+  <body onload="adicionarProfissionais();"><!--Faz com que a funcao seja executada junto com a pagina-->
     
-      <div class="container-nosso">
-          <header id="headProfissionais">
-              <div class="barra-pesquisa">
-                  <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
+      <div class="container-nosso"><!---->
+          <header id="headProfissionais"><!--cabecalho da pagina-->
+              <div class="barra-pesquisa"><!--barra de pesquisa-->
+                  <button class="btn-meu"><span class="material-symbols-outlined">search</span></button><!--botao da barra de pesquisa-->
                   
-                  <input class="barra-texto" type="text" name="" placeholder="Pesquisar profissional" id="barra-texto">
+                  <input class="barra-texto" type="text" name="" placeholder="Pesquisar profissional" id="barra-texto"><!--recolhe o texto da barra de pesquisa-->
 
-                  <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span>
+                  <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span><!--é o botao de filtro da barra de pesquisa-->
                   <script>
                     
                     $(document).ready(function(){
@@ -38,17 +39,17 @@
                   
               </div>
               <div class="leva_prof">
-                <div class="login">
-                    <a class="" href="index.html">Roberto</a>
+                <div class="login"><!--botao de saida da pagina que retorna para tela de login-->
+                    <a class="" href="index.html">Sair</a>
                 </div>
             </div>
           </header>
           
-          <div id="CorpoProfissionais">
-              <table id="hover_tabela">
+          <div id="CorpoProfissionais"><!--indica o espaco que a tabela de profissionais ocupara-->
+              <table id="hover_tabela"><!--inicia a tabela-->
                   
                   <tbody id="corpo-tabela-profissionais">
-                  <tr>
+                  <tr><!--mostra como será a primeira linha-->
                     <td><a data-toggle="modal" href="#modalhoras"><div class="modal_professional" > João Vitor Oliveira </div></a></td> 
                     <td> 3 </td>
                     <td> Sim </td>
@@ -58,25 +59,25 @@
                   </tbody>
                 </table>
           </div>
-          <div id="menu">
-              <div class="centro"> <a href="abageral.html" id="logo_tela_inicial"> <img id="logo" src="img/logo2.png" alt=""> </a> </div>
+          <div id="menu"><!--'menu da pagina-->
+              <div class="centro"> <a href="abageral.html" id="logo_tela_inicial"> <img id="logo" src="img/logo2.png" alt=""> </a> </div><!--imagem do logo da yamaha-->
               <nav id="nav-menu">
                   <ul class="centro">
-                      <div class="ative-profi" > <li class="ordem"><span class="material-symbols-outlined">
+                      <div class="ative-profi" > <li class="ordem"><span class="material-symbols-outlined"><!--bloqueia o botao de profissionais-->
                           person_search
                           </span>Profissionais</li></div>
                       <div class="projeto"> <li class="ordem"><a class="centra ordem" href="abageral.html"><span class="material-symbols-outlined">
-                          task</span>Projetos</a></li></div>
+                          task</span>Projetos</a></li></div><!--botao de projetos-->
                   </ul>
               </nav>
           </div>
-          <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem">
+          <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal"> <li class="ordem"><!--modal de adicionar profissionais-->
             <span class="material-symbols-outlined">
             add
             </span>Adicionar</li></div>
       </div>
     
-      <!-- Modal body -->
+      <!-- estrutura do modal de adicionar profissional -->
     <form action="enviar-dados.js" method="post"> 
       <div class="modal fade" id="modalpro" role="dialog">
         <div class="modal-dialog">
@@ -85,11 +86,11 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div id="nome">
+                <div id="nome"><!--espaco para o nome do novo profissional-->
                     <label for="nome">Nome do Funcionario</label>
                     <input id="nomeFunc" type="text">
         </div>
-        <div id="unidade">
+        <div id="unidade"><!--onde será definido a unidade-->
                 <label for="unidades">Estado: </label>
                 <select name="estado" id="unidades">
                     <option value="sp">SP</option>
@@ -98,19 +99,19 @@
                 </select>
         </div>
         <div id="inicio">
-                <label for="CLT">CLT?:</label>
+                <label for="CLT">CLT?:</label><!--se o profissional é externo ou interno-->
                 <select name="tipo" id="CLT">
                   <option value="sim">Sim</option>
                   <option value="nao">Nao</option>
                 </select>
         </div>
-        <div id="horastrabalhadas">
+        <div id="horastrabalhadas"><!--define o numero de horas que o novo profissional ira trabalhar-->
           <label for="horastrab">Horas totais disponíveis para projetos: </label>
           <input type="number" name="horastrab" min="0" value="0">
     
         </div>
         
-        <div id="inicio">
+        <div id="inicio"><!--area do profissional-->
             <label for="areas">Área Trabalhada: </label>
             <select name="area" id="areas">
                 <option value="governanca">GOVERNANÇA</option>
@@ -120,8 +121,8 @@
             </select>
         </div>
             </div>
-            <div class="modal-footer">
-              <button type="submit" data-dismiss="modal" action="/profissionais" onclick="enviarDados();"> Criar </button>
+            <div class="modal-footer"><!--botao de adicionar profissional-->
+              <button type="submit" data-dismiss="modal" action="/profissionais" onclick="enviarDados();"> Adicionar </button>
             </div>
         </div>
         </div>

@@ -33,7 +33,7 @@
             </nav>
             <div class="leva">
                 <div class="login"><!--ícone do profissional logado-->
-                    <a class="" href="index.html">Roberto</a>
+                    <a class="" href="index.html">Sair</a>
                 </div>
             </div>
         </header>
@@ -116,9 +116,9 @@
     </div>
             <!--dia, mês e ano de início-->
         <div id="inicio">
-        <p>Data de início</p>
-            <label for="dia">Dia: </label>
-            <select name="dia" id="diaInicioProj";>
+        <p>Data de início</p><!--espaco para escolher a data de inicio-->
+            <label for="dia">Dia: </label><!--espaco para inserir o dia de inicio-->
+            <select name="dia" id="diaInicioProj";><!--opcoes para selecionar o dia-->
                 <option value="01">1</option>
                 <option value="02">2</option>
                 <option value="03">3</option>
@@ -151,8 +151,8 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
                 </select>
-                <label for="meses">Mês: </label>
-                <select name="meses" id="mesInicioProj">
+                <label for="meses">Mês: </label><!--espaco para selecionar o mes de inicio-->
+                <select name="meses" id="mesInicioProj"><!--opcoes de mes de inicio-->
                     <option value="janeiro">janeiro</option>
                     <option value="fevereiro">fevereiro</option>
                     <option value="março">março</option>
@@ -165,10 +165,10 @@
                     <option value="outubro">outubro</option>
                     <option value="novembro">novembro</option>
                     <option value="dezembro">dezembro</option>
-                    <label for="Ano">Ano: </label>
+                    <label for="Ano">Ano: </label><!--espaco para selecionar o ano de inicio-->
                 </select>
             <label for="Ano">Ano: </label>
-            <select name="Ano" id="anoInicioProj">
+            <select name="Ano" id="anoInicioProj"><!--opcoes de ano de inicio-->
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -187,9 +187,9 @@
     </div>
     <div id="duracao">
           <!--dia, mês e ano do término-->
-        <p>Estimativa de termino:</p>
-            <label for="meses1">Mês: </label>
-            <select name="meses1" id="mesFimProj" ;>
+        <p>Estimativa de termino:</p><!--data que encerrara o projeto-->
+            <label for="meses1">Mês: </label><!--espaco para escolher o mes de termino-->
+            <select name="meses1" id="mesFimProj" ;><!--opcoes do mes de termino-->
                 <option value="janeiro">janeiro</option>
                 <option value="fevereiro">fevereiro</option>
                 <option value="março">março</option>
@@ -203,8 +203,8 @@
                 <option value="novembro">novembro</option>
                 <option value="dezembro">dezembro</option>
             </select>
-            <label for="Ano">Ano: </label>
-            <select name="Ano" id="anoFimProj">
+            <label for="Ano">Ano: </label><!--espaco para escolher o ano de termino-->
+            <select name="Ano" id="anoFimProj"><!--opcoes de ano de termino-->
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
@@ -221,8 +221,8 @@
             </select>
     </div>
     <div id="area">
-        <label for="areas">Área Trabalhada: </label>
-        <select name="areas" id="areaProj">
+        <label for="areas">Área Trabalhada: </label><!--espaco para escolher a area do projeto-->
+        <select name="areas" id="areaProj"><!--opcoes de area do projeto-->
             <option value="area1">Área 1</option>
             <option value="area2">Área 2</option>
             <option value="area3">Área 3</option>
@@ -231,7 +231,7 @@
         </select>
     </div>
     <button class="hand_hover" type="submit" onclick="enviaProjeto();" data-dismiss="modal">Criar</button>
-    </form>
+    </form><!--executa a funcao de criar projeto-->
         </div>
           <!--botão que cria o projeto-->
         <div class="modal-footer">
@@ -254,7 +254,7 @@
                 <label for="alocacaos">Alocar: </label>
                 <select name="alocacaos" id="alocacaos">
                 </select>
-                <div id="nfuncionarios">
+                <div id="nfuncionarios"><!--modal de alocar profissionais-->
                     <ul>
                         <li class="liModal"><label for="nfunciona">janeiro</label> 
                             <input type="number" id="janeiroAloca" value="0" class="limitador"><label for="nfunciona">fevereiro</label>
@@ -276,7 +276,7 @@
                     </ul>
                 </div>
             </div>
-            <button id="assign-btn" class="hand_hover" type="submit" data-dismiss="modal">Alocar</button>
+            <button id="assign-btn" class="hand_hover" type="submit" data-dismiss="modal">Alocar</button><!--botao que aloca profissionais-->
             </div>
         </div>
     </div>
